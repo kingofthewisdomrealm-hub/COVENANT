@@ -28,6 +28,8 @@ Required env vars are documented in `.env.example`.
 
 ## Ops docs
 
+- [Rebuild plan](docs/rebuild-plan.md) — full rebuild/redesign plan and status
+- [Launch runbook](docs/launch-runbook.md) — Vercel, Workspace, WP, DNS cutover order
 - [Email cutover](docs/email-cutover.md) — Google Workspace + DNS
 - [WordPress cutover](docs/wordpress-cutover.md) — secure old site before DNS flip
 - [Audit notes](docs/audit-notes.md) — findings that drove the rebuild
