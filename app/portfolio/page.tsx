@@ -18,7 +18,7 @@ export default function PortfolioPage() {
 			<Hero
 				compact
 				headline="Work that shows how we build"
-				support="Browse available project photography by category. We are documenting fuller case studies—names, scope, and outcomes—without inventing what we cannot verify yet."
+				support="Browse residential, commercial, and remodel work from jobs across Vero Beach and the Treasure Coast. More completed projects will be added as we photograph them."
 				primaryCta={{ href: '/contact', label: 'Discuss your project' }}
 				imageSrc="/images/intro.webp"
 				imageAlt="Covenant Builders project collaboration on site"
@@ -29,7 +29,7 @@ export default function PortfolioPage() {
 					<SectionHeading
 						eyebrow="Gallery"
 						title="Selected project photography"
-						description="Filters only show categories that exist in this scaffold. More projects are coming."
+						description="Use the filters to view residential, commercial, or remodel work. We are continually adding new photos from active and completed builds."
 					/>
 					<ProjectGallery />
 					<div className="border-t border-navy/10 pt-10">

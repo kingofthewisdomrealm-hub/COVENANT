@@ -88,8 +88,8 @@ export function ProjectGallery({
 
 			{projects.length === 0 ? (
 				<p className="body-copy">
-					No projects in this category yet. More work is being prepared for
-					this gallery.
+					No projects in this category yet. Check back as we add more completed
+					jobs from the Treasure Coast.
 				</p>
 			) : (
 				<ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -102,14 +102,14 @@ export function ProjectGallery({
 										alt={project.alt}
 										fill
 										sizes="(max-width: 768px) 100vw, 33vw"
-										className="object-cover transition duration-500 group-hover:scale-[1.03]"
+										className="object-cover object-center transition duration-500 group-hover:scale-[1.03]"
 									/>
 								</div>
-								<div className="space-y-2 p-5">
+								<div className="space-y-3 p-5">
 									<p className="font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-sand-dark">
 										{project.category}
 									</p>
-									<h3 className="font-display text-2xl text-navy">
+									<h3 className="font-display text-2xl leading-snug text-navy">
 										{project.title}
 									</h3>
 									<p className="font-sans text-sm text-stone-muted">
@@ -126,9 +126,9 @@ export function ProjectGallery({
 			)}
 
 			<p className="max-w-2xl font-sans text-sm leading-relaxed text-stone-muted">
-				This gallery is an honest scaffold from available project photography.
-				Detailed case studies with names, scopes, and outcomes are coming as we
-				document more completed work.
+				A look at recent planning, cabinetry, and build work from our Treasure
+				Coast jobs. Fuller project stories—with scope and results—will be added
+				as we photograph more completed homes and remodels.
 			</p>
 		</div>
 	)

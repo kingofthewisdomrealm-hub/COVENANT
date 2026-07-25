@@ -29,10 +29,10 @@ export default function AboutPage() {
 
 			<section className="surface-atmosphere py-20 sm:py-28">
 				<div className="section-shell grid gap-12 lg:grid-cols-[1fr_1.1fr]">
-					<div className="space-y-4">
-						<p className="eyebrow">Our president and founder</p>
+					<div className="space-y-5">
+						<p className="eyebrow">Leadership</p>
 						<h2 className="display-title">{founderBio.name}</h2>
-						<p className="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-sand-dark">
+						<p className="mt-1 font-sans text-sm font-semibold uppercase tracking-[0.18em] text-sand-dark">
 							{founderBio.title}
 						</p>
 						<div className="relative mt-8 overflow-hidden">

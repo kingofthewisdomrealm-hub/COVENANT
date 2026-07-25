@@ -46,10 +46,10 @@ export default function ContactPage() {
 
 						<ul className="space-y-8">
 							<li className="border-t border-navy/10 pt-6">
-								<h3 className="font-display text-2xl text-navy">
+								<h3 className="font-display text-2xl leading-snug text-navy">
 									{siteConfig.phones.sr.name}
 								</h3>
-								<p className="mt-1 font-sans text-sm uppercase tracking-[0.16em] text-sand-dark">
+								<p className="mt-3 font-sans text-sm uppercase tracking-[0.16em] text-sand-dark">
 									{siteConfig.phones.sr.role}
 								</p>
 								<p className="mt-3 font-sans text-base text-ink">
@@ -67,10 +67,10 @@ export default function ContactPage() {
 								</p>
 							</li>
 							<li className="border-t border-navy/10 pt-6">
-								<h3 className="font-display text-2xl text-navy">
+								<h3 className="font-display text-2xl leading-snug text-navy">
 									{siteConfig.phones.jr.name}
 								</h3>
-								<p className="mt-1 font-sans text-sm uppercase tracking-[0.16em] text-sand-dark">
+								<p className="mt-3 font-sans text-sm uppercase tracking-[0.16em] text-sand-dark">
 									{siteConfig.phones.jr.role}
 								</p>
 								<p className="mt-3 font-sans text-base text-ink">

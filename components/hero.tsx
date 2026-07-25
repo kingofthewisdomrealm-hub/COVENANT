@@ -44,7 +44,7 @@ export function Hero({
 					compact ? 'pb-16 pt-36' : 'pb-20 pt-40 sm:pb-28 sm:pt-48'
 				}`}
 			>
-				<p className="animate-fade-rise font-display text-3xl tracking-tight text-white sm:text-5xl md:text-6xl">
+				<p className="animate-fade-rise font-display text-3xl tracking-tight text-white sm:text-5xl md:text-6xl [overflow:visible]">
 					{siteConfig.name}
 				</p>
 				<p className="mt-2 animate-fade-rise-delay font-sans text-xs font-semibold uppercase tracking-[0.28em] text-sand">

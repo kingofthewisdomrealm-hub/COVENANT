@@ -43,7 +43,7 @@ export default function ServicesPage() {
 									{String(index + 1).padStart(2, '0')}
 								</p>
 								<div className="space-y-5">
-									<h2 className="font-display text-4xl text-navy">
+									<h2 className="font-display text-4xl leading-snug text-navy">
 										{service.title}
 									</h2>
 									<p className="max-w-2xl body-copy">{service.description}</p>

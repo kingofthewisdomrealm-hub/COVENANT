@@ -110,7 +110,7 @@ export default function HomePage() {
 						<SectionHeading
 							eyebrow="Portfolio"
 							title="Selected work"
-							description="A starting gallery from available project photography. More documented case studies are on the way."
+							description="A look at planning, cabinetry, and construction from recent Treasure Coast jobs. More completed projects are on the way."
 						/>
 						<Link href="/portfolio" className="link-underline shrink-0">
 							Full portfolio
@@ -124,7 +124,7 @@ export default function HomePage() {
 				<div className="absolute inset-0 bg-gradient-to-r from-navy via-navy to-navy-soft" />
 				<div className="section-shell relative space-y-6">
 					<p className="eyebrow !text-sand">Ready when you are</p>
-					<h2 className="max-w-3xl font-display text-4xl leading-tight sm:text-5xl">
+					<h2 className="max-w-3xl font-display text-4xl sm:text-5xl">
 						Ready to start building your vision?
 					</h2>
 					<p className="max-w-xl body-copy text-white/75">

@@ -33,7 +33,7 @@ export function TrustBand() {
 						<p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-sand">
 							{item.label}
 						</p>
-						<p className="font-display text-xl leading-snug text-white sm:text-2xl">
+						<p className="font-display text-xl text-white sm:text-2xl">
 							{item.value}
 						</p>
 					</div>

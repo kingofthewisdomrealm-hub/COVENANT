@@ -12,6 +12,7 @@ const display = Fraunces({
 	subsets: ['latin'],
 	variable: '--font-display',
 	display: 'swap',
+	axes: ['SOFT', 'WONK', 'opsz'],
 })
 
 const sans = Source_Sans_3({

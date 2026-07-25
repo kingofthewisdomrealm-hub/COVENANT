@@ -21,7 +21,7 @@ export function SectionHeading({
 			{eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
 			<h2 className={`mt-3 display-title ${titleClass}`}>{title}</h2>
 			{description ? (
-				<p className={`mt-4 body-copy ${descriptionClass}`}>{description}</p>
+				<p className={`mt-5 body-copy ${descriptionClass}`}>{description}</p>
 			) : null}
 		</div>
 	)
