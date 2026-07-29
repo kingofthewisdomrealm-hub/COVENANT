@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dns:verify": "bash scripts/verify-dns.sh"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "next": "14.2.35",
     "next-safe-action": "^7.10.8",
     "react": "^18",

@@ -15,6 +15,29 @@ Execute in order. Do not flip DNS until steps 1–3 are green.
 
 ---
 
+## 0a. GoDaddy Phase 0 — do this week (P0)
+
+Venture: [GoDaddy dashboard](https://dashboard.godaddy.com/venture?ventureId=f7425698-c1b1-4d70-88c9-9fecc58004ff)
+
+| Step | Action | Done when |
+|---|---|---|
+| 1 | **Renew** `covenantbuilders.org` (expires **2026-08-12**) | Expiry date moves forward |
+| 2 | Enable **auto-renew** | Toggle on in domain settings |
+| 3 | Confirm **domain lock** + WHOIS privacy | Lock statuses remain; privacy on |
+| 4 | Inventory venture products (WP hosting, email, SSL, SEO/Marketing) | List written; cancel candidates noted for after cutover |
+| 5 | **Screenshot / export all DNS** (A, CNAME, TXT, MX) | Saved for rollback |
+| 6 | **Backup** WordPress files + database from GoDaddy hosting | Backup download confirmed |
+| 7 | **Secure WP**: maintenance mode or restrict `/wp-admin` + `/wp-login.php` | Login/upgrade no longer public |
+| 8 | Do **not** buy Site Builder / marketing upsells for the WP site | Spend goes to Vercel + Workspace |
+
+Verify inventory anytime:
+
+```bash
+npm run dns:verify
+```
+
+---
+
 ## 1. Resend + Vercel env vars
 
 ### 1a. Resend
@@ -120,12 +143,14 @@ Use values from the Vercel project → Domains:
 
 ### After flip
 
-1. Wait for propagation; confirm `dig A covenantbuilders.org` → Vercel
+1. Wait for propagation; run `bash scripts/post-cutover-check.sh`
 2. HTTPS certificate valid on apex + www
-3. Spot-check all pages on the real domain
+3. Spot-check all pages on the real domain (incl. `/investors` noindex)
 4. Send another test estimate
-5. Retire WordPress hosting
-6. Update Google Business Profile URL if needed
+5. Purge Cloudflare / GoDaddy CDN cache
+6. Retire WordPress hosting; cancel redundant GoDaddy Site Builder / SEO add-ons
+7. Update Google Business Profile URL + NAP to match `content/site.ts`
+8. Submit `https://covenantbuilders.org/sitemap.xml` in Google Search Console / Bing
 
 ---
 
@@ -139,16 +164,32 @@ Stop before DNS flip if any are true:
 
 ---
 
-## Appendix — live probe (2026-07-25)
+## Appendix — live probe (2026-07-29)
 
 | Fact | Value |
 |---|---|
 | Registrar | GoDaddy.com, LLC |
 | Name servers | `ns31.domaincontrol.com`, `ns32.domaincontrol.com` |
-| Apex A | `160.153.0.81` (current WP/GoDaddy host) |
-| MX | **none configured** |
-| CDN | Cloudflare in front of origin |
-| `/wp-admin/` | **302 → `upgrade.php` — public “Database Update Required”** |
-| Domain expiry | 2026-08-12 |
+| Apex A | `160.153.0.81` → `*.host.secureserver.net` (GoDaddy WP host) |
+| www | CNAME → apex |
+| MX | **none** |
+| TXT / SPF / DKIM / DMARC | **none** |
+| DNSSEC | unsigned |
+| CDN | Cloudflare in front (`server: cloudflare`) |
+| Domain lock (EPP) | clientDelete/Transfer/Update/RenewProhibited present |
+| `/wp-login.php` | **HTTP 200** (login form public) |
+| `/wp-admin/` | **302 → `upgrade.php`** (public DB upgrade) |
+| Domain expiry | **2026-08-12T01:17:09Z** |
+| Target after cutover | A `@` → Vercel; CNAME `www` → Vercel; MX/TXT → Workspace + Resend |
 
-Implication: Google Workspace setup is net-new DNS (no MX to preserve). Web cutover is GoDaddy DNS A/CNAME → Vercel. WordPress P0 is still live and must be handled from GoDaddy/WP access before or during cutover.
+Implication: Google Workspace is net-new DNS (no MX to preserve). Web cutover is GoDaddy DNS A/CNAME → Vercel. WordPress P0 is still live — backup and lock admin before or during cutover. After flip, purge Cloudflare/GoDaddy cache and cancel WP hosting.
+
+### Post-cutover DNS verify targets
+
+```bash
+# Expect Vercel apex (confirm IP in Vercel Domains UI — often 76.76.21.21)
+dig +short A covenantbuilders.org
+dig +short CNAME www.covenantbuilders.org
+dig +short MX covenantbuilders.org
+dig +short TXT covenantbuilders.org
+```

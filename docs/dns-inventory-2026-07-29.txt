@@ -1,0 +1,58 @@
+
+> covenant-builders@0.1.0 dns:verify
+> bash scripts/verify-dns.sh
+
+=== DNS inventory: covenantbuilders.org ===
+
+NS:
+ns31.domaincontrol.com.
+ns32.domaincontrol.com.
+
+A (@):
+160.153.0.81
+
+CNAME (www):
+covenantbuilders.org.
+
+MX:
+
+TXT:
+
+=== WHOIS (expiry / registrar) ===
+Registry Expiry Date: 2026-08-12T01:17:09Z
+Registrar: GoDaddy.com, LLC
+Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+Name Server: ns31.domaincontrol.com
+Name Server: ns32.domaincontrol.com
+DNSSEC: unsigned
+
+=== HTTP probes (WP admin exposure) ===
+HTTP/2 200 
+date: Wed, 29 Jul 2026 23:41:22 GMT
+content-type: text/html; charset=UTF-8
+cache-control: no-cache, must-revalidate, max-age=0, no-store, private
+content-security-policy: frame-ancestors 'self';
+expires: Wed, 11 Jan 1984 05:00:00 GMT
+referrer-policy: strict-origin-when-cross-origin
+server: cloudflare
+---
+HTTP/2 302 
+date: Wed, 29 Jul 2026 23:41:22 GMT
+content-type: text/html; charset=UTF-8
+location: https://covenantbuilders.org/wp-admin/upgrade.php?_wp_http_referer=%2Fwp-admin%2F
+cf-ray: a22ff958b8372d57-DFW
+cf-cache-status: DYNAMIC
+cache-control: no-cache, must-revalidate, max-age=0, no-store, private
+expires: Wed, 11 Jan 1984 05:00:00 GMT
+server: cloudflare
+x-gateway-cache-key: 1785355281.298|standard|https|covenantbuilders.org|||/wp-admin/
+x-gateway-cache-status: BYPASS
+x-gateway-request-id: 35a0254ca7afa8ccfa6e1cc719e9033b
+
+=== Cutover expectations ===
+Pre-cutover:  A -> GoDaddy WP (e.g. 160.153.0.81), MX empty
+Post-cutover: A -> Vercel, www CNAME -> Vercel, MX/TXT -> Workspace+Resend
+WP login/upgrade should stop resolving on this host after hosting is retired.

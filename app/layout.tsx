@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Fraunces, Source_Sans_3 } from 'next/font/google'
 
+import { SiteAnalytics } from '@/components/analytics'
 import { JsonLd } from '@/components/json-ld'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
@@ -38,27 +39,32 @@ export const metadata: Metadata = {
 		siteName: siteConfig.name,
 		title: `${siteConfig.name}: Florida Residential & Commercial Builder`,
 		description: siteConfig.description,
-		images: [
-			{
-				url: '/images/intro.webp',
-				width: 984,
-				height: 656,
-				alt: 'Covenant Builders construction craftsmanship',
-			},
-		],
 	},
 	twitter: {
 		card: 'summary_large_image',
 		title: `${siteConfig.name}: Florida Residential & Commercial Builder`,
 		description: siteConfig.description,
-		images: ['/images/intro.webp'],
 	},
+	...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+		? {
+				verification: {
+					google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+				},
+			}
+		: {}),
 	icons: {
 		icon: '/favicon.png',
 	},
 	alternates: {
 		canonical: '/',
 	},
+	...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+		? {
+				verification: {
+					google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+				},
+			}
+		: {}),
 }
 
 export default function RootLayout({
@@ -79,6 +85,7 @@ export default function RootLayout({
 				<SiteHeader />
 				<main id="main-content">{children}</main>
 				<SiteFooter />
+				<SiteAnalytics />
 			</body>
 		</html>
 	)
