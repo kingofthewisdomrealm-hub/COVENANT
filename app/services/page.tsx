@@ -85,9 +85,45 @@ export default function ServicesPage() {
 						</a>{' '}
 						or request an estimate online.
 					</p>
-					<Link href="/contact" className="btn-primary">
-						Get a free consultation
-					</Link>
+					<div className="flex flex-wrap gap-4">
+						<Link href="/contact" className="btn-primary">
+							Get a free consultation
+						</Link>
+						<Link href="/portfolio" className="btn-secondary">
+							See our work
+						</Link>
+					</div>
+				</div>
+			</section>
+
+			<section className="surface-atmosphere py-16 sm:py-20">
+				<div className="section-shell space-y-8">
+					<SectionHeading
+						eyebrow="Service areas"
+						title="Where we build on the Treasure Coast"
+						description="Covenant Builders takes residential and commercial projects across Vero Beach and nearby communities — only places we actually serve."
+					/>
+					<ul className="flex flex-wrap gap-x-8 gap-y-3">
+						{siteConfig.serviceCities.map((city) => (
+							<li
+								key={city}
+								className="font-sans text-sm font-semibold uppercase tracking-[0.14em] text-navy/80"
+							>
+								{city}
+							</li>
+						))}
+						<li className="font-sans text-sm font-semibold uppercase tracking-[0.14em] text-navy/80">
+							Treasure Coast
+						</li>
+					</ul>
+					<p className="max-w-2xl body-copy">
+						Hours: Monday–Friday, 9:00 AM – 5:00 PM. Not sure if your address is
+						in range?{' '}
+						<Link href="/contact" className="link-underline">
+							Ask us
+						</Link>
+						.
+					</p>
 				</div>
 			</section>
 		</>

@@ -39,7 +39,10 @@ export function TrustBand() {
 					</div>
 				))}
 			</div>
-			<div className="section-shell pb-6">
+			<div className="section-shell flex flex-col gap-3 pb-6 sm:flex-row sm:items-center sm:justify-between">
+				<p className="font-sans text-sm text-white/70">
+					{siteConfig.serviceArea} · {siteConfig.bilingualNote} · Mon–Fri 9–5
+				</p>
 				<a
 					href={siteConfig.license.dbprLookupUrl}
 					target="_blank"

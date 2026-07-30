@@ -170,35 +170,40 @@ export interface PortfolioProject {
 	image: string
 	alt: string
 	status: 'featured' | 'coming-soon'
+	/** Optional founder-verified story — do not invent */
+	story?: string
 }
 
 export const portfolioProjects: PortfolioProject[] = [
 	{
 		id: 'project-01',
-		title: 'Custom residential build',
+		title: 'Residential craftsmanship detail',
 		category: 'residential',
 		location: 'Treasure Coast, FL',
-		scope: 'New construction craftsmanship on a residential project.',
+		scope:
+			'Finish and build detail from a Covenant Builders residential job — the kind of close work that shows up in final walkthroughs.',
 		image: '/images/portfolio/project-01.jpg',
-		alt: 'Finished residential construction detail from a Covenant Builders project',
+		alt: 'Close residential construction craftsmanship detail by Covenant Builders on the Treasure Coast',
 		status: 'featured',
 	},
 	{
 		id: 'project-02',
-		title: 'Interior finish work',
+		title: 'Interior remodel finishes',
 		category: 'remodel',
 		location: 'Treasure Coast, FL',
-		scope: 'Interior renovation and finish detailing.',
+		scope:
+			'Interior renovation photography showing finish-level work during an active remodel.',
 		image: '/images/portfolio/project-02.jpg',
-		alt: 'Interior renovation finishes on a Covenant Builders remodel',
+		alt: 'Interior remodel finishes on a Covenant Builders renovation project',
 		status: 'featured',
 	},
 	{
 		id: 'project-03',
-		title: 'Kitchen & cabinetry focus',
+		title: 'Kitchen & cabinetry work',
 		category: 'remodel',
 		location: 'Treasure Coast, FL',
-		scope: 'Kitchen-focused renovation and custom cabinetry work.',
+		scope:
+			'Kitchen-focused renovation and cabinetry rooted in the founder’s millwork background.',
 		image: '/images/portfolio/project-03.jpg',
 		alt: 'Kitchen cabinetry and renovation work by Covenant Builders',
 		status: 'featured',
@@ -208,29 +213,32 @@ export const portfolioProjects: PortfolioProject[] = [
 		title: 'Residential exterior progress',
 		category: 'residential',
 		location: 'Treasure Coast, FL',
-		scope: 'Residential construction progress and exterior detailing.',
+		scope:
+			'Exterior and envelope progress on a residential build — documentation from an active Treasure Coast job site.',
 		image: '/images/portfolio/project-04.jpg',
 		alt: 'Residential exterior construction progress by Covenant Builders',
 		status: 'featured',
 	},
 	{
 		id: 'project-05',
-		title: 'Site work & structure',
+		title: 'Structure & site phase',
 		category: 'commercial',
 		location: 'Treasure Coast, FL',
-		scope: 'Structural and site construction phase documentation.',
+		scope:
+			'Structural and site-phase photography from construction work in progress.',
 		image: '/images/portfolio/project-05.jpg',
-		alt: 'Construction site structural work by Covenant Builders',
+		alt: 'Structural and site construction phase by Covenant Builders',
 		status: 'featured',
 	},
 	{
 		id: 'project-06',
-		title: 'Build craftsmanship detail',
+		title: 'Jobsite craftsmanship',
 		category: 'residential',
 		location: 'Treasure Coast, FL',
-		scope: 'Close-up craftsmanship from an active build.',
+		scope:
+			'Hands-on craftsmanship detail from an active build — how the work looks before the final reveal.',
 		image: '/images/portfolio/project-06.jpg',
-		alt: 'Close-up construction craftsmanship from a Covenant Builders job site',
+		alt: 'Close-up jobsite craftsmanship from a Covenant Builders residential build',
 		status: 'featured',
 	},
 ]

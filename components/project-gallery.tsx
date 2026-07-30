@@ -118,6 +118,11 @@ export function ProjectGallery({
 									<p className="font-sans text-sm leading-relaxed text-ink/80">
 										{project.scope}
 									</p>
+									{project.story ? (
+										<p className="font-sans text-sm leading-relaxed text-ink/70">
+											{project.story}
+										</p>
+									) : null}
 								</div>
 							</article>
 						</li>
