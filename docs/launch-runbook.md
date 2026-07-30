@@ -36,6 +36,8 @@ Verify inventory anytime:
 npm run dns:verify
 ```
 
+**Agent completed (2026-07-29/30):** DNS/WHOIS inventory saved to `docs/dns-inventory-2026-07-29.txt`; Phase 0 checklist written; Venture dashboard opened. **You still must click in GoDaddy:** renew + auto-renew, screenshot DNS in UI, WP backup, lock `/wp-admin`/`/wp-login.php`.
+
 ---
 
 ## 1. Resend + Vercel env vars
