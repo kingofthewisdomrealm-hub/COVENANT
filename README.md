@@ -52,6 +52,8 @@ DNS snapshot: [docs/dns-inventory-2026-07-29.txt](docs/dns-inventory-2026-07-29.
 - [Email cutover](docs/email-cutover.md) — Google Workspace + DNS
 - [WordPress cutover](docs/wordpress-cutover.md) — secure old site before DNS flip
 - [DNS inventory 2026-07-29](docs/dns-inventory-2026-07-29.txt) — pre-cutover snapshot
+- [Review request template](docs/review-request-template.md) — Google review ask (highest local SEO lever)
+- [Lead reply templates](docs/lead-reply-templates.md) — fast estimate responses
 - [Audit notes](docs/audit-notes.md) — findings that drove the rebuild
 
 ## Investor materials

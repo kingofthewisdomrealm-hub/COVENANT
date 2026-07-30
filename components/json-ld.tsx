@@ -3,7 +3,7 @@ import { services, siteConfig } from '@/content/site'
 export function JsonLd() {
 	const data = {
 		'@context': 'https://schema.org',
-		'@type': 'GeneralContractor',
+		'@type': ['GeneralContractor', 'LocalBusiness'],
 		'@id': `${siteConfig.url}/#organization`,
 		name: siteConfig.name,
 		alternateName: siteConfig.license.dba,
@@ -13,6 +13,7 @@ export function JsonLd() {
 		description: siteConfig.description,
 		image: `${siteConfig.url}/images/logo.png`,
 		logo: `${siteConfig.url}/images/logo.png`,
+		priceRange: '$$',
 		address: {
 			'@type': 'PostalAddress',
 			streetAddress: siteConfig.address.street,
@@ -23,16 +24,27 @@ export function JsonLd() {
 		},
 		geo: {
 			'@type': 'GeoCoordinates',
-			addressCountry: 'US',
-			addressRegion: 'FL',
-			addressLocality: siteConfig.address.city,
+			latitude: 27.6386,
+			longitude: -80.3973,
 		},
-		areaServed: {
-			'@type': 'Place',
-			name: siteConfig.serviceArea,
-		},
-		sameAs: [siteConfig.address.mapsUrl],
-		knowsAbout: services.map((service) => service.title),
+		areaServed: siteConfig.serviceCities.map((city) => ({
+			'@type': 'City',
+			name: city,
+			containedInPlace: {
+				'@type': 'AdministrativeArea',
+				name: 'Florida',
+			},
+		})),
+		sameAs: [
+			siteConfig.address.mapsUrl,
+			siteConfig.license.dbprLookupUrl,
+		],
+		knowsAbout: [
+			...services.map((service) => service.title),
+			'Vero Beach custom home builder',
+			'Treasure Coast construction',
+			`Florida contractor ${siteConfig.license.number}`,
+		],
 		hasOfferCatalog: {
 			'@type': 'OfferCatalog',
 			name: 'Construction services',
@@ -42,6 +54,10 @@ export function JsonLd() {
 					'@type': 'Service',
 					name: service.title,
 					description: service.summary,
+					areaServed: siteConfig.serviceArea,
+					provider: {
+						'@id': `${siteConfig.url}/#organization`,
+					},
 				},
 			})),
 		},

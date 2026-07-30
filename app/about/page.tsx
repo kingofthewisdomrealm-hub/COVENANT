@@ -8,9 +8,9 @@ import { TrustBand } from '@/components/trust-band'
 import { founderBio, siteConfig, whyChooseUs } from '@/content/site'
 
 export const metadata: Metadata = {
-	title: 'About Josias Andujar & Covenant Builders',
+	title: 'Licensed Florida Builder Since 2005 — CBC1253676',
 	description:
-		'Meet Josias Andujar, Florida Certified Building Contractor CBC1253676, and the Covenant Builders story on the Treasure Coast.',
+		'Meet Josias Andujar, Florida Certified Building Contractor CBC1253676 since 2005. Covenant Builders serves Vero Beach and the Treasure Coast with homes, kitchens, and commercial work.',
 	alternates: { canonical: '/about' },
 }
 
@@ -135,9 +135,14 @@ export default function AboutPage() {
 							</li>
 						))}
 					</ul>
-					<Link href="/contact" className="btn-primary">
-						Start a conversation
-					</Link>
+					<div className="flex flex-wrap gap-4">
+						<Link href="/contact" className="btn-primary">
+							Start a conversation
+						</Link>
+						<Link href="/portfolio" className="btn-secondary !border-navy !text-navy">
+							See our work
+						</Link>
+					</div>
 				</div>
 			</section>
 		</>

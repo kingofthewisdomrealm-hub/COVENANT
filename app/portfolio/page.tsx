@@ -6,9 +6,9 @@ import { ProjectGallery } from '@/components/project-gallery'
 import { SectionHeading } from '@/components/section-heading'
 
 export const metadata: Metadata = {
-	title: 'Portfolio — Treasure Coast Projects',
+	title: 'Our Construction Projects in Vero Beach & Treasure Coast',
 	description:
-		'Selected residential, commercial, and remodel photography from Covenant Builders in Vero Beach and the Treasure Coast.',
+		'Browse residential, kitchen, commercial, and remodel projects by Covenant Builders — Florida CBC1253676 — across Vero Beach and the Treasure Coast.',
 	alternates: { canonical: '/portfolio' },
 }
 

@@ -75,10 +75,10 @@ export default function HomePage() {
 									{service.summary}
 								</p>
 								<Link
-									href="/services"
+									href={`/services#${service.slug}`}
 									className="mt-5 inline-flex font-sans text-xs font-semibold uppercase tracking-[0.16em] text-sand transition hover:text-sand-light"
 								>
-									Explore services
+									Explore {service.shortTitle.toLowerCase()}
 								</Link>
 							</li>
 						))}
@@ -104,7 +104,33 @@ export default function HomePage() {
 				</div>
 			</section>
 
-			<section className="bg-stone-warm py-20 sm:py-28">
+			<section className="bg-stone-warm py-16 sm:py-20">
+				<div className="section-shell space-y-8">
+					<SectionHeading
+						eyebrow="Service areas"
+						title="Building across the Treasure Coast"
+						description="We take on residential and commercial work throughout Vero Beach and nearby Treasure Coast communities."
+					/>
+					<ul className="flex flex-wrap gap-x-8 gap-y-3">
+						{siteConfig.serviceCities.map((city) => (
+							<li
+								key={city}
+								className="font-sans text-sm font-semibold uppercase tracking-[0.14em] text-navy/80"
+							>
+								{city}
+							</li>
+						))}
+						<li className="font-sans text-sm font-semibold uppercase tracking-[0.14em] text-navy/80">
+							Treasure Coast
+						</li>
+					</ul>
+					<Link href="/contact" className="link-underline">
+						Request an estimate in your area
+					</Link>
+				</div>
+			</section>
+
+			<section className="surface-atmosphere py-20 sm:py-28">
 				<div className="section-shell space-y-10">
 					<div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
 						<SectionHeading

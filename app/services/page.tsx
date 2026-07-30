@@ -7,9 +7,9 @@ import { TrustBand } from '@/components/trust-band'
 import { services, siteConfig } from '@/content/site'
 
 export const metadata: Metadata = {
-	title: 'Construction Services in Vero Beach',
+	title: 'Custom Homes, Kitchens & Commercial Construction | Vero Beach, FL',
 	description:
-		'New home builds, custom kitchens and cabinetry, commercial projects, and remodels from Covenant Builders on the Treasure Coast.',
+		'New home builds, custom kitchens and cabinetry, commercial projects, and remodels from licensed Florida builder CBC1253676 in Vero Beach and the Treasure Coast.',
 	alternates: { canonical: '/services' },
 }
 
@@ -57,9 +57,14 @@ export default function ServicesPage() {
 											</li>
 										))}
 									</ul>
-									<Link href="/contact" className="link-underline">
-										Start this project
-									</Link>
+									<div className="flex flex-wrap gap-6">
+										<Link href="/contact" className="link-underline">
+											Start this project
+										</Link>
+										<Link href="/portfolio" className="link-underline">
+											See related work
+										</Link>
+									</div>
 								</div>
 							</li>
 						))}

@@ -93,6 +93,9 @@ export function SiteFooter() {
 							</a>
 						</li>
 						<li className="pt-2 text-white/60">
+							Hours: Mon–Fri 9:00 AM – 5:00 PM
+						</li>
+						<li className="text-white/60">
 							FL License #{siteConfig.license.number}
 						</li>
 					</ul>

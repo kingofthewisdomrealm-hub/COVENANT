@@ -3,8 +3,15 @@ export const siteConfig = {
 	tagline: 'We Deliver.',
 	url: 'https://covenantbuilders.org',
 	description:
-		'Florida residential and commercial builder serving Vero Beach and the Treasure Coast. Custom homes, kitchens, remodels, and commercial projects.',
+		'Custom home builder in Vero Beach and the Treasure Coast. Licensed Florida CBC1253676 since 2005 — homes, kitchens, commercial projects, and remodels.',
 	serviceArea: 'Vero Beach and the Treasure Coast, Florida',
+	serviceCities: [
+		'Vero Beach',
+		'Sebastian',
+		'Fort Pierce',
+		'Port St. Lucie',
+		'Fellsmere',
+	] as const,
 	address: {
 		street: '5400 85th Ave',
 		city: 'Vero Beach',
