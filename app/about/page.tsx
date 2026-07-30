@@ -22,8 +22,8 @@ export default function AboutPage() {
 				headline="A licensed builder rooted in craft"
 				support="Covenant Builders is led by Josias Andujar—cabinetmaker by training, Florida Certified Building Contractor by credential, and Treasure Coast builder by home."
 				primaryCta={{ href: '/contact', label: 'Work with us' }}
-				imageSrc="/images/about-team.jpeg"
-				imageAlt="Covenant Builders team reviewing construction plans"
+				imageSrc="/images/portfolio/project-02.jpg"
+				imageAlt="Crane setting roof trusses on a Covenant Builders home under construction on the Treasure Coast"
 			/>
 			<TrustBand />
 
@@ -35,13 +35,16 @@ export default function AboutPage() {
 						<p className="mt-1 font-sans text-sm font-semibold uppercase tracking-[0.18em] text-sand-dark">
 							{founderBio.title}
 						</p>
-						<div className="relative mt-8 overflow-hidden">
+						{/* Founder portrait — transparent PNG, sits on a soft panel rather than
+						    a full-bleed image so the cut-out edge reads cleanly. */}
+						<div className="relative mt-8 flex justify-center overflow-hidden rounded-2xl bg-gradient-to-b from-sand/20 to-transparent px-6 pt-6">
 							<Image
-								src="/images/about-team.jpeg"
-								alt="Josias Andujar and team reviewing plans"
-								width={960}
-								height={640}
-								className="h-auto w-full object-cover"
+								src={founderBio.image}
+								alt={founderBio.imageAlt}
+								width={673}
+								height={900}
+								priority
+								className="h-auto w-full max-w-[380px] object-contain"
 							/>
 						</div>
 					</div>

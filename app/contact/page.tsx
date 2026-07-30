@@ -67,19 +67,6 @@ export default function ContactPage() {
 								</p>
 							</li>
 							<li className="border-t border-navy/10 pt-6">
-								<h3 className="font-display text-2xl leading-snug text-navy">
-									{siteConfig.phones.jr.name}
-								</h3>
-								<p className="mt-3 font-sans text-sm uppercase tracking-[0.16em] text-sand-dark">
-									{siteConfig.phones.jr.role}
-								</p>
-								<p className="mt-3 font-sans text-base text-ink">
-									<a href={siteConfig.phones.jr.href} className="hover:text-sand-dark">
-										{siteConfig.phones.jr.display}
-									</a>
-								</p>
-							</li>
-							<li className="border-t border-navy/10 pt-6">
 								<h3 className="font-display text-2xl text-navy">Office</h3>
 								<p className="mt-3 font-sans text-base text-ink">
 									<a
@@ -90,6 +77,9 @@ export default function ContactPage() {
 									>
 										{siteConfig.address.full}
 									</a>
+								</p>
+								<p className="mt-2 font-sans text-sm italic text-stone-muted">
+									{siteConfig.address.relocationNote}
 								</p>
 								<p className="mt-2 font-sans text-sm text-stone-muted">
 									{siteConfig.bilingualNote}

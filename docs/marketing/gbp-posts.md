@@ -105,7 +105,7 @@ If we recently completed your project and you’re happy with the work, a short 
 **Type:** Update  
 
 Covenant Builders  
-5400 85th Ave, Vero Beach, FL 32967  
+876 47th Avenue, Vero Beach, FL 32966  
 Hours: Monday–Friday, 9:00 AM – 5:00 PM  
 Phone: (772) 473-7115 · estimating@covenantbuilders.org
 

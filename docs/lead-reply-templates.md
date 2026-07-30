@@ -28,7 +28,7 @@ President & Founder
 Covenant Builders · Florida CBC1253676
 (772) 473-7115
 estimating@covenantbuilders.org
-5400 85th Ave, Vero Beach, FL 32967
+876 47th Avenue, Vero Beach, FL 32966
 ```
 
 ## 2. New estimate request (SMS / iMessage)

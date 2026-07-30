@@ -20,7 +20,7 @@ Materials for angel and early VC conversations. **Do not circulate financial ask
 - License DBA: **Interior Specialties Inc** → operating as Covenant Builders
 - Founder: **Josias Andujar** (cabinetmaker → GC; Treasure Coast since 2004)
 - Contacts: `(772) 473-7115` · `josias@covenantbuilders.org` · `estimating@covenantbuilders.org`
-- Address: 5400 85th Ave, Vero Beach, FL 32967
+- Address: 876 47th Avenue, Vero Beach, FL 32966
 - Bilingual: English / Spanish
 
 ## Before first investor send

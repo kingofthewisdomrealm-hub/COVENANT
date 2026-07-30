@@ -60,9 +60,9 @@ Draft allocation themes from the growth thesis (fill $ and % with founder):
 | License | Florida CBC1253676 — Certified Building Contractor |
 | Licensed since | December 8, 2005 |
 | License active through | August 31, 2028 |
-| HQ | 5400 85th Ave, Vero Beach, FL 32967 |
+| HQ | 876 47th Avenue, Vero Beach, FL 32966 |
 | Primary contact | Josias Andujar Sr · (772) 473-7115 · josias@covenantbuilders.org |
-| Project contact | Josias Andujar Jr · (772) 473-7914 |
+| Project contact | Josias Andujar Sr · (772) 473-7115 |
 | Inbound estimates | estimating@covenantbuilders.org |
 | Site | https://covenantbuilders.org |
 | Investor page | https://covenantbuilders.org/investors (noindex) |

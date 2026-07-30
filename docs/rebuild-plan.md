@@ -21,7 +21,7 @@
 - **Leads:** Server Action → **Resend** → `estimating@covenantbuilders.org` (env-configurable fallback inbox until Workspace DNS is live)
 - **Portfolio v1:** Honest structure using salvageable current-site assets + clear “more projects coming” — no invented case studies or fake testimonials
 - **Public emails:** `info@`, `estimating@`, `josias@` only (no Gmail on the site)
-- **Phones:** `(772) 473-7115` (Josias Sr), `(772) 473-7914` (Josias Jr)
+- **Phones:** `(772) 473-7115` (Josias Sr) — published. Josias Jr's line is intentionally not published on the site for now.
 - **Hosting target:** Vercel-ready static/SSR marketing site; cut over DNS after launch
 
 ## Audit summary (drives rebuild)
@@ -70,7 +70,7 @@ flowchart LR
 2. **Services** — New Home Builds, Custom Kitchens / Cabinetry, Commercial Projects, Remodels (aligned copy; no Industrial mismatch unless they truly do industrial)
 3. **Portfolio** — filterable scaffold (All / Residential / Commercial / Remodel) with available images, honest captions, empty-state honesty
 4. **About** — single Josias Andujar founder story (cabinetmaker → Treasure Coast 2004 → CBC1253676), Interior Specialties Inc DBA lineage, bilingual note
-5. **Contact** — estimate form + Sr/Jr phones + address (normalize to **5400 85th Ave, Vero Beach, FL 32967**) + hours + response expectation
+5. **Contact** — estimate form + Sr/Jr phones + address (normalize to **876 47th Avenue, Vero Beach, FL 32966**) + hours + response expectation
 6. **Legal stubs** — Privacy (form/newsletter consent) and minimal Terms if needed for form disclosure
 
 ## Trust content to ship (verified)

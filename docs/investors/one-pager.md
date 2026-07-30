@@ -15,7 +15,7 @@ Covenant Builders is a licensed Florida general contractor building custom homes
 | Status | Active through **August 31, 2028** |
 | History | Originally licensed **December 8, 2005** (~20 years) |
 | Entity lineage | License DBA **Interior Specialties Inc**; brand **Covenant Builders** |
-| HQ | 5400 85th Ave, Vero Beach, FL 32967 |
+| HQ | 876 47th Avenue, Vero Beach, FL 32966 |
 | Language | Bilingual — English / Spanish |
 
 Verify: [Florida DBPR license lookup](https://www.myfloridalicense.com/wl11.asp)

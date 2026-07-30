@@ -63,7 +63,7 @@ Organize in a shared drive (Google Drive / Dropbox) with folders matching below.
 
 - [ ] Material litigation (or counsel letter: none)
 - [ ] Liens / judgments search summary
-- [ ] Lease for 5400 85th Ave (if leased)
+- [ ] Lease for 876 47th Avenue (current) and 5400 85th St (prior, if applicable) — relocation in progress
 - [ ] IP / brand / domain ownership confirmation (covenantbuilders.org)
 - [ ] Privacy / website terms
 

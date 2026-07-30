@@ -13,13 +13,21 @@ export const siteConfig = {
 		'Fellsmere',
 	] as const,
 	address: {
-		street: '5400 85th Ave',
+		street: '876 47th Avenue',
 		city: 'Vero Beach',
 		state: 'FL',
-		zip: '32967',
-		full: '5400 85th Ave, Vero Beach, FL 32967',
+		zip: '32966',
+		full: '876 47th Avenue, Vero Beach, FL 32966',
 		mapsUrl:
-			'https://www.google.com/maps/search/?api=1&query=5400+85th+Ave+Vero+Beach+FL+32967',
+			'https://www.google.com/maps/search/?api=1&query=876+47th+Avenue+Vero+Beach+FL+32966',
+		/**
+		 * Relocation in progress from the previous address (5400 85th St).
+		 * Remove this note once the move is complete and Google Business Profile,
+		 * directories, and print collateral all show the new address.
+		 * See docs/address-change-plan.md
+		 */
+		relocationNote:
+			'We are relocating from our previous address at 5400 85th St. Please use the address above.',
 	},
 	emails: {
 		info: 'info@covenantbuilders.org',
@@ -33,12 +41,8 @@ export const siteConfig = {
 			display: '(772) 473-7115',
 			href: 'tel:+17724737115',
 		},
-		jr: {
-			name: 'Josias Andujar Jr',
-			role: 'Project Contact',
-			display: '(772) 473-7914',
-			href: 'tel:+17724737914',
-		},
+		// Josias Jr's line — (772) 473-7914 — is intentionally not published for now.
+		// Restore here and in app/contact/page.tsx if it becomes a public contact again.
 	},
 	hours: [
 		{ day: 'Monday', time: '9:00 AM – 5:00 PM' },
@@ -174,71 +178,77 @@ export interface PortfolioProject {
 	story?: string
 }
 
+/**
+ * Real Covenant Builders job-site photography (added 2026-07-30).
+ * Descriptions cover only what is visibly happening in each frame — no invented
+ * client names, square footage, budgets, or timelines. If the founder supplies
+ * verified project details, extend `story` rather than embellishing `scope`.
+ */
 export const portfolioProjects: PortfolioProject[] = [
 	{
 		id: 'project-01',
-		title: 'Residential craftsmanship detail',
+		title: 'Block shell and roof framing',
 		category: 'residential',
-		location: 'Treasure Coast, FL',
+		location: 'Vero Beach, FL',
 		scope:
-			'Finish and build detail from a Covenant Builders residential job — the kind of close work that shows up in final walkthroughs.',
+			'Concrete block shell complete and roof trusses going up on a corner-lot residential build — the stage where the footprint becomes a house.',
 		image: '/images/portfolio/project-01.jpg',
-		alt: 'Close residential construction craftsmanship detail by Covenant Builders on the Treasure Coast',
+		alt: 'Concrete block home under construction with roof trusses being installed in Vero Beach, Florida',
 		status: 'featured',
 	},
 	{
 		id: 'project-02',
-		title: 'Interior remodel finishes',
-		category: 'remodel',
+		title: 'Truss set by crane',
+		category: 'residential',
 		location: 'Treasure Coast, FL',
 		scope:
-			'Interior renovation photography showing finish-level work during an active remodel.',
+			'Crane setting roof trusses across a long block wall line. Florida block construction built for wind load, braced and set section by section.',
 		image: '/images/portfolio/project-02.jpg',
-		alt: 'Interior remodel finishes on a Covenant Builders renovation project',
+		alt: 'Crane lifting roof trusses onto a concrete block home under construction on the Treasure Coast',
 		status: 'featured',
 	},
 	{
 		id: 'project-03',
-		title: 'Kitchen & cabinetry work',
-		category: 'remodel',
+		title: 'Framing and garage structure',
+		category: 'residential',
 		location: 'Treasure Coast, FL',
 		scope:
-			'Kitchen-focused renovation and cabinetry rooted in the founder’s millwork background.',
+			'Gable framing and garage structure taking shape over the block shell, with roof underlayment going on to dry the building in.',
 		image: '/images/portfolio/project-03.jpg',
-		alt: 'Kitchen cabinetry and renovation work by Covenant Builders',
+		alt: 'New home construction showing gable framing, garage structure, and roof underlayment',
 		status: 'featured',
 	},
 	{
 		id: 'project-04',
-		title: 'Residential exterior progress',
+		title: 'Crew on site during dry-in',
 		category: 'residential',
 		location: 'Treasure Coast, FL',
 		scope:
-			'Exterior and envelope progress on a residential build — documentation from an active Treasure Coast job site.',
+			'Windows in, roof underlayment down, and trades working the interior. The coordination stage where scheduling keeps a job on track.',
 		image: '/images/portfolio/project-04.jpg',
-		alt: 'Residential exterior construction progress by Covenant Builders',
+		alt: 'Covenant Builders crew working on a residential build during the dry-in phase',
 		status: 'featured',
 	},
 	{
 		id: 'project-05',
-		title: 'Structure & site phase',
-		category: 'commercial',
+		title: 'Stucco and exterior finish',
+		category: 'residential',
 		location: 'Treasure Coast, FL',
 		scope:
-			'Structural and site-phase photography from construction work in progress.',
+			'Stucco applied, windows and trim set, roof prepared for final covering — the point where the exterior starts reading as a finished home.',
 		image: '/images/portfolio/project-05.jpg',
-		alt: 'Structural and site construction phase by Covenant Builders',
+		alt: 'Residential home exterior with completed stucco, installed windows, and roof underlayment',
 		status: 'featured',
 	},
 	{
 		id: 'project-06',
-		title: 'Jobsite craftsmanship',
+		title: 'Exterior nearing completion',
 		category: 'residential',
 		location: 'Treasure Coast, FL',
 		scope:
-			'Hands-on craftsmanship detail from an active build — how the work looks before the final reveal.',
+			'Finished stucco, trimmed windows, and hung doors with materials staged for interior finish work.',
 		image: '/images/portfolio/project-06.jpg',
-		alt: 'Close-up jobsite craftsmanship from a Covenant Builders residential build',
+		alt: 'Covenant Builders custom home exterior nearing completion with finished stucco and installed windows',
 		status: 'featured',
 	},
 ]
@@ -246,6 +256,9 @@ export const portfolioProjects: PortfolioProject[] = [
 export const founderBio = {
 	name: 'Josias Andujar',
 	title: 'President and Founder',
+	image: '/images/josias-andujar-founder.png',
+	imageAlt:
+		'Josias Andujar, President and Founder of Covenant Builders, Vero Beach Florida',
 	paragraphs: [
 		'Josias started his career as a cabinetmaker, coming out of vocational-technical school in high school. He had both a natural ability and a learned eye under the instruction of Larry Sittler.',
 		'He quickly learned the trades through hands-on experience. His dedication and eye for the latest innovations earned him recognition for his work over the years.',
