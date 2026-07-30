@@ -55,6 +55,8 @@ DNS snapshot: [docs/dns-inventory-2026-07-29.txt](docs/dns-inventory-2026-07-29.
 - [Review request template](docs/review-request-template.md) — Google review ask (highest local SEO lever)
 - [Lead reply templates](docs/lead-reply-templates.md) — fast estimate responses
 - [Marketing drafts](docs/marketing/README.md) — GBP posts + social captions (Phase 3)
+- [GoDaddy cancel checklist](docs/godaddy-product-cancel-checklist.md) — drop Clientes / marketing add-ons (Phase 4)
+- [CRM lead workflow](docs/crm-lead-workflow.md) — website estimate → Covenant Builders CRM
 - [Portfolio intake](docs/portfolio-intake.md) — founder notes for real project stories
 - [Audit notes](docs/audit-notes.md) — findings that drove the rebuild
 
