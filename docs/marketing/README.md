@@ -8,6 +8,7 @@ You post; we draft. No GoDaddy Marketing add-on required.
 | Social captions | [social-captions.md](./social-captions.md) | IG, Facebook, YouTube, X, TikTok, LinkedIn |
 | Lead replies | [../lead-reply-templates.md](../lead-reply-templates.md) | Same-day estimate responses |
 | Review asks | [../review-request-template.md](../review-request-template.md) | After final walkthrough |
+| CRM / cancel Clientes | [../crm-lead-workflow.md](../crm-lead-workflow.md) · [../godaddy-product-cancel-checklist.md](../godaddy-product-cancel-checklist.md) | Phase 4 |
 
 **Rules**
 - Use only real photos from your jobs
