@@ -2,6 +2,8 @@
 
 Next.js rebuild of [covenantbuilders.org](https://covenantbuilders.org/) — Florida residential and commercial construction (Vero Beach / Treasure Coast).
 
+**Vercel (pre-DNS):** https://covenant-builders-ten.vercel.app · [project](https://vercel.com/josias7/covenant-builders)
+
 ## Stack
 
 - Next.js 14 App Router

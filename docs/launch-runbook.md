@@ -49,17 +49,24 @@ npm run dns:verify
 
 ### 1b. Deploy Next.js to Vercel
 
+**Live project (2026-07-29):** [josias7/covenant-builders](https://vercel.com/josias7/covenant-builders)  
+**Production alias:** https://covenant-builders-ten.vercel.app  
+GitHub repo connected. Set env vars below, then add custom domain `covenantbuilders.org` in Vercel → Domains after GoDaddy DNS flip.
+
 ```bash
-# from repo root
-npm i -g vercel
-vercel login
-vercel link          # create / link project
-vercel env add RESEND_API_KEY production
-vercel env add LEAD_TO_EMAIL production
-vercel env add LEAD_FROM_EMAIL production
-vercel env add NEXT_PUBLIC_SITE_URL production
-vercel --prod
+# from repo root (requires interactive login once)
+npx vercel login
+npx vercel link   # josias7/covenant-builders
+npx vercel env add RESEND_API_KEY production
+npx vercel env add LEAD_TO_EMAIL production
+npx vercel env add LEAD_FROM_EMAIL production
+npx vercel env add NEXT_PUBLIC_SITE_URL production
+# optional after Search Console setup:
+# npx vercel env add NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION production
+npx vercel --prod
 ```
+
+Or set the same env vars in Project → Settings → Environment Variables.
 
 Suggested values:
 
