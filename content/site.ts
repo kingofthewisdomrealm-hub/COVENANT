@@ -174,8 +174,19 @@ export interface PortfolioProject {
 	image: string
 	alt: string
 	status: 'featured' | 'coming-soon'
-	/** Optional founder-verified story — do not invent */
+	/**
+	 * Founder-verified story. RENDERS PUBLICLY — only ever put confirmed facts
+	 * here (real city, real scope, real outcome). Never invent square footage,
+	 * timelines, budgets, or client names.
+	 */
 	story?: string
+	/**
+	 * Draft placeholder shown ONLY in the repo, never on the site. Use it to
+	 * sketch the shape of a story before the real details are confirmed, then
+	 * move the finished text into `story`.
+	 * Fill the CAPITALISED blanks from docs/portfolio-intake.md.
+	 */
+	storyDraft?: string
 }
 
 /**
@@ -195,6 +206,8 @@ export const portfolioProjects: PortfolioProject[] = [
 		image: '/images/portfolio/project-01.jpg',
 		alt: 'Concrete block home under construction with roof trusses being installed in Vero Beach, Florida',
 		status: 'featured',
+		storyDraft:
+			'We built a SQFT sq ft custom home on a corner lot in CITY, from slab through final walkthrough. TIMELINE_OR_CONSTRAINT.',
 	},
 	{
 		id: 'project-02',
@@ -206,6 +219,8 @@ export const portfolioProjects: PortfolioProject[] = [
 		image: '/images/portfolio/project-02.jpg',
 		alt: 'Crane lifting roof trusses onto a concrete block home under construction on the Treasure Coast',
 		status: 'featured',
+		storyDraft:
+			'We set the roof structure on a SQFT sq ft build in CITY, engineered for Florida wind load. TIMELINE_OR_CONSTRAINT.',
 	},
 	{
 		id: 'project-03',
@@ -217,6 +232,8 @@ export const portfolioProjects: PortfolioProject[] = [
 		image: '/images/portfolio/project-03.jpg',
 		alt: 'New home construction showing gable framing, garage structure, and roof underlayment',
 		status: 'featured',
+		storyDraft:
+			'We framed and dried in a SQFT sq ft home with a GARAGE_SIZE-car garage in CITY. TIMELINE_OR_CONSTRAINT.',
 	},
 	{
 		id: 'project-04',
@@ -228,6 +245,8 @@ export const portfolioProjects: PortfolioProject[] = [
 		image: '/images/portfolio/project-04.jpg',
 		alt: 'Covenant Builders crew working on a residential build during the dry-in phase',
 		status: 'featured',
+		storyDraft:
+			'We coordinated NUMBER trades through dry-in on a SQFT sq ft build in CITY, keeping the schedule on track. TIMELINE_OR_CONSTRAINT.',
 	},
 	{
 		id: 'project-05',
@@ -239,6 +258,8 @@ export const portfolioProjects: PortfolioProject[] = [
 		image: '/images/portfolio/project-05.jpg',
 		alt: 'Residential home exterior with completed stucco, installed windows, and roof underlayment',
 		status: 'featured',
+		storyDraft:
+			'We completed the exterior envelope — stucco, windows, and roof — on a SQFT sq ft home in CITY. TIMELINE_OR_CONSTRAINT.',
 	},
 	{
 		id: 'project-06',
@@ -250,6 +271,8 @@ export const portfolioProjects: PortfolioProject[] = [
 		image: '/images/portfolio/project-06.jpg',
 		alt: 'Covenant Builders custom home exterior nearing completion with finished stucco and installed windows',
 		status: 'featured',
+		storyDraft:
+			'We delivered a SQFT sq ft custom home in CITY, finished TIMELINE_OR_CONSTRAINT.',
 	},
 ]
 
