@@ -138,6 +138,21 @@ export const services = [
 			'Finish-level craftsmanship',
 		],
 	},
+	{
+		slug: 'storm-restoration',
+		title: 'Storm Restoration',
+		shortTitle: 'Storm',
+		summary:
+			'Repair and rebuild after hurricane and storm damage—from securing the structure through full restoration.',
+		description:
+			'Living on the Treasure Coast means building for weather that eventually arrives. We assess and document damage, secure the structure, and carry the work through roof, envelope, and interior rebuild—restoring the property to current Florida building code with the same licensed accountability we bring to new construction.',
+		bullets: [
+			'Damage assessment and written scope',
+			'Roof, window, and envelope repair',
+			'Structural and interior rebuild',
+			'Rebuilt to current Florida code',
+		],
+	},
 ] as const
 
 export const whyChooseUs = [
@@ -296,5 +311,6 @@ export const projectTypes = [
 	{ value: 'kitchen', label: 'Kitchen / cabinetry' },
 	{ value: 'commercial', label: 'Commercial project' },
 	{ value: 'remodel', label: 'Remodel / renovation' },
+	{ value: 'storm-restoration', label: 'Storm damage / restoration' },
 	{ value: 'other', label: 'Other / not sure yet' },
 ] as const
