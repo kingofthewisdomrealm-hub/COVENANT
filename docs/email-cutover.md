@@ -105,6 +105,27 @@ LEAD_FROM_EMAIL=Covenant Builders <noreply@covenantbuilders.org>
 NEXT_PUBLIC_SITE_URL=https://covenantbuilders.org
 ```
 
+### Sending a lead to more than one inbox
+
+`LEAD_TO_EMAIL` accepts a **comma-separated list**. Every address gets the same
+estimate request directly from Resend:
+
+```bash
+LEAD_TO_EMAIL=estimating@covenantbuilders.org,pastorjosias@ymail.com
+```
+
+Prefer this over a Gmail forwarding rule — a direct send avoids the extra hop,
+which is where forwarded mail tends to get flagged as spam.
+
+**Constraint:** Resend only delivers to arbitrary recipients once the sending
+domain is **verified**. While unverified it will reject anything addressed to
+someone other than the Resend account owner with a `403 Testing domain
+restriction`. Check Resend → Domains before adding recipients here.
+
+**Interim setup (2026-07-30):** domain verification pending, so
+`LEAD_TO_EMAIL=kingofthewisdomrealm@gmail.com` (the Resend account owner) to keep
+the form working. Switch to the list above once the domain shows Verified.
+
 Verify the From domain in Resend (SPF/DKIM for the sending domain as well).
 
 ## Recommendation

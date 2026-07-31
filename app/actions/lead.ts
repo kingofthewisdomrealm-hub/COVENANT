@@ -50,13 +50,35 @@ export const submitLead = actionClient
 		}
 
 		const apiKey = process.env.RESEND_API_KEY
-		const toEmail = process.env.LEAD_TO_EMAIL || siteConfig.emails.estimating
+		/**
+		 * LEAD_TO_EMAIL accepts one address or a comma-separated list, so a lead
+		 * can reach several inboxes at once — e.g.
+		 *   kingofthewisdomrealm@gmail.com,pastorjosias@ymail.com
+		 * Sending to multiple recipients directly is more reliable than Gmail
+		 * forwarding rules, which add a hop and raise the spam risk.
+		 * Note: Resend only delivers to arbitrary addresses once the sending
+		 * domain is verified; until then it restricts to the account owner.
+		 */
+		const toEmails = (
+			process.env.LEAD_TO_EMAIL || siteConfig.emails.estimating
+		)
+			.split(',')
+			.map((address) => address.trim())
+			.filter(Boolean)
+
 		const fromEmail =
 			process.env.LEAD_FROM_EMAIL ||
 			'Covenant Builders <onboarding@resend.dev>'
 
 		if (!apiKey) {
 			console.error('RESEND_API_KEY is not configured')
+			throw new Error(
+				'Estimate form is temporarily unavailable. Please call or email us directly.'
+			)
+		}
+
+		if (toEmails.length === 0) {
+			console.error('LEAD_TO_EMAIL resolved to no valid recipients')
 			throw new Error(
 				'Estimate form is temporarily unavailable. Please call or email us directly.'
 			)
@@ -69,7 +91,7 @@ export const submitLead = actionClient
 		const resend = new Resend(apiKey)
 		const { error } = await resend.emails.send({
 			from: fromEmail,
-			to: [toEmail],
+			to: toEmails,
 			replyTo: parsedInput.email,
 			subject: `New estimate request — ${parsedInput.name}`,
 			text: [
