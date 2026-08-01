@@ -2,14 +2,15 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { Hero } from '@/components/hero'
+import { ProcessTimeline } from '@/components/process-timeline'
 import { SectionHeading } from '@/components/section-heading'
 import { TrustBand } from '@/components/trust-band'
 import { services, siteConfig } from '@/content/site'
 
 export const metadata: Metadata = {
-	title: 'Custom Homes, Kitchens & Commercial Construction | Vero Beach, FL',
+	title: 'Custom Homes, Kitchens, Commercial & Storm Restoration | Vero Beach, FL',
 	description:
-		'New home builds, custom kitchens and cabinetry, commercial projects, and remodels from licensed Florida builder CBC1253676 in Vero Beach and the Treasure Coast.',
+		'New home builds, custom kitchens and cabinetry, commercial projects, remodels, and storm restoration from licensed Florida builder CBC1253676 in Vero Beach and the Treasure Coast. See our step-by-step process for every service.',
 	alternates: { canonical: '/services' },
 }
 
@@ -65,6 +66,14 @@ export default function ServicesPage() {
 											See related work
 										</Link>
 									</div>
+
+									{service.process ? (
+										<ProcessTimeline
+											idPrefix={service.slug}
+											stages={service.process}
+											note={service.processNote}
+										/>
+									) : null}
 								</div>
 							</li>
 						))}

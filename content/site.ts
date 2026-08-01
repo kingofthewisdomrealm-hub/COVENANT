@@ -77,6 +77,22 @@ export const navLinks = [
 	{ href: '/investors', label: 'Investors' },
 ] as const
 
+/**
+ * A single client-facing stage of a service's process.
+ *
+ * PUBLIC DATA ONLY. Internal SOP content — QC hold points, inspection
+ * sequences, statute citations, subcontractor admin, billing detail — lives in
+ * `docs/process-*.md` and must never be added here.
+ *
+ * Durations are ranges, never promises. Permit review in particular is outside
+ * our control.
+ */
+export interface ProcessStage {
+	title: string
+	summary: string
+	duration: string
+}
+
 export const services = [
 	{
 		slug: 'new-home-builds',
@@ -91,6 +107,52 @@ export const services = [
 			'Permit coordination',
 			'Quality-focused craftsmanship',
 			'On-site communication you can trust',
+		],
+		processNote:
+			'We lock every finish selection before we submit for permit. It is the single biggest reason a build stays on schedule.',
+		process: [
+			{
+				title: 'Contract and deposit',
+				summary:
+					'We walk the lot, confirm what is buildable, and put scope, price, and schedule in writing.',
+				duration: '1–2 weeks',
+			},
+			{
+				title: 'Design, engineering, and selections',
+				summary:
+					'Whether we draw it or you bring plans, this stage ends with sealed drawings and every finish chosen and signed off.',
+				duration: '8–16 weeks',
+			},
+			{
+				title: 'Permitting and notice of commencement',
+				summary:
+					'We handle submittal and plan review ourselves, record the notice of commencement, and schedule the first inspection.',
+				duration: '4–12 weeks',
+			},
+			{
+				title: 'Site work and foundation',
+				summary:
+					'Clearing, fill, underground plumbing, termite treatment, and the slab your house sits on.',
+				duration: '4–8 weeks',
+			},
+			{
+				title: 'Structure and dry-in',
+				summary:
+					'Walls, tie beam, trusses, roof, windows and doors — the point your home stops being weather-dependent.',
+				duration: '8–14 weeks',
+			},
+			{
+				title: 'Rough-ins, millwork, and finishes',
+				summary:
+					'Electrical, plumbing and air inside the walls, then drywall, stucco, and the cabinetry we build in our own shop.',
+				duration: '12–20 weeks',
+			},
+			{
+				title: 'Final inspections and certificate of occupancy',
+				summary:
+					'Every trade signs off, the county issues your certificate of occupancy, and we hand over the keys and the warranty.',
+				duration: '2–4 weeks',
+			},
 		],
 	},
 	{
@@ -107,6 +169,46 @@ export const services = [
 			'Material and finish guidance',
 			'Detail-driven millwork',
 		],
+		processNote:
+			'Your cabinetry is built in our own shop, not ordered from a catalogue. Shop capacity — not a supplier’s queue — sets the schedule.',
+		process: [
+			{
+				title: 'Consultation and feasibility',
+				summary:
+					'We walk the space, talk through how you actually cook and live in it, and give you an honest budget range.',
+				duration: '1–2 weeks',
+			},
+			{
+				title: 'Design and selections',
+				summary:
+					'Measured drawings, cabinet design, and every finish and appliance chosen before anything is ordered or built.',
+				duration: '3–8 weeks',
+			},
+			{
+				title: 'Contract and permitting',
+				summary:
+					'Scope in writing, and where moving plumbing or electrical requires a permit, we pull it ourselves.',
+				duration: '2–6 weeks',
+			},
+			{
+				title: 'Demolition and rough work',
+				summary:
+					'Dust containment and floor protection first, then demolition, any structural work, and rough-ins.',
+				duration: '2–4 weeks',
+			},
+			{
+				title: 'Cabinetry and finishes',
+				summary:
+					'Shop-built cabinets installed and scribed, countertops templated only after cabinets are set, then tile, paint, and fixtures.',
+				duration: '4–10 weeks',
+			},
+			{
+				title: 'Final inspection and handover',
+				summary:
+					'Inspections where permitted, our own punch before you see it, then walkthrough, warranty, and care instructions.',
+				duration: '1–2 weeks',
+			},
+		],
 	},
 	{
 		slug: 'commercial-projects',
@@ -121,6 +223,52 @@ export const services = [
 			'New commercial builds',
 			'Code-aware planning',
 			'Efficient project delivery',
+		],
+		processNote:
+			'We analyse and price accessibility requirements before you sign, not after plan review. It is the most common budget surprise in commercial work, and it should not be a surprise.',
+		process: [
+			{
+				title: 'Consultation and due diligence',
+				summary:
+					'We confirm occupancy classification, egress, and accessibility exposure up front — and read your lease if this is a tenant improvement.',
+				duration: '2–4 weeks',
+			},
+			{
+				title: 'Design, code analysis, and selections',
+				summary:
+					'Sealed drawings, a written code and accessibility analysis, systems design, and every selection locked before submittal.',
+				duration: '8–20 weeks',
+			},
+			{
+				title: 'Contract and permitting',
+				summary:
+					'We run building, fire marshal, and health review ourselves — in parallel where the jurisdiction allows, so nothing waits in line.',
+				duration: '6–16 weeks',
+			},
+			{
+				title: 'Demolition, site, and structural work',
+				summary:
+					'Containment and life-safety protection first, then demolition, structural work, and site work where the project is ground-up.',
+				duration: '3–12 weeks',
+			},
+			{
+				title: 'Systems and rough-ins',
+				summary:
+					'Electrical, plumbing, and mechanical rough-in, plus fire sprinkler and alarm — each with its own inspection.',
+				duration: '4–12 weeks',
+			},
+			{
+				title: 'Finishes and millwork',
+				summary:
+					'Rated assemblies built to the tested detail, then ceilings, flooring, paint, and casework from our own shop.',
+				duration: '4–12 weeks',
+			},
+			{
+				title: 'Inspections, certificate, and turnover',
+				summary:
+					'Building and fire marshal finals, your certificate of occupancy or completion, punch, and staff training on the systems you now operate.',
+				duration: '2–6 weeks',
+			},
 		],
 	},
 	{
@@ -137,6 +285,46 @@ export const services = [
 			'Phased work when needed',
 			'Finish-level craftsmanship',
 		],
+		processNote:
+			'We open walls before we price the job. A low number that turns into change orders helps nobody — we would rather find the surprise while you can still make decisions about it.',
+		process: [
+			{
+				title: 'Consultation and feasibility',
+				summary:
+					'We walk the space, check the permit history, and tell you honestly what is possible in your budget.',
+				duration: '1–2 weeks',
+			},
+			{
+				title: 'Discovery and design',
+				summary:
+					'Exploratory openings to see what is actually behind the walls, then design to real conditions — and every selection signed off.',
+				duration: '3–10 weeks',
+			},
+			{
+				title: 'Contract and permitting',
+				summary:
+					'Scope, allowances, and a written change order process agreed before work starts. We pull the permit ourselves.',
+				duration: '2–8 weeks',
+			},
+			{
+				title: 'Demolition and rough work',
+				summary:
+					'Containment and protection first, then demolition, structural work, and rough-ins — with anything discovered documented and priced in writing.',
+				duration: '2–8 weeks',
+			},
+			{
+				title: 'Finishes and millwork',
+				summary:
+					'Drywall, flooring, tile, and paint, plus the trim and cabinetry we build ourselves.',
+				duration: '3–12 weeks',
+			},
+			{
+				title: 'Final inspection and handover',
+				summary:
+					'Final inspections, our own punch before you see it, then walkthrough, warranty, and a clean space back.',
+				duration: '1–3 weeks',
+			},
+		],
 	},
 	{
 		slug: 'storm-restoration',
@@ -151,6 +339,58 @@ export const services = [
 			'Roof, window, and envelope repair',
 			'Structural and interior rebuild',
 			'Rebuilt to current Florida code',
+		],
+		/**
+		 * COMPLIANCE-SENSITIVE COPY. Do not soften or shorten without review.
+		 *
+		 * Florida law licenses public adjusting separately (§ 626.854) and
+		 * prohibits a contractor from offering to pay, waive, or rebate an
+		 * insurance deductible, including in advertising (§ 489.147).
+		 *
+		 * This paragraph exists to state both boundaries plainly. Never publish
+		 * copy implying we adjust claims, negotiate settlements, "fight the
+		 * insurance company," or help with the deductible.
+		 * See docs/process-storm-restoration.md
+		 */
+		processNote:
+			'A few things stated plainly: you file and own your claim — we document the damage and build the repair. We do not adjust claims or interpret your policy. Your deductible is your responsibility and is collected in full; Florida law does not allow us to waive or discount it. And our work is the rebuild — if you have active water damage, we will connect you with a mitigation company we trust.',
+		process: [
+			{
+				title: 'Inspection and documentation',
+				summary:
+					'We photograph and measure everything, gather the mitigation company’s records, and write a documented scope of the repair.',
+				duration: '2–5 days',
+			},
+			{
+				title: 'Contract and claim coordination',
+				summary:
+					'You file with your carrier. We give you the documentation to support the rebuild, in writing, with the deductible stated up front.',
+				duration: '3–7 days',
+			},
+			{
+				title: 'Adjuster meeting and scope agreement',
+				summary:
+					'We meet your adjuster on site and walk them through what we documented, then compare their estimate against our scope line by line.',
+				duration: '2–8 weeks',
+			},
+			{
+				title: 'Permit and mobilization',
+				summary:
+					'We pull the permit, confirm the structure is dry and signed off, collect the deductible, and schedule the crew.',
+				duration: '1–4 weeks',
+			},
+			{
+				title: 'Reconstruction',
+				summary:
+					'The repair gets built and photographed at every step — including anything found once we open things up.',
+				duration: '2–8 weeks',
+			},
+			{
+				title: 'Completion and closeout',
+				summary:
+					'Final inspections and punch, then documentation for anything discovered during the work and the paperwork that releases your final payment.',
+				duration: '3–14 weeks',
+			},
 		],
 	},
 ] as const
