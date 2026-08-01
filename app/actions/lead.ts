@@ -5,6 +5,7 @@ import { Resend } from 'resend'
 import { z } from 'zod'
 
 import { siteConfig, projectTypes } from '@/content/site'
+import { createCrmLead } from '@/lib/crm'
 import { checkRateLimit } from '@/lib/rate-limit'
 import { actionClient } from '@/lib/safe-action'
 
@@ -88,12 +89,42 @@ export const submitLead = actionClient
 			projectTypes.find((item) => item.value === parsedInput.projectType)
 				?.label || parsedInput.projectType
 
+		/**
+		 * Write to the CRM first, but never let it block the email.
+		 *
+		 * The email is the safety net: if Supabase is unreachable, the lead still
+		 * reaches a human inbox and can be entered by hand. Losing a lead to a
+		 * database hiccup would be far worse than a duplicate.
+		 *
+		 * When the write fails the subject line is flagged so it is obvious the
+		 * job is NOT in the CRM and needs adding manually.
+		 */
+		let crmProjectId: string | null = null
+		let crmFailed = false
+
+		try {
+			crmProjectId = await createCrmLead(parsedInput)
+		} catch (crmError) {
+			crmFailed = true
+			console.error('CRM lead write failed:', crmError)
+		}
+
+		const subject = crmFailed
+			? `[NOT IN CRM] New estimate request — ${parsedInput.name}`
+			: `New estimate request — ${parsedInput.name}`
+
+		const crmLine = crmFailed
+			? 'WARNING: this lead could not be saved to the CRM. Please add it manually.'
+			: crmProjectId
+				? `CRM job: ${siteConfig.crmUrl}/projects/${crmProjectId}`
+				: 'CRM: not configured — this lead was not saved.'
+
 		const resend = new Resend(apiKey)
 		const { error } = await resend.emails.send({
 			from: fromEmail,
 			to: toEmails,
 			replyTo: parsedInput.email,
-			subject: `New estimate request — ${parsedInput.name}`,
+			subject,
 			text: [
 				'New estimate request from covenantbuilders.org',
 				'',
@@ -105,6 +136,8 @@ export const submitLead = actionClient
 				'',
 				'Message:',
 				parsedInput.message,
+				'',
+				crmLine,
 			].join('\n'),
 		})
 

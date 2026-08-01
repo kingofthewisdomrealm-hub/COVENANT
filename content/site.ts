@@ -2,6 +2,8 @@ export const siteConfig = {
 	name: 'Covenant Builders',
 	tagline: 'We Deliver.',
 	url: 'https://covenantbuilders.org',
+	/** Internal CRM. Used to deep-link estimate notification emails to the job. */
+	crmUrl: 'https://app.covenantbuilders.org',
 	description:
 		'Custom home builder in Vero Beach and the Treasure Coast. Licensed Florida CBC1253676 since 2005 — homes, kitchens, commercial projects, remodels, and storm restoration.',
 	serviceArea: 'Vero Beach and the Treasure Coast, Florida',
