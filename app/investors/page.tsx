@@ -27,7 +27,7 @@ const highlights = [
 	},
 	{
 		title: 'Craft + full service',
-		body: 'Homes, kitchens and cabinetry, commercial work, and remodels—coordinated from planning through finish.',
+		body: 'Homes, kitchens and cabinetry, commercial work, remodels, and storm restoration—coordinated from planning through finish.',
 	},
 	{
 		title: 'Local operating base',

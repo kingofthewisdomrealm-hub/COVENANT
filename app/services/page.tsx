@@ -20,7 +20,7 @@ export default function ServicesPage() {
 			<Hero
 				compact
 				headline="Services built around real project needs"
-				support="Our services cover residential construction, custom kitchens, commercial builds, and renovations—with clear scope and licensed accountability."
+				support="Our services cover new homes, custom kitchens, commercial builds, remodels, and storm restoration—with clear scope and licensed accountability."
 				primaryCta={{ href: '/contact', label: 'Request an estimate' }}
 			/>
 			<TrustBand />

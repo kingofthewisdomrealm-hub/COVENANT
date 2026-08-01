@@ -12,7 +12,7 @@ export default function HomePage() {
 		<>
 			<Hero
 				headline="Building your vision with quality and precision"
-				support="From custom homes to commercial properties and dream kitchens, we make your project a reality across Vero Beach and the Treasure Coast."
+				support="From custom homes and dream kitchens to commercial builds and storm restoration, we make your project a reality across Vero Beach and the Treasure Coast."
 				primaryCta={{ href: '/contact', label: 'Contact us' }}
 				secondaryCta={{ href: '/portfolio', label: 'View work' }}
 			/>
