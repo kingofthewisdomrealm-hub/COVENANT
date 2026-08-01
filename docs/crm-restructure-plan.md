@@ -1,4 +1,4 @@
-# CRM restructure — Helpful Contacts, real Leads, AccuLynx flow
+# CRM restructure — Helpful Contacts, real Leads, milestone pipeline
 
 **Status:** plan only. No migration run.
 **Date:** 2026-08-01
@@ -8,13 +8,13 @@
 - **Two tables, one nav section.** Suppliers and partners stay separate; one
   "Helpful Contacts" screen with tabs.
 - **One record through the pipeline.** A lead *is* a job sitting at the Lead
-  milestone — the AccuLynx model. No separate leads table, no conversion step.
+  milestone. No separate leads table, no conversion step.
 
 Three changes, in dependency order:
 
 1. Move the current `leads` + `suppliers` under **Helpful Contacts**
 2. Free the word **Leads** for real inbound website enquiries
-3. Model the job flow on **AccuLynx**
+3. Move the job flow onto a **six-milestone pipeline**
 
 ---
 
@@ -73,7 +73,7 @@ nowhere to record who they are.
 ## Change 2 — Leads means leads
 
 **No new leads table.** Confirmed: a lead is a job at the Lead milestone, the way
-AccuLynx does it. A website enquiry creates a `contact` and a `project` at
+a single pipeline works. A website enquiry creates a `contact` and a `project` at
 `status = 'lead'`, and that same record walks the pipeline to Closed.
 
 The gain is that there's exactly one pipeline, one record, no copying data
@@ -123,10 +123,10 @@ hides `cancelled`, and treating "mark cancelled" as the delete action.
 
 ---
 
-## Change 3 — AccuLynx job flow
+## Change 3 — six-milestone job flow
 
 Your current `project_status` is `lead, quoted, in_progress, complete, lost`.
-AccuLynx uses six milestones plus cancelled, and it's the better model — each
+Six milestones plus cancelled is the better model — each
 milestone is a real handoff with money or paperwork attached.
 
 ```
@@ -155,7 +155,7 @@ Closed. So "new project from template" can seed both the milestone the job sits
 in *and* the stage checklist inside it — the thing that was going to fix 2
 milestones across 6 projects.
 
-### Screens to build, in AccuLynx's shape
+### Screens to build
 
 **Dashboard** — milestone counts with dollar value per stage, an Action Items
 grid, and an activity feed. The action items are the useful part: "unassigned
@@ -175,7 +175,7 @@ underneath. Genuinely useful, and the largest single build here. **Do it last.**
 
 ### Age in status
 
-AccuLynx sorts by "age in status" and "last touched", and that's what stops jobs
+Sorting by "age in status" and "last touched" is what stops jobs
 going quiet. `last_touched` is added in Change 2; age in status is derived from
 the milestone transition log rather than stored — one row per transition in
 `activities`, which already exists.
@@ -192,7 +192,7 @@ the milestone transition log rather than stored — one row per transition in
 | 4 | Add lead-origin columns to `projects` | Small | |
 | 5 | **Website form creates contact + project at Lead** | Medium | The automation win. Stops the retyping |
 | 6 | Leads & Jobs screen — filter rail, results, detail | Medium | Where the pipeline gets worked |
-| 7 | Job overview in AccuLynx shape | Medium | |
+| 7 | Job overview redesign | Medium | |
 | 8 | Dashboard: milestone counts, action items, activity feed | Medium | |
 | 9 | Milestone templates from the process docs | Medium | The real payoff |
 | 10 | Scheduler | Large | Last. Useful but not blocking |
