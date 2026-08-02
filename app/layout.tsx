@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
 	title: {
 		default:
-			'Custom Home Builder in Vero Beach & the Treasure Coast | Covenant Builders',
+			'Licensed Builder in Vero Beach & the Treasure Coast | Covenant Builders',
 		template: `%s | ${siteConfig.name}`,
 	},
 	description: siteConfig.description,
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
 		url: siteUrl,
 		siteName: siteConfig.name,
 		title:
-			'Custom Home Builder in Vero Beach & the Treasure Coast | Covenant Builders',
+			'Licensed Builder in Vero Beach & the Treasure Coast | Covenant Builders',
 		description: siteConfig.description,
 	},
 	twitter: {
 		card: 'summary_large_image',
 		title:
-			'Custom Home Builder in Vero Beach & the Treasure Coast | Covenant Builders',
+			'Licensed Builder in Vero Beach & the Treasure Coast | Covenant Builders',
 		description: siteConfig.description,
 	},
 	icons: {

@@ -4,8 +4,13 @@ export const siteConfig = {
 	url: 'https://covenantbuilders.org',
 	/** Internal CRM. Used to deep-link estimate notification emails to the job. */
 	crmUrl: 'https://app.covenantbuilders.org',
+	/**
+	 * Feeds every page's meta description and social preview. Leads with the
+	 * verifiable licence, because that is the argument the site makes and it is
+	 * what differentiates a search result from every other contractor listing.
+	 */
 	description:
-		'Custom home builder in Vero Beach and the Treasure Coast. Licensed Florida CBC1253676 since 2005 — homes, kitchens, commercial projects, remodels, and storm restoration.',
+		'Florida Certified Building Contractor CBC1253676, licensed since 2005 and verifiable with the state. Homes, kitchens, commercial projects, remodels and storm restoration across Vero Beach and the Treasure Coast.',
 	serviceArea: 'Vero Beach and the Treasure Coast, Florida',
 	serviceCities: [
 		'Vero Beach',

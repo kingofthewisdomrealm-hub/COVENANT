@@ -136,17 +136,21 @@ export default function HomePage() {
 			<section className="relative overflow-hidden bg-navy py-20 text-white sm:py-24">
 				<div className="absolute inset-0 bg-gradient-to-r from-navy via-navy to-navy-soft" />
 				<div className="section-shell relative space-y-6">
+					{/*
+					 * Closes on the same argument the hero opens with — check us first.
+					 * Avoids drifting back into brochure language at the last moment.
+					 */}
 					<p className="eyebrow !text-sand">Ready when you are</p>
 					<h2 className="max-w-3xl font-display text-4xl sm:text-5xl">
-						Ready to start building your vision?
+						Check the licence. Then let&rsquo;s talk about your project.
 					</h2>
 					<p className="max-w-xl body-copy text-white/75">
-						Contact Covenant Builders today for a free consultation and let us
-						turn your ideas into reality.
+						Tell us what you are building and we will come look at it. Estimates
+						are free, and we typically reply within one business day.
 					</p>
 					<div className="flex flex-wrap gap-4 pt-2">
 						<Link href="/contact" className="btn-primary">
-							Get your free consultation
+							Request an estimate
 						</Link>
 						<a href={siteConfig.phones.sr.href} className="btn-secondary">
 							Call {siteConfig.phones.sr.display}
