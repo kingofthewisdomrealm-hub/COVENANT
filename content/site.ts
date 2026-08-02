@@ -70,13 +70,17 @@ export const siteConfig = {
 		'We typically respond to estimate requests within one business day.',
 } as const
 
+/**
+ * Main navigation. Investors deliberately lives in the footer only — this site's
+ * job is converting homeowners, and an Investors tab raises a question most
+ * visitors shouldn't be asking. See docs/website-copy-plan.md.
+ */
 export const navLinks = [
 	{ href: '/', label: 'Home' },
 	{ href: '/services', label: 'Services' },
 	{ href: '/portfolio', label: 'Portfolio' },
 	{ href: '/about', label: 'About' },
 	{ href: '/contact', label: 'Contact' },
-	{ href: '/investors', label: 'Investors' },
 ] as const
 
 /**
@@ -397,28 +401,60 @@ export const services = [
 	},
 ] as const
 
+/**
+ * Five reasons — the COMPANY set. Renders on the homepage.
+ *
+ * Every point here must be verifiable. We removed fabricated testimonials from
+ * the old site; unverifiable claims are the same problem wearing a suit.
+ * See docs/selling-points-plan.md — founder and product sets live on About and
+ * Services respectively.
+ */
 export const whyChooseUs = [
 	{
-		title: 'Licensed & accountable',
+		title: 'Licensed since 2005',
 		description:
-			'Florida Certified Building Contractor CBC1253676—active, verified, and accountable for the work we put our name on.',
+			'Florida Certified Building Contractor CBC1253676, active through 2028. Look it up on the state licence lookup before you call us — that is the point.',
 	},
 	{
-		title: 'Full-service construction',
+		title: 'We pull our own permits',
 		description:
-			'From design and permits to construction and finishing touches, we keep the process coordinated so you are not chasing details alone.',
+			'Building, and on commercial work fire marshal and health too. Most contractors our size hand that to a third party and lose sight of it.',
 	},
 	{
-		title: 'Craftsmanship first',
+		title: 'We are from here',
 		description:
-			'Our founder started as a cabinetmaker. That eye for detail still shapes how we build homes, kitchens, and commercial spaces.',
+			'Based in Vero Beach, working the Treasure Coast. After a storm you can find us — we do not leave when the work does.',
 	},
 	{
-		title: 'Clear communication',
+		title: 'Hablamos español',
 		description:
-			'We deliver excellent communication throughout the process, quality second to none, and a goal to exceed expectations.',
+			'Bilingual from the first phone call through the final walkthrough, so nothing important gets lost in translation.',
+	},
+	{
+		title: 'One contractor, start to finish',
+		description:
+			'New homes, kitchens, commercial, remodels and storm rebuilds under one licence — one point of accountability, not a chain of subcontracts you have to manage.',
 	},
 ] as const
+
+/**
+ * Reference offer — stands in for reviews until real ones exist.
+ *
+ * Deliberately does NOT announce that reviews are missing. Naming the absence
+ * makes a visitor think about it who wasn't, and reads apologetic for a firm
+ * licensed 21 years. References are also the stronger signal for high-ticket
+ * construction — a homeowner spending six figures would rather call two past
+ * clients than read star ratings.
+ *
+ * REMOVE this section once real reviews exist. See docs/website-copy-plan.md.
+ * Before publishing: confirm permission from any client we would name.
+ */
+export const referenceOffer = {
+	eyebrow: 'References',
+	title: "Don't take our word for it",
+	lead: "Most contractors send you to a review page. We'll give you a phone number.",
+	body: 'Ask and we will connect you with recent clients here on the Treasure Coast. Talk to them directly, and ask them whatever you want.',
+} as const
 
 export type ProjectCategory = 'residential' | 'commercial' | 'remodel'
 

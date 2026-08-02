@@ -5,22 +5,56 @@ import { Hero } from '@/components/hero'
 import { ProjectGallery } from '@/components/project-gallery'
 import { SectionHeading } from '@/components/section-heading'
 import { TrustBand } from '@/components/trust-band'
-import { services, siteConfig, whyChooseUs } from '@/content/site'
+import {
+	referenceOffer,
+	services,
+	siteConfig,
+	whyChooseUs,
+} from '@/content/site'
 
 export default function HomePage() {
 	return (
 		<>
+			{/*
+			 * The headline names the visitor's actual fear — hiring the wrong
+			 * contractor — and answers it with the one thing competitors can't
+			 * copy: a licence you can check in thirty seconds.
+			 * See docs/website-copy-plan.md.
+			 */}
 			<Hero
-				headline="Building your vision with quality and precision"
-				support="From custom homes and dream kitchens to commercial builds and storm restoration, we make your project a reality across Vero Beach and the Treasure Coast."
-				primaryCta={{ href: '/contact', label: 'Contact us' }}
-				secondaryCta={{ href: '/portfolio', label: 'View work' }}
+				headline="A Florida builder you can verify before you call"
+				support="Licensed since 2005 — CBC1253676. Homes, kitchens, commercial projects, remodels, and storm restoration across Vero Beach and the Treasure Coast."
+				primaryCta={{ href: '/contact', label: 'Request an estimate' }}
+				secondaryCta={{
+					href: siteConfig.phones.sr.href,
+					label: `Call ${siteConfig.phones.sr.display}`,
+				}}
 			/>
 
+			{/* The proof the headline promises — second thing on the page, not fifth. */}
 			<TrustBand />
 
 			<section className="surface-atmosphere py-20 sm:py-28">
-				<div className="section-shell grid items-center gap-12 lg:grid-cols-2">
+				<div className="section-shell grid items-start gap-12 lg:grid-cols-[1.1fr_1fr]">
+					<div className="reveal space-y-5">
+						<p className="eyebrow">{referenceOffer.eyebrow}</p>
+						<h2 className="display-title">{referenceOffer.title}</h2>
+						<p className="font-display text-2xl leading-snug text-navy">
+							{referenceOffer.lead}
+						</p>
+						<p className="body-copy">{referenceOffer.body}</p>
+						<div className="flex flex-wrap gap-4 pt-2">
+							<a href={siteConfig.phones.sr.href} className="btn-primary">
+								Call {siteConfig.phones.sr.display}
+							</a>
+							<a
+								href={`mailto:${siteConfig.emails.estimating}`}
+								className="btn-secondary"
+							>
+								Email us
+							</a>
+						</div>
+					</div>
 					<div className="relative">
 						<div className="absolute -left-4 -top-4 h-full w-full bg-sand/30" />
 						<div className="relative overflow-hidden">
@@ -32,27 +66,6 @@ export default function HomePage() {
 								className="h-auto w-full object-cover"
 							/>
 						</div>
-					</div>
-					<div className="reveal space-y-5">
-						<p className="eyebrow">Introduction</p>
-						<h2 className="display-title">We build your dreams</h2>
-						<p className="body-copy">
-							At Covenant Builders, we specialize in creating exceptional spaces.
-							Whether you are expanding with a commercial property, building a
-							custom home, or upgrading your kitchen with high-end cabinetry, we
-							deliver a seamless start-to-finish construction process.
-						</p>
-						<p className="body-copy">
-							With decades of licensed experience and a commitment to quality, we
-							work to complete your project on time, within budget, and to a
-							standard you can stand behind.
-						</p>
-						<p className="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-sand-dark">
-							{siteConfig.bilingualNote}
-						</p>
-						<Link href="/about" className="link-underline">
-							Meet the builder
-						</Link>
 					</div>
 				</div>
 			</section>
@@ -89,9 +102,9 @@ export default function HomePage() {
 			<section className="surface-atmosphere py-20 sm:py-28">
 				<div className="section-shell space-y-12">
 					<SectionHeading
-						eyebrow="Why choose us"
-						title="A builder you can verify"
-						description="No inflated counters. No placeholder praise. Just licensed accountability, craftsmanship, and clear communication."
+						eyebrow="Why Covenant"
+						title="Five reasons to call us"
+						description="No inflated counters. No placeholder praise. Every one of these you can check."
 					/>
 					<ul className="grid gap-8 sm:grid-cols-2">
 						{whyChooseUs.map((item) => (
@@ -101,32 +114,6 @@ export default function HomePage() {
 							</li>
 						))}
 					</ul>
-				</div>
-			</section>
-
-			<section className="bg-stone-warm py-16 sm:py-20">
-				<div className="section-shell space-y-8">
-					<SectionHeading
-						eyebrow="Service areas"
-						title="Building across the Treasure Coast"
-						description="We take on residential and commercial work throughout Vero Beach and nearby Treasure Coast communities."
-					/>
-					<ul className="flex flex-wrap gap-x-8 gap-y-3">
-						{siteConfig.serviceCities.map((city) => (
-							<li
-								key={city}
-								className="font-sans text-sm font-semibold uppercase tracking-[0.14em] text-navy/80"
-							>
-								{city}
-							</li>
-						))}
-						<li className="font-sans text-sm font-semibold uppercase tracking-[0.14em] text-navy/80">
-							Treasure Coast
-						</li>
-					</ul>
-					<Link href="/contact" className="link-underline">
-						Request an estimate in your area
-					</Link>
 				</div>
 			</section>
 

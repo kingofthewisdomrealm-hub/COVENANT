@@ -40,8 +40,14 @@ export function TrustBand() {
 				))}
 			</div>
 			<div className="section-shell flex flex-col gap-3 pb-6 sm:flex-row sm:items-center sm:justify-between">
+				{/*
+				 * Service areas named explicitly rather than as a separate section —
+				 * a homeowner scanning for their town finds it here, and it earns
+				 * its place in local search. See docs/website-copy-plan.md.
+				 */}
 				<p className="font-sans text-sm text-white/70">
-					{siteConfig.serviceArea} · {siteConfig.bilingualNote} · Mon–Fri 9–5
+					{siteConfig.serviceCities.join(' · ')} · {siteConfig.bilingualNote} ·
+					Mon–Fri 9–5
 				</p>
 				<a
 					href={siteConfig.license.dbprLookupUrl}

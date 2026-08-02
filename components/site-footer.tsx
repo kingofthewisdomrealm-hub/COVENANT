@@ -42,6 +42,15 @@ export function SiteFooter() {
 								</Link>
 							</li>
 						))}
+						{/* Investors lives here rather than in the main nav — see content/site.ts */}
+						<li>
+							<Link
+								href="/investors"
+								className="font-sans text-sm text-white/80 transition hover:text-sand"
+							>
+								Investors
+							</Link>
+						</li>
 						<li>
 							<Link
 								href="/privacy"
