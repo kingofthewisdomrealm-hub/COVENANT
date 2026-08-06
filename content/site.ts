@@ -37,9 +37,9 @@ export const siteConfig = {
 			'We are relocating from our previous address at 5400 85th St. Please use the address above.',
 	},
 	emails: {
-		info: 'info@covenantbuilders.org',
-		estimating: 'estimating@covenantbuilders.org',
-		josias: 'josias@covenantbuilders.org',
+		info: 'estimates@covenantbuilders.org',
+		estimating: 'estimates@covenantbuilders.org',
+		josias: 'estimates@covenantbuilders.org',
 	},
 	phones: {
 		sr: {
