@@ -7,7 +7,7 @@ import { siteConfig } from '@/content/site'
 export const metadata: Metadata = {
 	title: 'Get a Free Construction Estimate | Vero Beach, FL',
 	description:
-		'Request a free construction estimate from Covenant Builders in Vero Beach. Call (772) 473-7115 or email estimating@covenantbuilders.org. Licensed CBC1253676.',
+		'Request a free construction estimate from Covenant Builders in Vero Beach. Call (772) 473-7115 or email estimates@covenantbuilders.org. Licensed CBC1253676.',
 	alternates: { canonical: '/contact' },
 }
 
