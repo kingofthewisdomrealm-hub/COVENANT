@@ -86,6 +86,7 @@ export const navLinks = [
 	{ href: '/portfolio', label: 'Portfolio' },
 	{ href: '/about', label: 'About' },
 	{ href: '/contact', label: 'Contact' },
+	{ href: '/homeowner-programs', label: 'Programs that help homeowners' },
 ] as const
 
 /**
