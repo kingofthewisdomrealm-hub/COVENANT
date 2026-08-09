@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		'/portfolio',
 		'/about',
 		'/contact',
+		'/homeowner-programs',
 		'/privacy',
 	]
 
