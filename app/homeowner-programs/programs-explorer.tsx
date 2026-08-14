@@ -785,6 +785,13 @@ const areas: Area[] = [
 	})),
 ]
 
+const areaDetails: Record<string, string> = {
+	harden: 'MSFH grants, condo pilot, weatherization',
+	disputes: 'Free state mediation & the DFS helpline',
+	'repair-money': 'SHIP, USDA, FEMA & SBA aid',
+	'taxes-relief': 'Homestead, storm-damage refunds, VA grants',
+}
+
 const areaShortLabels: Record<string, string> = {
 	harden: 'Harden your home',
 	disputes: 'Insurance disputes',
@@ -900,7 +907,7 @@ export function ProgramsExplorer() {
 											<span
 												className={`mt-2 block font-sans text-xs sm:text-sm ${active ? 'text-white/70' : 'text-stone-muted'}`}
 											>
-												{area.detail}
+												{areaDetails[area.id] ?? area.detail}
 											</span>
 										</span>
 										<span
