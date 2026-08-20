@@ -7,11 +7,38 @@ import { SectionHeading } from '@/components/section-heading'
 import { TrustBand } from '@/components/trust-band'
 import { siteConfig } from '@/content/site'
 
+const SHARE_TITLE = 'Design your project. Get a straight answer.'
+const SHARE_DESCRIPTION =
+	'Answer a few questions about what you want built. In about five minutes you will have a written project brief — and a licensed Vero Beach builder ready to walk the property with you. Free, no obligation.'
+
+/**
+ * openGraph and twitter are set explicitly here, not inherited.
+ *
+ * The root layout's social card describes the company in general. Since the
+ * site's root URL now sends visitors to this page, that card was what showed
+ * up every time anyone shared covenantbuilders.org — in a text message, a
+ * Facebook post, an ad preview — so the offer never appeared in the one place
+ * people decide whether to click. The card image lives in
+ * ./opengraph-image.tsx.
+ */
 export const metadata: Metadata = {
 	title: 'Design Your Project — Free Online Project Planner | Vero Beach, FL',
 	description:
 		'Design your construction project online in about five minutes and get a written project brief — free, no obligation. New homes, remodels, kitchens, commercial and condo association work on the Treasure Coast.',
 	alternates: { canonical: '/design-your-project' },
+	openGraph: {
+		title: SHARE_TITLE,
+		description: SHARE_DESCRIPTION,
+		url: '/design-your-project',
+		type: 'website',
+		// The image comes from ./opengraph-image.tsx — Next.js gives file-based
+		// metadata precedence and ignores an `images` array declared here.
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: SHARE_TITLE,
+		description: SHARE_DESCRIPTION,
+	},
 }
 
 /**

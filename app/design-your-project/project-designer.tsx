@@ -129,9 +129,22 @@ export function ProjectDesigner() {
 	}
 
 	const chooseType = (key: BranchKey) => {
-		// Changing branch invalidates every branch-specific answer below it.
-		setAnswers({ ...EMPTY, projectType: key })
-		track('design_start', { branch: key })
+		/**
+		 * Only wipe the later answers when the branch actually CHANGES.
+		 *
+		 * Every question after step 1 is branch-specific, so switching from a
+		 * kitchen to a condo has to clear them. But someone who walks back to
+		 * step 1 just to re-read the options and taps the same tile again is not
+		 * changing anything — resetting them there silently threw away four
+		 * steps of work, which is the fastest way to lose a nearly-finished
+		 * brief.
+		 */
+		setAnswers((current) =>
+			current.projectType === key ? current : { ...EMPTY, projectType: key }
+		)
+		if (answers.projectType !== key) {
+			track('design_start', { branch: key })
+		}
 		goTo(2)
 	}
 
@@ -414,7 +427,7 @@ export function ProjectDesigner() {
 										<button
 											type="button"
 											onClick={() => goTo(5)}
-											className="font-sans text-sm text-stone-muted underline underline-offset-4 hover:text-navy"
+											className="inline-flex min-h-[44px] items-center font-sans text-sm text-stone-muted underline underline-offset-4 hover:text-navy"
 										>
 											Back
 										</button>
@@ -439,7 +452,7 @@ export function ProjectDesigner() {
 									<button
 										type="button"
 										onClick={() => goTo(step - 1)}
-										className="font-sans text-sm text-stone-muted underline underline-offset-4 hover:text-navy"
+										className="inline-flex min-h-[44px] items-center font-sans text-sm text-stone-muted underline underline-offset-4 hover:text-navy"
 									>
 										Back
 									</button>
@@ -548,7 +561,7 @@ function StepOne({ onChoose }: { onChoose: (key: BranchKey) => void }) {
 				<button
 					type="button"
 					onClick={() => onChoose(fallback.key)}
-					className="mt-5 font-sans text-sm text-stone-muted underline underline-offset-4 hover:text-navy"
+					className="mt-3 inline-flex min-h-[44px] items-center font-sans text-sm text-stone-muted underline underline-offset-4 hover:text-navy"
 				>
 					{fallback.label}
 				</button>
@@ -794,7 +807,7 @@ function Results({
 			<button
 				type="button"
 				onClick={onRestart}
-				className="mt-6 font-sans text-sm text-stone-muted underline underline-offset-4 hover:text-navy"
+				className="mt-6 inline-flex min-h-[44px] items-center font-sans text-sm text-stone-muted underline underline-offset-4 hover:text-navy"
 			>
 				Design another project
 			</button>
