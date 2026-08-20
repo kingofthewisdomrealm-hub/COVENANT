@@ -73,6 +73,20 @@ export const siteConfig = {
 	bilingualNote: 'Bilingual company. Hablamos español.',
 	responseExpectation:
 		'We typically respond to estimate requests within one business day.',
+	/**
+	 * Cal.com booking link for the free walkthrough, as `username/event-slug`
+	 * (no domain). Set it and the project designer's results screen swaps its
+	 * phone-only call to action for a live booking calendar.
+	 *
+	 * Leave it empty and everything degrades to the phone number — which is
+	 * why an unset or wrong value can never break the page. This matters more
+	 * than it sounds: form leads convert to signed work at roughly 8–12%,
+	 * booked phone conversations at roughly 46%, so the calendar is the single
+	 * highest-value element on that screen.
+	 */
+	booking: {
+		calLink: '',
+	},
 } as const
 
 /**
