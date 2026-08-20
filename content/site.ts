@@ -85,7 +85,7 @@ export const siteConfig = {
 	 * highest-value element on that screen.
 	 */
 	booking: {
-		calLink: '',
+		calLink: 'joe-andujar-tw8nn2/30min',
 	},
 } as const
 
