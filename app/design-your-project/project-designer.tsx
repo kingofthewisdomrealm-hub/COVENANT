@@ -4,6 +4,7 @@ import { track } from '@vercel/analytics'
 import { useAction } from 'next-safe-action/hooks'
 import { useRef, useState } from 'react'
 
+import { CalEmbed } from './cal-embed'
 import { submitProjectDesign } from '@/app/actions/design'
 import {
 	BRIEF_DISCLAIMER,
@@ -775,20 +776,10 @@ function Results({
 				<p className="mt-3 body-copy">
 					Everything above is what you told us. What we do not know yet is what is
 					behind your walls, under your slab, or how your lot drains. That is a
-					walkthrough — usually under an hour, and there is no charge for it.
+					walkthrough — usually under an hour, and there is no charge for
+					it. Pick a time that suits you.
 				</p>
-				<div className="mt-6 flex flex-wrap items-center gap-4">
-					<a
-						href={siteConfig.phones.sr.href}
-						className="btn-primary"
-						onClick={() => track('design_book_walkthrough')}
-					>
-						Call {siteConfig.phones.sr.display}
-					</a>
-					<span className="font-sans text-sm text-stone-muted">
-						Or wait for us — {siteConfig.responseExpectation.toLowerCase()}
-					</span>
-				</div>
+				<CalEmbed calLink={siteConfig.booking.calLink} />
 			</div>
 
 			<p className="mt-10 border-t border-navy/10 pt-5 font-sans text-xs leading-relaxed text-stone-muted">
