@@ -54,6 +54,21 @@ const designSchema = z.object({
 		.min(5, 'Please enter the project address')
 		.max(300),
 	notes: z.string().trim().max(4000).optional(),
+	/**
+	 * The optional floor-plan sketch, rasterised in the browser.
+	 *
+	 * Capped hard. Next.js server actions reject bodies over 1MB by default, so
+	 * an oversized image would fail the whole submission — losing a finished
+	 * brief over a decorative picture. The regex also refuses anything that is
+	 * not a PNG data URL, because this value is handed straight to an email
+	 * attachment.
+	 */
+	planImage: z
+		.string()
+		.regex(/^data:image\/png;base64,[A-Za-z0-9+/=]+$/, 'Unsupported image')
+		.max(700_000)
+		.optional(),
+	planSummary: z.string().trim().max(2000).optional(),
 	website: z.string().max(0).optional(),
 })
 
@@ -176,11 +191,29 @@ export const submitProjectDesign = actionClient
 			].join('\n'),
 		}
 
+		/**
+		 * The sketch is attached to the visitor's copy only.
+		 *
+		 * That was a deliberate call: the drawing is there to help them think,
+		 * not to price the job, and the estimator works from the written scope.
+		 * Attaching it to the internal notification as well is a one-line change
+		 * — add the same `attachments` array to internalPayload.
+		 */
+		const planAttachment = parsedInput.planImage
+			? [
+					{
+						filename: 'project-sketch.png',
+						content: parsedInput.planImage.split(',')[1],
+					},
+				]
+			: undefined
+
 		const clientPayload = {
 			from: fromEmail,
 			to: [parsedInput.email],
 			replyTo: siteConfig.emails.estimating,
 			subject: 'Your project brief — Covenant Builders',
+			...(planAttachment ? { attachments: planAttachment } : {}),
 			text: [
 				`Hi ${parsedInput.name.split(' ')[0]},`,
 				'',
@@ -190,6 +223,9 @@ export const submitProjectDesign = actionClient
 				'',
 				'----------------------------------------',
 				brief,
+				parsedInput.planSummary
+					? `\nYour sketch:\n${parsedInput.planSummary}`
+					: '',
 				'----------------------------------------',
 				'',
 				`If you would like us to come look at the property, call ${siteConfig.phones.sr.display}. Usually under an hour. No charge, no pitch.`,
