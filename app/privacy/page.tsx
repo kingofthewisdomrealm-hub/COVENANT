@@ -26,6 +26,12 @@ export default function PrivacyPage() {
 						When you use our estimate form, we collect the name, email address,
 						phone number, project address, project type, and message you provide.
 					</p>
+					<p className="body-copy">
+						When you use our project designer, we collect the same contact details
+						together with the project answers you select — property type, city,
+						scope, size, finish level, board stage, timeline, and budget range —
+						and any notes you add.
+					</p>
 				</div>
 
 				<div className="space-y-4">
