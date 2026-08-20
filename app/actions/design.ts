@@ -120,6 +120,20 @@ export const submitProjectDesign = actionClient
 		const brief = formatDesignBrief(parsedInput)
 
 		/**
+		 * Two versions of the brief, on purpose.
+		 *
+		 * Covenant gets the full picture: the written scope PLUS the sketch's
+		 * room-by-room measurements, so an estimator can work from numbers
+		 * without opening an attachment. The visitor gets the brief and the
+		 * drawing itself — a picture of what they described, not a table of
+		 * their own dimensions read back at them.
+		 */
+		const sketchSection = parsedInput.planSummary
+			? `\n\nSketch (image attached):\n${parsedInput.planSummary}`
+			: ''
+		const briefForCovenant = `${brief}${sketchSection}`
+
+		/**
 		 * Phase 1 CRM handoff: flatten into the existing submit_website_lead RPC.
 		 *
 		 * p_category has to be one of the six job_category enum values or the RPC
@@ -142,7 +156,7 @@ export const submitProjectDesign = actionClient
 				phone: parsedInput.phone,
 				projectAddress: parsedInput.projectAddress,
 				projectType: branch?.crmCategory || 'other',
-				message: brief,
+				message: briefForCovenant,
 			})
 		} catch (crmError) {
 			crmFailed = true
@@ -172,33 +186,7 @@ export const submitProjectDesign = actionClient
 
 		const resend = new Resend(apiKey)
 
-		const internalPayload = {
-			from: fromEmail,
-			to: toEmails,
-			replyTo: parsedInput.email,
-			subject,
-			text: [
-				'New project design from covenantbuilders.org',
-				'',
-				`Name: ${parsedInput.name}`,
-				`Email: ${parsedInput.email}`,
-				`Phone: ${parsedInput.phone}`,
-				`Project address: ${parsedInput.projectAddress}`,
-				'',
-				brief,
-				'',
-				crmLine,
-			].join('\n'),
-		}
-
-		/**
-		 * The sketch is attached to the visitor's copy only.
-		 *
-		 * That was a deliberate call: the drawing is there to help them think,
-		 * not to price the job, and the estimator works from the written scope.
-		 * Attaching it to the internal notification as well is a one-line change
-		 * — add the same `attachments` array to internalPayload.
-		 */
+		/** Attached to BOTH emails: Covenant needs to see what they drew. */
 		const planAttachment = parsedInput.planImage
 			? [
 					{
@@ -207,6 +195,26 @@ export const submitProjectDesign = actionClient
 					},
 				]
 			: undefined
+
+		const internalPayload = {
+			from: fromEmail,
+			to: toEmails,
+			replyTo: parsedInput.email,
+			subject,
+			...(planAttachment ? { attachments: planAttachment } : {}),
+			text: [
+				'New project design from covenantbuilders.org',
+				'',
+				`Name: ${parsedInput.name}`,
+				`Email: ${parsedInput.email}`,
+				`Phone: ${parsedInput.phone}`,
+				`Project address: ${parsedInput.projectAddress}`,
+				'',
+				briefForCovenant,
+				'',
+				crmLine,
+			].join('\n'),
+		}
 
 		const clientPayload = {
 			from: fromEmail,
@@ -223,11 +231,11 @@ export const submitProjectDesign = actionClient
 				'',
 				'----------------------------------------',
 				brief,
-				parsedInput.planSummary
-					? `\nYour sketch:\n${parsedInput.planSummary}`
-					: '',
 				'----------------------------------------',
 				'',
+				parsedInput.planImage
+					? 'Your sketch is attached as a picture.\n'
+					: '',
 				`If you would like us to come look at the property, call ${siteConfig.phones.sr.display}. Usually under an hour. No charge, no pitch.`,
 				'',
 				siteConfig.responseExpectation,
