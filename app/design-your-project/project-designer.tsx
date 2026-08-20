@@ -5,6 +5,14 @@ import { useAction } from 'next-safe-action/hooks'
 import { useRef, useState } from 'react'
 
 import { CalEmbed } from './cal-embed'
+import {
+	PlanPreview,
+	PlanSketcher,
+	planSummary,
+	renderPlanToPng,
+	totalSquareFeet,
+	type Room,
+} from './plan-sketcher'
 import { submitProjectDesign } from '@/app/actions/design'
 import {
 	BRIEF_DISCLAIMER,
@@ -34,7 +42,15 @@ import { siteConfig } from '@/content/site'
  * with plain state.
  */
 
-const TOTAL_STEPS = 6
+/**
+ * Seven steps, one of which (the sketch) is optional and skippable.
+ *
+ * Adding a step to a form that already converts is a real risk, so the sketch
+ * sits behind an obvious Skip and never blocks Continue. If completion drops
+ * after this ships, this step is the first thing to look at.
+ */
+const TOTAL_STEPS = 7
+const SKETCH_STEP = 5
 
 const CITY_OPTIONS = [...siteConfig.serviceCities, 'Somewhere else'] as const
 
@@ -59,6 +75,7 @@ interface Answers {
 	phone: string
 	projectAddress: string
 	notes: string
+	rooms: Room[]
 }
 
 const EMPTY: Answers = {
@@ -76,6 +93,7 @@ const EMPTY: Answers = {
 	phone: '',
 	projectAddress: '',
 	notes: '',
+	rooms: [],
 }
 
 export function ProjectDesigner() {
@@ -160,7 +178,7 @@ export function ProjectDesigner() {
 				? answers.scope.length > 0
 				: step === 4
 					? stepFourComplete
-					: step === 5
+					: step === 6
 						? Boolean(answers.timeline && answers.budgetBand)
 						: true
 
@@ -183,6 +201,14 @@ export function ProjectDesigner() {
 			phone: answers.phone,
 			projectAddress: answers.projectAddress,
 			notes: answers.notes || undefined,
+			/**
+			 * Rasterised in the browser, not on the server. Turning the plan into
+			 * a PNG here means no image hosting, no storage bucket and no
+			 * server-side renderer — the picture travels as an email attachment
+			 * and nothing has to outlive the request.
+			 */
+			planImage: answers.rooms.length ? renderPlanToPng(answers.rooms) || undefined : undefined,
+			planSummary: answers.rooms.length ? planSummary(answers.rooms) : undefined,
 			website: '',
 		})
 	}
@@ -307,7 +333,25 @@ export function ProjectDesigner() {
 								)
 							) : null}
 
-							{step === 5 ? (
+							{step === SKETCH_STEP ? (
+								<>
+									<Question
+										title="Want to sketch the space?"
+										help="Completely optional. Rough boxes are genuinely useful to us — nobody expects a drawing."
+									/>
+									<PlanSketcher
+										rooms={answers.rooms}
+										onChange={(rooms) => set('rooms', rooms)}
+									/>
+									<Reassurance>
+										Skip this and nothing is lost — we measure properly at the
+										walkthrough either way. A sketch just means we arrive already
+										picturing what you have in mind.
+									</Reassurance>
+								</>
+							) : null}
+
+							{step === 6 ? (
 								<>
 									<Question title="When would you like this done?" />
 									<ChipRow
@@ -335,7 +379,7 @@ export function ProjectDesigner() {
 								</>
 							) : null}
 
-							{step === 6 ? (
+							{step === 7 ? (
 								<form onSubmit={handleSubmit} noValidate>
 									<Question
 										title="Where should we send your brief?"
@@ -426,7 +470,7 @@ export function ProjectDesigner() {
 									<div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-navy/10 pt-6">
 										<button
 											type="button"
-											onClick={() => goTo(5)}
+											onClick={() => goTo(6)}
 											className="inline-flex min-h-[44px] items-center font-sans text-sm text-stone-muted underline underline-offset-4 hover:text-navy"
 										>
 											Back
@@ -447,7 +491,7 @@ export function ProjectDesigner() {
 								</form>
 							) : null}
 
-							{step > 1 && step < 6 ? (
+							{step > 1 && step < 7 ? (
 								<div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-navy/10 pt-6">
 									<button
 										type="button"
@@ -456,14 +500,28 @@ export function ProjectDesigner() {
 									>
 										Back
 									</button>
-									<button
-										type="button"
-										onClick={advance}
-										disabled={!canAdvance}
-										className="btn-primary disabled:cursor-not-allowed disabled:opacity-40"
-									>
-										Continue
-									</button>
+									<div className="flex flex-wrap items-center gap-4">
+										{step === SKETCH_STEP ? (
+											<button
+												type="button"
+												onClick={() => {
+													track('design_sketch_skipped')
+													goTo(step + 1)
+												}}
+												className="inline-flex min-h-[44px] items-center font-sans text-sm text-stone-muted underline underline-offset-4 hover:text-navy"
+											>
+												Skip this
+											</button>
+										) : null}
+										<button
+											type="button"
+											onClick={advance}
+											disabled={!canAdvance}
+											className="btn-primary disabled:cursor-not-allowed disabled:opacity-40"
+										>
+											Continue
+										</button>
+									</div>
 								</div>
 							) : null}
 						</>
@@ -480,6 +538,9 @@ function Progress({ step, done }: { step: number; done: boolean }) {
 			<div className="flex flex-wrap items-center justify-between gap-3">
 				<p className="font-sans text-sm font-semibold">
 					{done ? 'Your project brief' : `Step ${step} of ${TOTAL_STEPS}`}
+					{!done && step === SKETCH_STEP ? (
+						<span className="ml-2 font-normal text-sand">optional</span>
+					) : null}
 					{done ? null : (
 						<span className="ml-2 font-normal text-white/60">
 							about {Math.max(15, (TOTAL_STEPS + 1 - step) * 15)} seconds left
@@ -768,6 +829,20 @@ function Results({
 						</div>
 					))}
 			</dl>
+
+			{answers.rooms.length ? (
+				<div className="mt-8">
+					<h3 className="font-display text-xl tracking-tight text-navy">
+						Your sketch
+					</h3>
+					<p className="mt-2 font-sans text-sm text-stone-muted">
+						{totalSquareFeet(answers.rooms)} sq ft across {answers.rooms.length}{' '}
+						{answers.rooms.length === 1 ? 'space' : 'spaces'}. A copy is attached
+						to the email on its way to you.
+					</p>
+					<PlanPreview rooms={answers.rooms} />
+				</div>
+			) : null}
 
 			{answers.projectType === 'condo' ? (
 				<p className="mt-6 border border-sand-dark/40 bg-sand/10 px-5 py-4 font-sans text-sm leading-relaxed text-navy">
