@@ -94,8 +94,12 @@ export const siteConfig = {
  * job is converting homeowners, and an Investors tab raises a question most
  * visitors shouldn't be asking. See docs/website-copy-plan.md.
  */
+/*
+ * 'Home' is deliberately absent: the root URL now redirects to the project
+ * designer, so a Home link would be a second nav item pointing at the same
+ * destination as 'Design your project'. The wordmark still links to '/'.
+ */
 export const navLinks = [
-	{ href: '/', label: 'Home' },
 	{ href: '/services', label: 'Services' },
 	{ href: '/portfolio', label: 'Portfolio' },
 	{ href: '/about', label: 'About' },
