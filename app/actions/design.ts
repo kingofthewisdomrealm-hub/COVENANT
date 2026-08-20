@@ -157,7 +157,7 @@ export const submitProjectDesign = actionClient
 
 		const resend = new Resend(apiKey)
 
-		const internalEmail = resend.emails.send({
+		const internalPayload = {
 			from: fromEmail,
 			to: toEmails,
 			replyTo: parsedInput.email,
@@ -174,14 +174,9 @@ export const submitProjectDesign = actionClient
 				'',
 				crmLine,
 			].join('\n'),
-		})
+		}
 
-		/**
-		 * The prospect's copy of their own brief. Promised on the last step of the
-		 * wizard, so it has to go out — but it must never block the internal
-		 * notification, which is the one that actually earns the job.
-		 */
-		const clientEmail = resend.emails.send({
+		const clientPayload = {
 			from: fromEmail,
 			to: [parsedInput.email],
 			replyTo: siteConfig.emails.estimating,
@@ -206,20 +201,72 @@ export const submitProjectDesign = actionClient
 				'',
 				BRIEF_DISCLAIMER,
 			].join('\n'),
-		})
+		}
 
-		const [internalResult] = await Promise.all([
-			internalEmail,
-			clientEmail.catch((error) => {
-				console.error('Client brief email failed:', error)
-				return null
-			}),
-		])
+		/**
+		 * SEND SEQUENTIALLY. NEVER IN PARALLEL.
+		 *
+		 * Resend rate-limits at roughly two requests per second. An earlier
+		 * version built both emails with `resend.emails.send(...)` and awaited
+		 * them together, which fired both API calls in the same tick — enough
+		 * for Resend to reject one, which made this action throw and showed the
+		 * visitor a red error on a submission that had otherwise worked
+		 * perfectly. The contact form never hit this because it only ever sends
+		 * one email. One retry after a pause covers the transient case.
+		 */
+		const sendWithRetry = async (
+			label: string,
+			payload: Parameters<typeof resend.emails.send>[0]
+		) => {
+			for (let attempt = 1; attempt <= 2; attempt += 1) {
+				try {
+					const { error } = await resend.emails.send(payload)
+					if (!error) return true
+					console.error(`Resend error (${label}, attempt ${attempt}):`, error)
+				} catch (thrown) {
+					console.error(`Resend threw (${label}, attempt ${attempt}):`, thrown)
+				}
+				if (attempt === 1) {
+					await new Promise((resolve) => setTimeout(resolve, 1200))
+				}
+			}
+			return false
+		}
 
-		if (internalResult?.error) {
-			console.error('Resend error:', internalResult.error)
+		const internalSent = await sendWithRetry('internal', internalPayload)
+		// A gap so the client's copy cannot collide with the notification.
+		await new Promise((resolve) => setTimeout(resolve, 700))
+		const clientSent = await sendWithRetry('client copy', clientPayload)
+
+		/**
+		 * Only fail the visitor when NOTHING captured the lead.
+		 *
+		 * If the CRM row was written, the job exists in the system of record and
+		 * the submission genuinely succeeded. Telling the visitor otherwise
+		 * throws away a finished brief and the trust that came with it, and
+		 * invites them to submit again — which produces duplicate CRM rows and
+		 * more rate-limited sends. An email that did not go out is an operations
+		 * problem, not the visitor's problem: log it loudly, let them through.
+		 */
+		if (!internalSent && !crmProjectId) {
+			console.error(
+				'LEAD LOST — no CRM row and no notification email:',
+				parsedInput.email
+			)
 			throw new Error(
 				'We could not send your brief. Please call or email us directly.'
+			)
+		}
+
+		if (!internalSent) {
+			console.error(
+				`NOTIFICATION EMAIL FAILED but the lead is safe in the CRM: ${crmProjectId}`
+			)
+		}
+
+		if (!clientSent) {
+			console.error(
+				`Client copy of the brief failed to send to: ${parsedInput.email}`
 			)
 		}
 
