@@ -64,7 +64,9 @@ export function planSummary(rooms: readonly Room[]) {
 	const lines = rooms.map(
 		(room) => `${room.name || 'Room'}: ${room.w} x ${room.h} ft (${room.w * room.h} sq ft)`
 	)
-	lines.push(`Total: ${totalSquareFeet(rooms)} sq ft across ${rooms.length} spaces`)
+	lines.push(
+		`Total: ${totalSquareFeet(rooms)} sq ft across ${rooms.length} ${rooms.length === 1 ? 'space' : 'spaces'}`
+	)
 	return lines.join('\n')
 }
 
