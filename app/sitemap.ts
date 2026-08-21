@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 	// sitemap should not list URLs that redirect.
 	const routes = [
 		'/design-your-project',
+		'/storm-check',
 		'/services',
 		'/portfolio',
 		'/about',
