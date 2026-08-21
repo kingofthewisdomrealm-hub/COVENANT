@@ -10,7 +10,7 @@ const SHARE_DESCRIPTION =
 	'A two-minute game from a licensed Florida contractor. Drag the steps onto the roof — or the whole house — in the real order. Get it wrong and it leaks.'
 
 export const metadata: Metadata = {
-	title: 'Roof Raiser — the build-it-in-order game | Covenant Builders',
+	title: 'Roof Raiser — the build-it-in-order game',
 	description:
 		'Learn how a Florida roof and a concrete-block house actually go together, one step at a time, by playing. Real inspection order, real steps, zero jargon.',
 	alternates: { canonical: '/play' },
