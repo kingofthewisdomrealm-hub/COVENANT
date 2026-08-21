@@ -106,6 +106,7 @@ export const navLinks = [
 	{ href: '/contact', label: 'Contact' },
 	{ href: '/design-your-project', label: 'Design your project' },
 	{ href: '/homeowner-programs', label: 'Programs that help homeowners' },
+	{ href: '/play', label: 'Play' },
 ] as const
 
 /**
