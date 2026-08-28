@@ -19,8 +19,8 @@ export default function AboutPage() {
 		<>
 			<Hero
 				compact
-				headline="A licensed builder rooted in craft"
-				support="Covenant Builders is led by Josias Andujar—cabinetmaker by training, Florida Certified Building Contractor by credential, and Treasure Coast builder by home."
+				headline="The builder you can look up before you ever call"
+				support="Letting a contractor near your property takes trust, and trust shouldn't run on promises. Covenant Builders is led by Josias Andujar — cabinetmaker by training, Florida Certified Building Contractor by credential, Treasure Coast neighbor by home — and everything on this page can be verified with the state."
 				primaryCta={{ href: '/contact', label: 'Work with us' }}
 				imageSrc="/images/portfolio/project-02.jpg"
 				imageAlt="Crane setting roof trusses on a Covenant Builders home under construction on the Treasure Coast"
