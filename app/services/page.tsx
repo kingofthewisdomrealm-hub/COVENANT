@@ -19,18 +19,19 @@ export default function ServicesPage() {
 		<>
 			<Hero
 				compact
-				headline="Services built around real project needs"
-				support="Our services cover new homes, custom kitchens, commercial builds, remodels, and storm restoration—with clear scope and licensed accountability."
+				headline="Most construction stress isn't the construction."
+				support="It's the not knowing — what it really costs, how long it really takes, and who answers when something goes wrong. Every service below comes with the same fix: a written scope before work starts, a step-by-step process you can read before you sign, and one licensed builder accountable from start to finish."
 				primaryCta={{ href: '/contact', label: 'Request an estimate' }}
+				secondaryCta={{ href: '/design-your-project', label: 'Design your project' }}
 			/>
 			<TrustBand />
 
 			<section className="surface-atmosphere py-20 sm:py-28">
 				<div className="section-shell space-y-16">
 					<SectionHeading
-						eyebrow="Capabilities"
-						title="How we help you build"
-						description="Each service below matches what we actually deliver—no swapped template copy."
+						eyebrow="What we build"
+						title="Five ways we take a project off your shoulders"
+						description="Each service opens with the problem it solves, then shows you the full process, step by step, with honest durations. Read it before you sign anything — that is what it is for."
 					/>
 
 					<ul className="space-y-16">
@@ -84,11 +85,12 @@ export default function ServicesPage() {
 			<section className="bg-navy py-20 text-white">
 				<div className="section-shell space-y-6">
 					<h2 className="display-title text-white">
-						Need something specific?
+						Not sure which of these is yours?
 					</h2>
 					<p className="max-w-2xl body-copy text-white/75">
-						If you have a unique vision or a particular requirement, we are here
-						to bring it to life. Call{' '}
+						You don&apos;t need the construction words — describe what&apos;s
+						going on in your own words and you&apos;ll get a straight answer, not
+						a pitch. Call{' '}
 						<a className="text-sand underline" href={siteConfig.phones.sr.href}>
 							{siteConfig.phones.sr.display}
 						</a>{' '}
