@@ -65,7 +65,7 @@ const buckets: Bucket[] = [
 			{
 				name: 'My Safe Florida Home (MSFH)',
 				summary:
-					'A free wind-mitigation inspection of your home, then a grant of up to $10,000 toward approved wind-hardening upgrades. Most homeowners get a 2-to-1 match — the state pays $2 for every $1 you spend — and low-income homeowners can qualify with no match required. The 2026 state budget put roughly $378 million back into the program, and the application portal is open for the 2026–27 year.',
+					'A free wind-mitigation inspection of your home, then a grant of up to $10,000 toward approved wind-hardening upgrades. Most property owners get a 2-to-1 match — the state pays $2 for every $1 you spend — and low-income owners can qualify with no match required. The 2026 state budget put roughly $378 million back into the program, and the application portal is open for the 2026–27 year.',
 				access: [
 					'Apply free at mysafeflhome.com — it takes minutes.',
 					'The state schedules your free wind-mitigation inspection and sends a report of qualifying upgrades.',
@@ -124,7 +124,7 @@ const buckets: Bucket[] = [
 		eyebrow: 'Statewide · When a claim goes wrong',
 		title: 'Free state help with insurance disputes',
 		description:
-			'If your property insurance claim is stalled, underpaid, or denied, the State of Florida gives you free tools most homeowners have never heard of. You do not have to face the insurance company alone.',
+			'If your property insurance claim is stalled, underpaid, or denied, the State of Florida gives you free tools most property owners have never heard of. You do not have to face the insurance company alone.',
 		programs: [
 			{
 				name: 'DFS Residential Property Mediation',
@@ -182,7 +182,7 @@ const buckets: Bucket[] = [
 			{
 				name: 'USDA Section 504 Home Repair',
 				summary:
-					'For homes in USDA-eligible rural areas — which includes much of our service area outside the coastal cities — the USDA offers repair loans of up to $40,000 at 1% interest over 20 years, and grants of up to $10,000 for homeowners 62 and older who cannot repay a loan (up to $15,000 in presidentially declared disaster areas).',
+					'For homes in USDA-eligible rural areas — which includes much of our service area outside the coastal cities — the USDA offers repair loans of up to $40,000 at 1% interest over 20 years, and grants of up to $10,000 for property owners 62 and older who cannot repay a loan (up to $15,000 in presidentially declared disaster areas).',
 				access: [
 					'Visit rd.usda.gov and search “single family housing repair,” or contact the USDA Rural Development office serving Florida. Applications are accepted year-round.',
 				],
@@ -197,7 +197,7 @@ const buckets: Bucket[] = [
 			{
 				name: 'FEMA & SBA (after a declared disaster)',
 				summary:
-					'When a hurricane brings a federal disaster declaration, two doors open fast: FEMA grants for uninsured essential repairs, and SBA low-interest disaster loans for homeowners. Many FEMA grants require an SBA application first — so the right move is to apply to both immediately.',
+					'When a hurricane brings a federal disaster declaration, two doors open fast: FEMA grants for uninsured essential repairs, and SBA low-interest disaster loans for property owners. Many FEMA grants require an SBA application first — so the right move is to apply to both immediately.',
 				access: [
 					'Apply at disasterassistance.gov or call 1-800-621-3362 — typically within 60 days of the declaration.',
 					'Apply for an SBA disaster loan at sba.gov/disaster at the same time.',
@@ -422,7 +422,7 @@ const regions: Region[] = [
 					{
 						name: 'SELF — Solar and Energy Loan Fund',
 						summary:
-							'A Fort Pierce-based nonprofit lender for roof repair, impact windows and doors, shutters, A/C, and solar — built for homeowners banks turn down. A strong option when grant windows are closed.',
+							'A Fort Pierce-based nonprofit lender for roof repair, impact windows and doors, shutters, A/C, and solar — built for property owners banks turn down. A strong option when grant windows are closed.',
 						contact: [
 							{ label: 'solarenergyloanfund.org', href: 'https://www.solarenergyloanfund.org' },
 							{ label: '(772) 468-1818' },
@@ -492,7 +492,7 @@ const regions: Region[] = [
 		eyebrow: 'Regional guide · Space Coast',
 		title: 'Brevard County',
 		description:
-			'Brevard splits homeowner help by city: Palm Bay, Melbourne, Cocoa, and Titusville each run their own programs, and everyone else — including Rockledge and unincorporated Brevard — uses the county. Region-wide: Brevard County Legal Aid offers free civil legal help at (321) 631-2500, and the county’s own Housing & Human Services runs both weatherization, at (321) 633-2076, and utility-bill assistance, at (321) 633-1951.',
+			'Brevard splits property-owner help by city: Palm Bay, Melbourne, Cocoa, and Titusville each run their own programs, and everyone else — including Rockledge and unincorporated Brevard — uses the county. Region-wide: Brevard County Legal Aid offers free civil legal help at (321) 631-2500, and the county’s own Housing & Human Services runs both weatherization, at (321) 633-2076, and utility-bill assistance, at (321) 633-1951.',
 		groups: [
 			{
 				id: 'brevard',
@@ -604,7 +604,7 @@ const regions: Region[] = [
 					{
 						name: 'Orange County Housing Rehabilitation (SHIP)',
 						summary:
-							'Repairs that eliminate health, safety, and code hazards for very-low-income homeowners who have owned and occupied the home at least a year. Applications are open through the county’s online portal.',
+							'Repairs that eliminate health, safety, and code hazards for very-low-income property owners who have owned and occupied the home at least a year. Applications are open through the county’s online portal.',
 						contact: [
 							{
 								label: 'orangecountyfl.net — Housing Rehabilitation',
@@ -617,7 +617,7 @@ const regions: Region[] = [
 					{
 						name: 'Habitat Orlando & Osceola — Home Preservation & Roof Replacement',
 						summary:
-							'Major repairs and full roof replacements at no cost to qualified Orange County homeowners, in partnership with county government — more than 100 roofs replaced since 2019.',
+							'Major repairs and full roof replacements at no cost to qualified Orange County property owners, in partnership with county government — more than 100 roofs replaced since 2019.',
 						contact: [
 							{ label: 'habitatorlando.org', href: 'https://habitatorlando.org/' },
 							{ label: '(407) 648-4567' },
@@ -786,17 +786,20 @@ const areas: Area[] = [
 ]
 
 const areaDetails: Record<string, string> = {
-	harden: 'MSFH grants, condo pilot, weatherization',
+	harden: 'MSFH grants up to $10,000, condo pilot, weatherization',
 	disputes: 'Free state mediation & the DFS helpline',
-	'repair-money': 'SHIP, USDA, FEMA & SBA aid',
-	'taxes-relief': 'Homestead, storm-damage refunds, VA grants',
+	'repair-money': 'SHIP, USDA, FEMA & SBA repair money',
+	'taxes-relief': 'Homestead, storm refunds, VA grants',
+	'treasure-coast': 'Indian River, St. Lucie & Martin',
+	'space-coast': 'All of Brevard County',
+	'orlando-area': 'Orange, Osceola, Seminole & Lake',
 }
 
 const areaShortLabels: Record<string, string> = {
-	harden: 'Harden your home',
-	disputes: 'Insurance disputes',
-	'repair-money': 'Repair & disaster money',
-	'taxes-relief': 'Property-tax relief',
+	harden: 'Storm-proof my property',
+	disputes: 'My claim went wrong',
+	'repair-money': 'I need repair money',
+	'taxes-relief': 'Lower my property taxes',
 	'treasure-coast': 'Treasure Coast',
 	'space-coast': 'Space Coast',
 	'orlando-area': 'Orlando area',
@@ -876,9 +879,9 @@ export function ProgramsExplorer() {
 			<section id="index" className="scroll-mt-24 py-16 sm:py-20">
 				<div className="section-shell space-y-10">
 					<SectionHeading
-						eyebrow="Guide index"
-						title="Pick your area"
-						description="Tap a square to see every program behind it — statewide help first, then county-by-county guides for the Treasure Coast, Space Coast, and Orlando area. Statuses verified August 2026; funding windows open and close quickly, so always call before you count on a program."
+						eyebrow="Start here"
+						title="What does your property need?"
+						description="Tap the square that sounds like your situation. It opens the full list of programs behind it — what each one pays, who qualifies, and the exact link or phone number to apply. Statuses verified August 2026; funding windows open and close quickly, so always call before you count on a program."
 					/>
 					<ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
 						{areas.map((area) => {
@@ -913,7 +916,7 @@ export function ProgramsExplorer() {
 										<span
 											className={`font-sans text-xs font-semibold uppercase tracking-[0.16em] ${active ? 'text-sand' : 'text-navy/60'}`}
 										>
-											{active ? 'Viewing — tap to close' : 'View programs →'}
+											{active ? 'Open below — tap to close' : 'Tap to see the programs →'}
 										</span>
 									</button>
 								</li>
@@ -922,7 +925,8 @@ export function ProgramsExplorer() {
 					</ul>
 					{selected === null ? (
 						<p className="body-copy text-stone-muted">
-							Pick a square above to open that area&apos;s programs.
+							Nothing is open yet — tap a square above and the full list of
+							programs appears right here.
 						</p>
 					) : null}
 				</div>

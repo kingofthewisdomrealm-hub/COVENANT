@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { Hero } from '@/components/hero'
 import { SectionHeading } from '@/components/section-heading'
 import { TrustBand } from '@/components/trust-band'
 
+import { MoneyMap } from './money-map'
 import { ProgramsExplorer } from './programs-explorer'
 
 export const metadata: Metadata = {
@@ -21,8 +21,8 @@ export default function HomeownerProgramsPage() {
 		<>
 			<Hero
 				compact
-				headline="Assistance for Florida property owners"
-				support="The complete guide to government help for your home — statewide grants, free claim mediation, property-tax relief, and county-by-county repair programs across the Treasure Coast, Space Coast, and Orlando area. Pick an area below to see every program, phone number, and current status."
+				headline="Florida has money set aside for property owners. Most never claim it."
+				support="Storm-proofing grants, free help with insurance disputes, repair money, property-tax refunds — the state funds all of it, but the programs are scattered across dozens of websites. We put every one in one place. Pick your situation below and you'll see exactly what each program pays, who qualifies, and the exact link or phone number to apply. Applying is free, and we never charge for pointing the way."
 				primaryCta={{ href: '/contact', label: 'Ask us about a program' }}
 			/>
 			<TrustBand />
@@ -32,17 +32,11 @@ export default function HomeownerProgramsPage() {
 			<section className="surface-atmosphere py-20 sm:py-28">
 				<div className="section-shell space-y-16">
 					<SectionHeading
-						eyebrow="The money map"
-						title="Three kinds of help, one picture"
-						description="Harden your home before the storm, get free help when a claim goes sideways, and find repair money when you need it. We point our clients to these doors every week — the applications are yours, free, and we never charge for pointing the way."
+						eyebrow="The Florida money map"
+						title="Three doors. Every card below is a link."
+						description="Harden your property before the storm, get free state help when a claim goes sideways, and find repair money when you need it. Tap any card and it takes you straight to the official application site or phone line — you apply directly, the help is free, and we never charge for pointing the way."
 					/>
-					<Image
-						src="/images/florida-money-map.png"
-						alt="The Florida money map: programs that harden homes, resolve insurance disputes, and fund repairs"
-						width={2100}
-						height={1400}
-						className="w-full rounded-2xl border border-navy/10 shadow-sm"
-					/>
+					<MoneyMap />
 				</div>
 			</section>
 
