@@ -16,8 +16,8 @@ export default function ContactPage() {
 		<>
 			<Hero
 				compact
-				headline="Let’s talk about your project"
-				support="Better yet, see us in person—or send the details online. We stay in communication until the job is done."
+				headline="Tell us what's going on. Get a straight answer."
+				support="You don't need the construction words — describe the problem the way you'd tell a neighbor, in English or Spanish. A real person reads it, we typically respond within one business day, and we stay in communication until the job is done."
 				primaryCta={{ href: '#estimate-form', label: 'Request an estimate' }}
 				secondaryCta={{
 					href: siteConfig.phones.sr.href,
