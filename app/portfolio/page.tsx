@@ -18,8 +18,8 @@ export default function PortfolioPage() {
 		<>
 			<Hero
 				compact
-				headline="Work that shows how we build"
-				support="Browse residential, commercial, and remodel photography from jobs across Vero Beach and the Treasure Coast. Fuller case studies are added as we document completed homes and remodels."
+				headline="Proof, not promises."
+				support="Every photo here is a real Covenant Builders job on the Treasure Coast — no stock images, no invented testimonials. If you're wondering whether the process we describe actually gets built, this is what it looks like when it does."
 				primaryCta={{ href: '/contact', label: 'Discuss your project' }}
 				secondaryCta={{ href: '/services', label: 'View services' }}
 				imageSrc="/images/intro.webp"
@@ -31,8 +31,8 @@ export default function PortfolioPage() {
 				<div className="section-shell space-y-10">
 					<SectionHeading
 						eyebrow="Gallery"
-						title="Selected project photography"
-						description="Filter by residential, commercial, or remodel. Captions describe the work shown — we do not invent testimonials or fake project outcomes."
+						title="See the work for yourself"
+						description="Filter by residential, commercial, or remodel. Captions describe exactly what's happening in each photo — we do not invent testimonials or fake project outcomes."
 					/>
 					<ProjectGallery />
 				</div>
