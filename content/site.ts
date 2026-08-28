@@ -131,9 +131,9 @@ export const services = [
 		title: 'New Home Builds',
 		shortTitle: 'Residential',
 		summary:
-			'Custom homes planned and built with clear communication from design through final walkthrough.',
+			'Build the house you actually want — without the fear of getting ripped off, and without wrecking the budget you agreed on together.',
 		description:
-			'Building the home of your dreams starts with listening. Our team works with you from planning and design through construction, keeping the schedule and budget visible every step of the way.',
+			'The scary part of building a custom home is not the construction — it is the not knowing. Is the number real? What happens to the budget you and your spouse agreed on at the kitchen table? Our fix is boring and it works: every finish chosen and every dollar in writing before we submit for permit, the schedule and budget visible the whole way, and one licensed builder accountable from the lot walk to the keys.',
 		bullets: [
 			'Design-build collaboration',
 			'Permit coordination',
@@ -192,9 +192,9 @@ export const services = [
 		title: 'Custom Kitchens & Cabinetry',
 		shortTitle: 'Kitchens',
 		summary:
-			'Kitchen renovations and custom cabinetry rooted in Josias’s cabinetmaking workshop beginnings.',
+			'A kitchen that works the way your family actually lives — built in our own cabinet shop, not ordered from a catalogue.',
 		description:
-			'Your kitchen is the heart of the home. We specialize in renovations and high-quality custom cabinetry that balance style, storage, and everyday function.',
+			'You cook in it, host in it, and look at it every single morning — and if you have quietly stopped inviting people over because of it, that is the real cost. Josias started as a cabinetmaker, and your cabinets are built in our own shop. The design starts with how you actually use the room, then balances style, storage, and everyday function.',
 		bullets: [
 			'Custom cabinetry',
 			'Full kitchen renovations',
@@ -247,9 +247,9 @@ export const services = [
 		title: 'Commercial Projects',
 		shortTitle: 'Commercial',
 		summary:
-			'Functional, modern commercial spaces designed to support how your business actually operates.',
+			'A space that supports the business — delivered without the surprise that eats your opening date.',
 		description:
-			'We help businesses grow with custom-built commercial properties that are functional, durable, and tailored to your operations—from planning through completion.',
+			'For a business owner, a construction surprise is not an inconvenience — it is payroll running while the doors stay shut. We price the code and accessibility exposure before you sign, run the permits ourselves, and build a space tailored to how your operation actually runs — from planning through completion.',
 		bullets: [
 			'Tenant improvements',
 			'New commercial builds',
@@ -308,9 +308,9 @@ export const services = [
 		title: 'Remodels & Renovations',
 		shortTitle: 'Remodels',
 		summary:
-			'Thoughtful renovations that upgrade living and working spaces without losing what already works.',
+			'Fix the space you have been living around for years — with the surprises found before the price, not after.',
 		description:
-			'From targeted remodels to larger renovations, we improve existing spaces with the same care we bring to new construction—clear scope, clean execution, and respect for your timeline.',
+			'You have been stepping around the same problem for years — the layout that does not work, the bathroom nobody uses, the project you keep postponing because you are afraid of what a remodel turns into. We open walls before we price the job, so the surprise gets found while it is still a decision instead of a change order — clear scope, clean execution, and respect for your timeline.',
 		bullets: [
 			'Whole-home and room remodels',
 			'Scope clarity before work begins',
@@ -363,9 +363,9 @@ export const services = [
 		title: 'Storm Restoration',
 		shortTitle: 'Storm',
 		summary:
-			'Repair and rebuild after hurricane and storm damage—from securing the structure through full restoration.',
+			'After the storm: your home put back stronger than the storm found it, with every step documented.',
 		description:
-			'Living on the Treasure Coast means building for weather that eventually arrives. We assess and document damage, secure the structure, and carry the work through roof, envelope, and interior rebuild—restoring the property to current Florida building code with the same licensed accountability we bring to new construction.',
+			'A storm takes more than shingles — it takes your sleep, every June through November. Living on the Treasure Coast means building for weather that eventually arrives. We assess and document the damage, secure the structure, and carry the work through roof, envelope, and interior rebuild — restoring the property to current Florida building code with the same licensed accountability we bring to new construction.',
 		bullets: [
 			'Damage assessment and written scope',
 			'Roof, window, and envelope repair',
