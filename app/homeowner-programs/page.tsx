@@ -5,6 +5,7 @@ import { Hero } from '@/components/hero'
 import { SectionHeading } from '@/components/section-heading'
 import { TrustBand } from '@/components/trust-band'
 
+import { EligibilityCheck } from './eligibility-check'
 import { MoneyMap } from './money-map'
 import { ProgramsExplorer } from './programs-explorer'
 
@@ -28,6 +29,17 @@ export default function HomeownerProgramsPage() {
 			<TrustBand />
 
 			<ProgramsExplorer />
+
+			<section className="py-20 sm:py-24">
+				<div className="section-shell grid gap-12 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start">
+					<SectionHeading
+						eyebrow="Skip the homework"
+						title="Want us to check for you? It takes 60 seconds."
+						description="Dozens of program websites, each with its own rules — or four quick questions here. Tell us what your property needs and we'll tell you which programs likely fit, check their current funding status, and do the paperwork with you. Free either way."
+					/>
+					<EligibilityCheck />
+				</div>
+			</section>
 
 			<section className="surface-atmosphere py-20 sm:py-28">
 				<div className="section-shell space-y-16">
