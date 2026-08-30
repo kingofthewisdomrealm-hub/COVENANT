@@ -35,7 +35,12 @@ export function JsonLd() {
 				name: 'Florida',
 			},
 		})),
+		/*
+		 * sameAs is how Google ties these profiles to this business. Only
+		 * verified, active profiles belong here — see content/site.ts.
+		 */
 		sameAs: [
+			...siteConfig.social.map((profile) => profile.href),
 			siteConfig.address.mapsUrl,
 			siteConfig.license.dbprLookupUrl,
 		],
