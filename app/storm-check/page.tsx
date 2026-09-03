@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { StormQuiz } from './storm-quiz'
+import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
 import { Hero } from '@/components/hero'
 import { SectionHeading } from '@/components/section-heading'
 import { TrustBand } from '@/components/trust-band'
@@ -43,6 +44,7 @@ export default function StormCheckPage() {
 
 	return (
 		<>
+			<BreadcrumbJsonLd crumbs={[{ name: 'Storm Check', path: '/storm-check' }]} />
 			<Hero
 				compact
 				headline="Was your roof hit? Find out in 60 seconds."
