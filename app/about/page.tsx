@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
 import { Hero } from '@/components/hero'
 import { SectionHeading } from '@/components/section-heading'
 import { TrustBand } from '@/components/trust-band'
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
 	return (
 		<>
+			<BreadcrumbJsonLd crumbs={[{ name: 'About', path: '/about' }]} />
 			<Hero
 				compact
 				headline="The builder you can look up before you ever call"
