@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
 import { ContactForm } from '@/components/contact-form'
 import { Hero } from '@/components/hero'
 import { siteConfig } from '@/content/site'
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
 	return (
 		<>
+			<BreadcrumbJsonLd crumbs={[{ name: 'Contact', path: '/contact' }]} />
 			<Hero
 				compact
 				headline="Tell us what's going on. Get a straight answer."
