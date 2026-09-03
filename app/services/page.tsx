@@ -1,22 +1,29 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
+import { Faq } from '@/components/faq'
 import { Hero } from '@/components/hero'
 import { ProcessTimeline } from '@/components/process-timeline'
 import { SectionHeading } from '@/components/section-heading'
 import { TrustBand } from '@/components/trust-band'
+import { servicesFaqs } from '@/content/faqs'
 import { services, siteConfig } from '@/content/site'
 
 export const metadata: Metadata = {
-	title: 'Custom Homes, Kitchens, Commercial & Storm Restoration | Vero Beach, FL',
+	// Title kept under ~50 characters so the '| Covenant Builders' template
+	// still fits inside the ~60 characters Google renders. The old title ran
+	// 90 characters with the template and was cut mid-phrase.
+	title: 'Custom Homes, Kitchens & Remodels in Vero Beach',
 	description:
-		'New home builds, custom kitchens and cabinetry, commercial projects, remodels, and storm restoration from licensed Florida builder CBC1253676 in Vero Beach and the Treasure Coast. See our step-by-step process for every service.',
+		'New homes, custom kitchens, commercial work, remodels and storm restoration from licensed Florida builder CBC1253676. Every step and duration published.',
 	alternates: { canonical: '/services' },
 }
 
 export default function ServicesPage() {
 	return (
 		<>
+			<BreadcrumbJsonLd crumbs={[{ name: 'Services', path: '/services' }]} />
 			<Hero
 				compact
 				headline="Most construction stress isn't the construction."
@@ -137,6 +144,13 @@ export default function ServicesPage() {
 					</p>
 				</div>
 			</section>
+			<Faq
+				path="/services"
+				eyebrow="Before you call"
+				title="The questions people actually ask"
+				description="Licence, coverage area, permits, timelines. If yours is not here, ask us and we will answer it the same way."
+				items={servicesFaqs}
+			/>
 		</>
 	)
 }
