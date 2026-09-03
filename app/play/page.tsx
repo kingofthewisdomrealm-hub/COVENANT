@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { BuildGame } from './build-game'
+import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
 import { SectionHeading } from '@/components/section-heading'
 import { siteConfig } from '@/content/site'
 
@@ -38,6 +39,7 @@ export const metadata: Metadata = {
 export default function PlayPage() {
 	return (
 		<>
+			<BreadcrumbJsonLd crumbs={[{ name: 'Roof Raiser', path: '/play' }]} />
 			<section className="bg-navy pb-16 pt-32 text-white sm:pb-20 sm:pt-36">
 				<div className="section-shell">
 					<BuildGame />
