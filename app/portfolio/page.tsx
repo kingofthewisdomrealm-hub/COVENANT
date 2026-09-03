@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
 import { Hero } from '@/components/hero'
 import { ProjectGallery } from '@/components/project-gallery'
 import { SectionHeading } from '@/components/section-heading'
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
 	return (
 		<>
+			<BreadcrumbJsonLd crumbs={[{ name: 'Portfolio', path: '/portfolio' }]} />
 			<Hero
 				compact
 				headline="Proof, not promises."
