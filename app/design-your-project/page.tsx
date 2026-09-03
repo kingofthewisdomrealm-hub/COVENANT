@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { ProjectDesigner } from './project-designer'
+import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
 import { Hero } from '@/components/hero'
 import { SectionHeading } from '@/components/section-heading'
 import { TrustBand } from '@/components/trust-band'
@@ -54,6 +55,7 @@ export const metadata: Metadata = {
 export default function DesignYourProjectPage() {
 	return (
 		<>
+			<BreadcrumbJsonLd crumbs={[{ name: 'Design Your Project', path: '/design-your-project' }]} />
 			<Hero
 				compact
 				headline="Design your project. Get a straight answer."
