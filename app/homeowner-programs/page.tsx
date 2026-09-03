@@ -1,25 +1,33 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
+import { Faq } from '@/components/faq'
 import { Hero } from '@/components/hero'
 import { SectionHeading } from '@/components/section-heading'
 import { TrustBand } from '@/components/trust-band'
+import { homeownerProgramsFaqs } from '@/content/faqs'
 
 import { EligibilityCheck } from './eligibility-check'
 import { MoneyMap } from './money-map'
 import { ProgramsExplorer } from './programs-explorer'
 
 export const metadata: Metadata = {
-	title:
-		'Government Assistance for Florida Property Owners | Treasure Coast, Space Coast & Orlando Resource Guide',
+	// The previous title ran ~135 characters with the '| Covenant Builders'
+	// template and was cut off well before the useful words. Keep the money
+	// terms — Florida, grants, repair — in the first 45 characters.
+	title: 'Florida Homeowner Grants & Repair Programs',
 	description:
-		'The complete guide to government assistance for Florida property owners: My Safe Florida Home grants, free DFS claim mediation, property-tax relief, and county-by-county repair programs for the Treasure Coast, Space Coast, and Orlando area — every link, phone number, and current status.',
+		'My Safe Florida Home grants, free state claim mediation, property-tax relief and county repair money — every link, phone number and current status in one place.',
 	alternates: { canonical: '/homeowner-programs' },
 }
 
 export default function HomeownerProgramsPage() {
 	return (
 		<>
+			<BreadcrumbJsonLd
+				crumbs={[{ name: 'Homeowner Programs', path: '/homeowner-programs' }]}
+			/>
 			<Hero
 				compact
 				headline="Florida has money set aside for property owners. Most never claim it."
@@ -74,6 +82,13 @@ export default function HomeownerProgramsPage() {
 					</Link>
 				</div>
 			</section>
+			<Faq
+				path="/homeowner-programs"
+				eyebrow="Program questions"
+				title="What owners ask us about this money"
+				description="Grant amounts, who applies, what it costs you, and what to do when a claim goes wrong."
+				items={homeownerProgramsFaqs}
+			/>
 		</>
 	)
 }
