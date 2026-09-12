@@ -128,7 +128,7 @@ export const damageSigns = [
 	{ label: 'Dents in gutters or downspouts', points: 20 },
 	{ label: 'Dents in the AC unit’s metal fins', points: 20 },
 	{ label: 'Dings on window screens, mailbox or metal trim', points: 15 },
-	{ label: 'Shingle granules piling in gutters or downspouts', points: 10 },
+	{ label: 'Shingle granules piling in gutters or at downspouts', points: 10 },
 	{ label: 'Missing, lifted or creased shingles', points: 20 },
 	{ label: 'Cracked or slipped roof tiles', points: 20 },
 	{ label: 'Ceiling stains, drips or a leak', points: 25 },
@@ -142,7 +142,7 @@ export const roofAgeOptions = [
 	'10–15 years',
 	'15–20 years',
 	'Over 20 years',
-	'’m not sure',
+	'I’m not sure',
 ] as const
 
 export const roofTypeOptions = [
@@ -150,7 +150,7 @@ export const roofTypeOptions = [
 	'Concrete or clay tile',
 	'Metal',
 	'Flat / modified bitumen',
-	'’m not sure',
+	'I’m not sure',
 ] as const
 
 export const lookedOptions = [
