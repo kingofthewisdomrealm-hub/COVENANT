@@ -1,22 +1,22 @@
-# Storm-check — open source feed (do not rebuild the quiz)
+# Storm-check — live official reports
 
-The quiz in `content/storm-check.ts` and `app/actions/storm-check.ts` is the product.
-The part that will rot is the two-event table.
+Wired 2026-09-12.
 
-## Use
+The quiz copy and scoring stay in `content/storm-check.ts`.
+Live events come from National Weather Service Local Storm Reports via Iowa Environmental Mesonet.
 
-- [Open-Meteo](https://open-meteo.com) — recent conditions. Public API call. Do not self-host the AGPL server unless we have a reason.
-- [Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/) — NWS / SPC local storm reports.
-- ZIP → county stays ours until a geocoder is proven.
+## What shipped
 
-## Optional map (prefer STORM-MAP, not a third app)
+- `lib/storm-reports.ts` fetches MLB + MFL reports for the last ~24 months
+- Keeps hail, thunderstorm wind, non-thunderstorm wind, and tornado only
+- Clusters same day + county + type so 27 Brevard gusts become one line
+- `/api/storm-reports?zip=34982` is the public JSON used by the ZIP verdict
+- Submit path uses the same feed so the email matches what the homeowner saw
+- If IEM is down, the curated Milton / May 2025 table is still used
+- Cached one hour. Identifies the app in User-Agent.
 
-- [MapLibre GL JS](https://maplibre.org) — renderer, BSD.
-- [PMTiles](https://protomaps.com) — tiles on a CDN, no Google bill.
-- Census geocoder or a policy-respecting Nominatim host — address to pin.
+## Still true
 
-If the map becomes its own page, build it in [STORM-MAP](https://github.com/kingofthewisdomrealm-hub/STORM-MAP) and embed it here. Do not start another map repo.
-
-## Compliance
-
-F.S. §489.147 and §626.854 still apply. A live weather feed does not change the rule: no claim-filing language, no deductible talk, no invented event.
+- No invented storms
+- No claim-filing language (F.S. 489.147 / 626.854)
+- Maps still belong in STORM-MAP if we add a pin later
