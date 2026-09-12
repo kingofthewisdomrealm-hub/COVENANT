@@ -12,6 +12,7 @@ import {
 	scoreStormCheck,
 } from '@/content/storm-check'
 import { createCrmLead } from '@/lib/crm'
+import { stormEventsForZip } from '@/lib/storm-reports'
 import { checkRateLimit } from '@/lib/rate-limit'
 import { actionClient } from '@/lib/safe-action'
 
@@ -77,7 +78,11 @@ export const submitStormCheck = actionClient
 			)
 		}
 
-		const { score, band, events } = scoreStormCheck(parsedInput)
+		const liveEvents = await stormEventsForZip(parsedInput.zip)
+		const { score, band, events } = scoreStormCheck({
+			...parsedInput,
+			liveEvents,
+		})
 		const bandLabel =
 			band === 'likely' ? 'LIKELY' : band === 'possible' ? 'POSSIBLE' : 'LOW'
 

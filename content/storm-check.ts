@@ -128,7 +128,7 @@ export const damageSigns = [
 	{ label: 'Dents in gutters or downspouts', points: 20 },
 	{ label: 'Dents in the AC unit’s metal fins', points: 20 },
 	{ label: 'Dings on window screens, mailbox or metal trim', points: 15 },
-	{ label: 'Shingle granules piling in gutters or at downspouts', points: 10 },
+	{ label: 'Shingle granules piling in gutters or downspouts', points: 10 },
 	{ label: 'Missing, lifted or creased shingles', points: 20 },
 	{ label: 'Cracked or slipped roof tiles', points: 20 },
 	{ label: 'Ceiling stains, drips or a leak', points: 25 },
@@ -142,7 +142,7 @@ export const roofAgeOptions = [
 	'10–15 years',
 	'15–20 years',
 	'Over 20 years',
-	'I’m not sure',
+	'’m not sure',
 ] as const
 
 export const roofTypeOptions = [
@@ -150,7 +150,7 @@ export const roofTypeOptions = [
 	'Concrete or clay tile',
 	'Metal',
 	'Flat / modified bitumen',
-	'I’m not sure',
+	'’m not sure',
 ] as const
 
 export const lookedOptions = [
@@ -173,6 +173,7 @@ export interface ScoreInput {
 	signs: readonly string[]
 	roofAge: string
 	noticed: string
+	liveEvents?: readonly StormEvent[]
 }
 
 export function scoreStormCheck(input: ScoreInput): {
@@ -180,7 +181,9 @@ export function scoreStormCheck(input: ScoreInput): {
 	band: Band
 	events: StormEvent[]
 } {
-	const events = eventsForZip(input.zip)
+	const events = input.liveEvents?.length
+		? [...input.liveEvents]
+		: eventsForZip(input.zip)
 	let score = 0
 	for (const sign of damageSigns) {
 		if (input.signs.includes(sign.label)) score += sign.points
