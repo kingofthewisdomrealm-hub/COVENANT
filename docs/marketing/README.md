@@ -6,6 +6,7 @@ You post; we draft. No GoDaddy Marketing add-on required.
 |---|---|---|
 | Google Business Profile | [gbp-posts.md](./gbp-posts.md) | Paste into GBP → Posts (1–2× / week) |
 | Social captions | [social-captions.md](./social-captions.md) | IG, Facebook, YouTube, X, TikTok, LinkedIn |
+| AI growth system | [ai-growth-system.md](./ai-growth-system.md) | Intelligence, content, roof tools, CRM, and neighborhood acquisition strategy |
 | Lead replies | [../lead-reply-templates.md](../lead-reply-templates.md) | Same-day estimate responses |
 | Review asks | [../review-request-template.md](../review-request-template.md) | After final walkthrough |
 | CRM / cancel Clientes | [../crm-lead-workflow.md](../crm-lead-workflow.md) · [../godaddy-product-cancel-checklist.md](../godaddy-product-cancel-checklist.md) | Phase 4 |
