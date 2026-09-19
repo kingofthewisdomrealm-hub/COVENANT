@@ -1,5 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 
+import type { ValidAttribution } from '@/lib/attribution/shared'
+
 /**
  * Writes website enquiries into the Covenant Builders CRM.
  *
@@ -22,6 +24,10 @@ export type CrmLeadInput = {
 	/** Website slug — mapped to the job_category enum inside the RPC. */
 	projectType: string
 	message: string
+	/** Where the lead came from. Optional — never required to create a lead. */
+	attribution?: ValidAttribution
+	/** Which form produced it: contact | design | programs | storm_check */
+	formName?: string
 }
 
 const url = process.env.SUPABASE_URL
@@ -64,5 +70,33 @@ export async function createCrmLead(
 		throw new Error(`CRM write failed: ${error.message}`)
 	}
 
-	return (data as string | null) ?? null
+	const projectId = (data as string | null) ?? null
+
+	/**
+	 * Attribution rides in a SECOND call so it can never cost the lead: if the
+	 * `record_lead_attribution` function is missing (SQL not run yet) or fails,
+	 * the lead is already saved and the email still carries the attribution.
+	 */
+	if (projectId) {
+		await recordLeadAttribution(supabase, projectId, input).catch((attrError) =>
+			console.error('CRM attribution write failed (lead itself is saved):', attrError)
+		)
+	}
+
+	return projectId
+}
+
+async function recordLeadAttribution(
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- hand-made RPC, not in generated types
+	supabase: any,
+	projectId: string,
+	input: CrmLeadInput
+) {
+	const a = input.attribution
+	const { error } = await supabase.rpc('record_lead_attribution', {
+		p_project_id: projectId,
+		p_form: input.formName ?? 'contact',
+		p_payload: a ?? {},
+	})
+	if (error) throw new Error(error.message)
 }
