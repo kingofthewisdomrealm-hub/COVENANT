@@ -2,9 +2,11 @@ import type { Metadata } from 'next'
 import { Fraunces, Source_Sans_3 } from 'next/font/google'
 
 import { SiteAnalytics } from '@/components/analytics'
+import { AttributionTracker } from '@/components/attribution-tracker'
 import { JsonLd } from '@/components/json-ld'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
+import { TagNoScript, TagScripts } from '@/components/tag-scripts'
 import { siteConfig } from '@/content/site'
 
 import './globals.css'
@@ -71,6 +73,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${display.variable} ${sans.variable} antialiased`}>
+				<TagNoScript />
 				<a
 					href="#main-content"
 					className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-sand focus:px-4 focus:py-2 focus:text-navy"
@@ -82,6 +85,8 @@ export default function RootLayout({
 				<main id="main-content">{children}</main>
 				<SiteFooter />
 				<SiteAnalytics />
+				<AttributionTracker />
+				<TagScripts />
 			</body>
 		</html>
 	)
