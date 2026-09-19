@@ -5,13 +5,19 @@ import { useAction } from 'next-safe-action/hooks'
 import { useState } from 'react'
 
 import { submitLead } from '@/app/actions/lead'
+import { getAttribution } from '@/lib/attribution/client'
+import { trackConversion } from '@/lib/attribution/events'
 import { projectTypes, siteConfig } from '@/content/site'
 
 export function ContactForm() {
 	const [isSuccess, setIsSuccess] = useState(false)
 	const { execute, isExecuting, result, hasErrored } = useAction(submitLead, {
 		onSuccess: ({ data }) => {
-			if (data?.ok) setIsSuccess(true)
+			if (data?.ok) {
+				setIsSuccess(true)
+				trackConversion('contact_form_submit', { form: 'contact' })
+				trackConversion('generate_lead', { form: 'contact' })
+			}
 		},
 	})
 
@@ -30,6 +36,7 @@ export function ContactForm() {
 			projectType: String(formData.get('projectType') || ''),
 			message: String(formData.get('message') || ''),
 			website: String(formData.get('website') || ''),
+			attribution: getAttribution(),
 		})
 	}
 
