@@ -36,6 +36,14 @@ export function SiteHeader() {
 						width={440}
 						height={110}
 						priority
+						// The logo is only ever displayed at 180px (mobile) or 220px (sm+) wide
+						// — see the w-[180px] sm:w-[220px] classes on the parent Link. Without a
+						// `sizes` hint, next/image assumes it renders at its full 440px intrinsic
+						// width and serves a 1080px-wide file for 2x displays (measured: 16KB
+						// wasted, flagged by Lighthouse's image-delivery audit on the
+						// /services/[slug] pages, 19 Sep 2026). `sizes` tells it the true
+						// rendered width so it picks a properly small file instead.
+						sizes="(min-width: 640px) 220px, 180px"
 						className="h-auto w-full brightness-0 invert"
 					/>
 				</Link>
