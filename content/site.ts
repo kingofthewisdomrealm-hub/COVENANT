@@ -159,6 +159,13 @@ export interface ProcessStage {
 export const services = [
 	{
 		slug: 'new-home-builds',
+		/**
+		 * Keyword-matched URL slug for the standalone /services/[slug] detail
+		 * page. Kept separate from `slug` (the #anchor id on /services) so
+		 * neither has to compromise: `slug` stays a stable anchor id, `seoSlug`
+		 * targets the actual search phrase. See docs/services-page-plan.md.
+		 */
+		seoSlug: 'custom-home-builder',
 		title: 'New Home Builds',
 		shortTitle: 'Residential',
 		summary:
@@ -220,6 +227,7 @@ export const services = [
 	},
 	{
 		slug: 'custom-kitchens',
+		seoSlug: 'kitchen-remodeling-cabinetry',
 		title: 'Custom Kitchens & Cabinetry',
 		shortTitle: 'Kitchens',
 		summary:
@@ -275,6 +283,7 @@ export const services = [
 	},
 	{
 		slug: 'commercial-projects',
+		seoSlug: 'commercial-construction',
 		title: 'Commercial Projects',
 		shortTitle: 'Commercial',
 		summary:
@@ -336,6 +345,7 @@ export const services = [
 	},
 	{
 		slug: 'remodels',
+		seoSlug: 'home-remodeling',
 		title: 'Remodels & Renovations',
 		shortTitle: 'Remodels',
 		summary:
@@ -391,6 +401,7 @@ export const services = [
 	},
 	{
 		slug: 'storm-restoration',
+		seoSlug: 'storm-restoration',
 		title: 'Storm Restoration',
 		shortTitle: 'Storm',
 		summary:
