@@ -52,6 +52,18 @@ function PageViewCapture() {
 	useEffect(() => {
 		const a = captureAttribution()
 		const channel = a?.lastTouch.channel
+		// Tag this visitor in PostHog so heatmaps/replays split by source.
+		try {
+			if (a) {
+				window.posthog?.register({
+					first_channel: a.firstTouch.channel,
+					last_channel: a.lastTouch.channel,
+					campaign: a.lastTouch.campaign ?? a.firstTouch.campaign,
+					rep: a.rep,
+					ref: a.ref,
+				})
+			}
+		} catch {}
 		swapTrackingNumber(channel)
 		// Re-run once after late-rendering sections mount.
 		const t = window.setTimeout(() => swapTrackingNumber(channel), 800)
