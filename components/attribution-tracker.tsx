@@ -16,7 +16,7 @@ import { Suspense, useEffect } from 'react'
 import { trackingNumbers } from '@/content/attribution'
 import { siteConfig } from '@/content/site'
 import { captureAttribution } from '@/lib/attribution/client'
-import { trackConversion } from '@/lib/attribution/events'
+import { trackConversion, trackPageView } from '@/lib/attribution/events'
 
 function eventForLink(anchor: HTMLAnchorElement): string | null {
 	const href = anchor.getAttribute('href') || ''
@@ -52,6 +52,7 @@ function PageViewCapture() {
 	useEffect(() => {
 		const a = captureAttribution()
 		const channel = a?.lastTouch.channel
+		trackPageView()
 		// Tag this visitor in PostHog so heatmaps/replays split by source.
 		try {
 			if (a) {
