@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-import { siteConfig } from '@/content/site'
+import { services, siteConfig } from '@/content/site'
 
 /**
  * ⚠️ When you meaningfully change a page, bump its `lastModified` below.
@@ -79,11 +79,24 @@ const routes: {
 	},
 ]
 
+/**
+ * Standalone /services/[slug] detail pages, generated from `services` itself
+ * so a future 6th service can't ship without also appearing here. Added
+ * 2026-09-19 so each service can target its own search phrase instead of
+ * sharing one /services URL. See docs/services-page-plan.md.
+ */
+const serviceDetailRoutes: typeof routes = services.map((service) => ({
+	path: `/services/${service.seoSlug}`,
+	lastModified: '2026-09-19',
+	changeFrequency: 'monthly',
+	priority: 0.85,
+}))
+
 export default function sitemap(): MetadataRoute.Sitemap {
 	const base = process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url
 
 	// Investors page exists but is noindex; deliberately omitted.
-	return routes.map((route) => ({
+	return [...routes, ...serviceDetailRoutes].map((route) => ({
 		url: `${base}${route.path}`,
 		lastModified: new Date(`${route.lastModified}T12:00:00Z`),
 		changeFrequency: route.changeFrequency,
