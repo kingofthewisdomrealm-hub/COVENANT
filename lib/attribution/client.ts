@@ -22,6 +22,24 @@ import { isMeaningfulTouch, touchFromUrl, type Attribution, type Touch } from '.
 
 const KEY = 'cb_attr'
 const SESSION_KEY = 'cb_attr_session'
+const NOTRACK_KEY = 'cb_no_track'
+
+/**
+ * "Don't count me." Visit any page with ?notrack=1 from the office / crew
+ * phones and that browser stops reporting page views and clicks. ?notrack=0
+ * turns it back on. Attribution itself still works (a lead from that browser
+ * is still tagged); only the traffic counters skip it.
+ */
+export function isTrackingOff(): boolean {
+	try {
+		const p = new URL(window.location.href).searchParams.get('notrack')
+		if (p === '1') window.localStorage.setItem(NOTRACK_KEY, '1')
+		if (p === '0') window.localStorage.removeItem(NOTRACK_KEY)
+		return window.localStorage.getItem(NOTRACK_KEY) === '1'
+	} catch {
+		return false
+	}
+}
 let memory: Attribution | null = null
 
 function readCookie(): string | null {

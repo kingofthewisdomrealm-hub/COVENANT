@@ -12,7 +12,7 @@
  */
 import { track as vercelTrack } from '@vercel/analytics'
 
-import { getAttribution, getSessionId } from './client'
+import { getAttribution, getSessionId, isTrackingOff } from './client'
 
 type Params = Record<string, string | number | boolean | null | undefined>
 
@@ -81,6 +81,8 @@ function sendBeacon(event: string, params: Params, a: ReturnType<typeof getAttri
 	try {
 		// Never record the private report page itself (its address is the key).
 		if (location.pathname.startsWith('/attribution')) return
+		// Office / crew browsers that opted out with ?notrack=1.
+		if (isTrackingOff()) return
 		const body = JSON.stringify({
 			event,
 			page: location.pathname,
