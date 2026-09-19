@@ -32,6 +32,18 @@ export default function PrivacyPage() {
 						scope, size, finish level, board stage, timeline, and budget range —
 						and any notes you add.
 					</p>
+					<p className="body-copy">
+						When you browse this site, we record which pages you view and which
+						buttons you tap (for example the phone number), how you arrived (a
+						search engine, a social post, a flyer code, or a referral link), the
+						approximate city of your connection, and a one-way fingerprint of your
+						network address that lets us count visitors without identifying them.
+						For visitors connecting from Florida we also keep the network (IP)
+						address itself for up to 30 days, to recognise repeat visits and filter
+						out automated traffic; it is then deleted. We do not use advertising
+						cookies. To opt out of visit counting in your browser, open any page
+						on this site with <code>?notrack=1</code> added to the address.
+					</p>
 				</div>
 
 				<div className="space-y-4">
