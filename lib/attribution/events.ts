@@ -12,7 +12,7 @@
  */
 import { track as vercelTrack } from '@vercel/analytics'
 
-import { getAttribution } from './client'
+import { getAttribution, getSessionId } from './client'
 
 type Params = Record<string, string | number | boolean | null | undefined>
 
@@ -65,9 +65,43 @@ export function trackConversion(event: string, params: Params = {}) {
 	try {
 		window.posthog?.capture(event, enriched)
 	} catch {}
+	sendBeacon(event, params, a)
 	try {
 		const flat: Record<string, string | number | boolean | null> = {}
 		for (const [k, v] of Object.entries(enriched)) if (v !== undefined) flat[k] = v
 		vercelTrack(event, flat)
 	} catch {}
+}
+
+/**
+ * Our own collector (see app/api/track/route.ts) — the click data behind the
+ * private attribution page. Fire-and-forget; never throws.
+ */
+function sendBeacon(event: string, params: Params, a: ReturnType<typeof getAttribution>) {
+	try {
+		// Never record the private report page itself (its address is the key).
+		if (location.pathname.startsWith('/attribution')) return
+		const body = JSON.stringify({
+			event,
+			page: location.pathname,
+			label: typeof params.label === 'string' ? params.label : typeof params.link === 'string' ? params.link : undefined,
+			channel: a?.lastTouch.channel,
+			first_channel: a?.firstTouch.channel,
+			campaign: a?.lastTouch.campaign ?? a?.firstTouch.campaign ?? undefined,
+			rep: a?.rep ?? undefined,
+			ref: a?.ref ?? undefined,
+			visitor_id: a?.visitorId,
+			session_id: getSessionId(),
+		})
+		if (navigator.sendBeacon) {
+			navigator.sendBeacon('/api/track', new Blob([body], { type: 'application/json' }))
+		} else {
+			fetch('/api/track', { method: 'POST', body, headers: { 'content-type': 'application/json' }, keepalive: true })
+		}
+	} catch {}
+}
+
+/** Page view for the collector only (GA4/PostHog count their own). */
+export function trackPageView() {
+	sendBeacon('page_view', {}, getAttribution())
 }

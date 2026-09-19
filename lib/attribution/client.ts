@@ -73,10 +73,19 @@ function newVisitorId() {
 function isSessionStart() {
 	try {
 		if (window.sessionStorage.getItem(SESSION_KEY)) return false
-		window.sessionStorage.setItem(SESSION_KEY, '1')
+		window.sessionStorage.setItem(SESSION_KEY, newVisitorId())
 		return true
 	} catch {
 		return true
+	}
+}
+
+/** Per-tab session id (for counting visits, not people). */
+export function getSessionId(): string | undefined {
+	try {
+		return window.sessionStorage.getItem(SESSION_KEY) || undefined
+	} catch {
+		return undefined
 	}
 }
 
