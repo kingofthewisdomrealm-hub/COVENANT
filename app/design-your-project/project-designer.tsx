@@ -24,6 +24,8 @@ import {
 	timelineOptions,
 	type BranchKey,
 } from '@/content/design-your-project'
+import { getAttribution } from '@/lib/attribution/client'
+import { trackConversion } from '@/lib/attribution/events'
 import { siteConfig } from '@/content/site'
 
 /**
@@ -108,6 +110,8 @@ export function ProjectDesigner() {
 			if (data?.ok) {
 				setIsSuccess(true)
 				track('design_submit', { branch: answers.projectType || 'unknown' })
+				trackConversion('estimate_request', { form: 'design', branch: answers.projectType || 'unknown' })
+				trackConversion('generate_lead', { form: 'design' })
 			}
 		},
 	})
@@ -210,6 +214,7 @@ export function ProjectDesigner() {
 			planImage: answers.rooms.length ? renderPlanToPng(answers.rooms) || undefined : undefined,
 			planSummary: answers.rooms.length ? planSummary(answers.rooms) : undefined,
 			website: '',
+			attribution: getAttribution(),
 		})
 	}
 

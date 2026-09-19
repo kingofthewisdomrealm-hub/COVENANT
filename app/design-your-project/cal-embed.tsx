@@ -4,6 +4,7 @@ import Cal, { getCalApi } from '@calcom/embed-react'
 import { track } from '@vercel/analytics'
 import { useEffect, useState } from 'react'
 
+import { trackConversion } from '@/lib/attribution/events'
 import { siteConfig } from '@/content/site'
 
 /**
@@ -54,7 +55,10 @@ export function CalEmbed({ calLink }: { calLink: string }) {
 				})
 				api('on', {
 					action: 'bookingSuccessful',
-					callback: () => track('design_book_walkthrough'),
+					callback: () => {
+						track('design_book_walkthrough')
+						trackConversion('booking_complete', { tool: 'cal.com' })
+					},
 				})
 			} catch {
 				if (!cancelled) setStatus('failed')
