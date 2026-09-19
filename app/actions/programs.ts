@@ -6,6 +6,7 @@ import { z } from 'zod'
 
 import { siteConfig } from '@/content/site'
 import { COUNTY_NAMES, countyForZip } from '@/content/storm-check'
+import { attributionEmailLines, attributionSchema } from '@/lib/attribution/shared'
 import { createCrmLead } from '@/lib/crm'
 import { checkRateLimit } from '@/lib/rate-limit'
 import { actionClient } from '@/lib/safe-action'
@@ -55,6 +56,7 @@ const programsSchema = z.object({
 		.max(300),
 	notes: z.string().trim().max(2000).optional(),
 	website: z.string().max(0).optional(),
+	attribution: attributionSchema,
 })
 
 function matchPrograms(
@@ -213,6 +215,8 @@ export const submitProgramCheck = actionClient
 
 		try {
 			crmProjectId = await createCrmLead({
+				formName: 'programs',
+				attribution: parsedInput.attribution,
 				name: parsedInput.name,
 				email: parsedInput.email,
 				phone: parsedInput.phone,
@@ -253,6 +257,7 @@ export const submitProgramCheck = actionClient
 				summary,
 				'',
 				crmLine,
+				...attributionEmailLines(parsedInput.attribution),
 			].join('\n'),
 		}
 

@@ -11,6 +11,7 @@ import {
 	bandCopy,
 	scoreStormCheck,
 } from '@/content/storm-check'
+import { attributionEmailLines, attributionSchema } from '@/lib/attribution/shared'
 import { createCrmLead } from '@/lib/crm'
 import { stormEventsForZip } from '@/lib/storm-reports'
 import { checkRateLimit } from '@/lib/rate-limit'
@@ -41,6 +42,7 @@ const stormSchema = z.object({
 		.max(300),
 	notes: z.string().trim().max(4000).optional(),
 	website: z.string().max(0).optional(),
+	attribution: attributionSchema,
 })
 
 export const submitStormCheck = actionClient
@@ -114,6 +116,8 @@ export const submitStormCheck = actionClient
 
 		try {
 			crmProjectId = await createCrmLead({
+				formName: 'storm_check',
+				attribution: parsedInput.attribution,
 				name: parsedInput.name,
 				email: parsedInput.email,
 				phone: parsedInput.phone,
@@ -154,6 +158,7 @@ export const submitStormCheck = actionClient
 				summary,
 				'',
 				crmLine,
+				...attributionEmailLines(parsedInput.attribution),
 			].join('\n'),
 		}
 

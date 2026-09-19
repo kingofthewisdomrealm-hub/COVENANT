@@ -5,6 +5,7 @@ import { Resend } from 'resend'
 import { z } from 'zod'
 
 import { siteConfig, projectTypes } from '@/content/site'
+import { attributionEmailLines, attributionSchema } from '@/lib/attribution/shared'
 import { createCrmLead } from '@/lib/crm'
 import { checkRateLimit } from '@/lib/rate-limit'
 import { actionClient } from '@/lib/safe-action'
@@ -32,6 +33,7 @@ const leadSchema = z.object({
 		.min(10, 'Please share a few details about your project')
 		.max(4000),
 	website: z.string().max(0).optional(),
+	attribution: attributionSchema,
 })
 
 export const submitLead = actionClient
@@ -103,7 +105,7 @@ export const submitLead = actionClient
 		let crmFailed = false
 
 		try {
-			crmProjectId = await createCrmLead(parsedInput)
+			crmProjectId = await createCrmLead({ ...parsedInput, formName: 'contact' })
 		} catch (crmError) {
 			crmFailed = true
 			console.error('CRM lead write failed:', crmError)
@@ -138,6 +140,7 @@ export const submitLead = actionClient
 				parsedInput.message,
 				'',
 				crmLine,
+				...attributionEmailLines(parsedInput.attribution),
 			].join('\n'),
 		})
 

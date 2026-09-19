@@ -10,6 +10,7 @@ import {
 	type BranchKey,
 } from '@/content/design-your-project'
 import { siteConfig } from '@/content/site'
+import { attributionEmailLines, attributionSchema } from '@/lib/attribution/shared'
 import { createCrmLead } from '@/lib/crm'
 import { branchFor, formatDesignBrief } from '@/lib/design-brief'
 import { checkRateLimit } from '@/lib/rate-limit'
@@ -70,6 +71,7 @@ const designSchema = z.object({
 		.optional(),
 	planSummary: z.string().trim().max(2000).optional(),
 	website: z.string().max(0).optional(),
+	attribution: attributionSchema,
 })
 
 export const submitProjectDesign = actionClient
@@ -151,6 +153,8 @@ export const submitProjectDesign = actionClient
 
 		try {
 			crmProjectId = await createCrmLead({
+				formName: 'design',
+				attribution: parsedInput.attribution,
 				name: parsedInput.name,
 				email: parsedInput.email,
 				phone: parsedInput.phone,
@@ -213,6 +217,7 @@ export const submitProjectDesign = actionClient
 				briefForCovenant,
 				'',
 				crmLine,
+				...attributionEmailLines(parsedInput.attribution),
 			].join('\n'),
 		}
 
