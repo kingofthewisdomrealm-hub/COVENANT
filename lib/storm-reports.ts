@@ -112,9 +112,12 @@ function cluster(reports: IemProperties[]): StormEvent[] {
 	}
 
 	const events: StormEvent[] = []
-	for (const [key, list] of groups) {
+	// forEach rather than `for...of groups` — iterating a Map directly needs
+	// --downlevelIteration or an es2015+ target, and this repo's tsconfig sets
+	// neither. forEach iterates the same Map without that requirement.
+	groups.forEach((list, key) => {
 		const county = key.split('|')[1] as CountyKey
-		const best = list.slice().sort((a, b) => {
+		const best = list.slice().sort((a: IemProperties, b: IemProperties) => {
 			const am = Number(a.magf ?? a.magnitude ?? 0)
 			const bm = Number(b.magf ?? b.magnitude ?? 0)
 			return bm - am
@@ -129,7 +132,7 @@ function cluster(reports: IemProperties[]): StormEvent[] {
 			counties: [county],
 			source: `National Weather Service Local Storm Report (${best.wfo || 'NWS'}) via Iowa Environmental Mesonet`,
 		})
-	}
+	})
 
 	events.sort((a, b) => b.date.localeCompare(a.date))
 	return events
