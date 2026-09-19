@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 
+import { communityCities } from '@/content/community'
 import { services, siteConfig } from '@/content/site'
 
 /**
@@ -92,11 +93,23 @@ const serviceDetailRoutes: typeof routes = services.map((service) => ({
 	priority: 0.85,
 }))
 
+/**
+ * /community/[slug] — community-first resource pages, one per service city.
+ * Only cities with genuine, verified local content belong in
+ * content/community.ts; see that file's header comment before adding one.
+ */
+const communityRoutes: typeof routes = communityCities.map((city) => ({
+	path: `/community/${city.slug}`,
+	lastModified: city.verifiedAsOf,
+	changeFrequency: 'monthly',
+	priority: 0.6,
+}))
+
 export default function sitemap(): MetadataRoute.Sitemap {
 	const base = process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url
 
 	// Investors page exists but is noindex; deliberately omitted.
-	return [...routes, ...serviceDetailRoutes].map((route) => ({
+	return [...routes, ...serviceDetailRoutes, ...communityRoutes].map((route) => ({
 		url: `${base}${route.path}`,
 		lastModified: new Date(`${route.lastModified}T12:00:00Z`),
 		changeFrequency: route.changeFrequency,
