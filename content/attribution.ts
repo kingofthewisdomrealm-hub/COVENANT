@@ -237,6 +237,7 @@ export const trackingNumbers: {
 /** Paths the vanity form (/<rep-slug>) must never shadow. */
 export const reservedTopLevelPaths = new Set([
 	'about',
+	'attribution',
 	'api',
 	'community',
 	'contact',
