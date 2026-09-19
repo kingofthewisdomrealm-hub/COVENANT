@@ -48,6 +48,7 @@ type Report = {
 		clicks_by_channel: { channel: string; event: string; clicks: number }[]
 		top_pages: { page: string; views: number }[]
 		top_clicked: { page: string; label: string | null; event: string; clicks: number }[]
+		by_city?: { city: string; region: string | null; country: string | null; views: number; visitors: number; clicks: number }[]
 		daily: { day: string; views: number; clicks: number; leads: number }[]
 	}
 }
@@ -234,6 +235,21 @@ export default async function AttributionPage({
 							])}
 						/>
 					</div>
+					{report.web.by_city && report.web.by_city.length > 0 ? (
+						<div className="mt-6">
+							<Table
+								title="Where visitors are (from their connection, city-level)"
+								head={['City', 'State', 'Views', 'Visitors', 'Clicks']}
+								rows={report.web.by_city.map((r) => [
+									r.city,
+									[r.region, r.country && r.country !== 'US' ? r.country : null].filter(Boolean).join(' · ') || '—',
+									String(r.views),
+									String(r.visitors),
+									String(r.clicks),
+								])}
+							/>
+						</div>
+					) : null}
 					{report.web.clicks_by_channel.length > 0 ? (
 						<div className="mt-6">
 							<Table
