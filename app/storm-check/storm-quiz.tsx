@@ -6,6 +6,8 @@ import { useRef, useState } from 'react'
 
 import { submitStormCheck } from '@/app/actions/storm-check'
 import { CalEmbed } from '@/app/design-your-project/cal-embed'
+import { getAttribution } from '@/lib/attribution/client'
+import { trackConversion } from '@/lib/attribution/events'
 import { siteConfig } from '@/content/site'
 import {
 	COUNTY_NAMES,
@@ -90,6 +92,8 @@ export function StormQuiz() {
 			if (data?.ok) {
 				setIsSuccess(true)
 				track('storm_submit', { band: data.band })
+				trackConversion('estimate_request', { form: 'storm_check' })
+				trackConversion('generate_lead', { form: 'storm_check' })
 			}
 		},
 	})
@@ -164,6 +168,7 @@ export function StormQuiz() {
 			projectAddress: answers.projectAddress,
 			notes: answers.notes || undefined,
 			website: '',
+			attribution: getAttribution(),
 		})
 	}
 
