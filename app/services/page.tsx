@@ -73,6 +73,14 @@ export default function ServicesPage() {
 										<Link href="/portfolio" className="link-underline">
 											See related work
 										</Link>
+										{'seoSlug' in service ? (
+											<Link
+												href={`/services/${service.seoSlug}`}
+												className="link-underline font-semibold"
+											>
+												Full {service.shortTitle.toLowerCase()} guide →
+											</Link>
+										) : null}
 									</div>
 
 									{service.process ? (
