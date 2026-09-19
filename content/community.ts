@@ -55,7 +55,7 @@ export const communityCities: CommunityCity[] = [
 		slug: 'vero-beach',
 		cityName: 'Vero Beach',
 		county: 'Indian River County',
-		metaTitle: 'Vero Beach Community Resources | Covenant Builders',
+		metaTitle: 'Vero Beach Community Resources',
 		metaDescription:
 			'Real, sourced help for Vero Beach property owners and small businesses — repair money, permits, storm prep, and the local chamber. Not a sales page.',
 		h1: 'Vero Beach resources, not a sales pitch',
