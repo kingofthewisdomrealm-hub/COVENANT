@@ -21,6 +21,7 @@ declare global {
 		dataLayer?: unknown[]
 		gtag?: (...args: unknown[]) => void
 		fbq?: (...args: unknown[]) => void
+		posthog?: { capture: (e: string, p?: object) => void; register: (p: object) => void }
 	}
 }
 
@@ -60,6 +61,9 @@ export function trackConversion(event: string, params: Params = {}) {
 			if (std) window.fbq('track', std, { content_name: event, ...params })
 			else window.fbq('trackCustom', event, params)
 		}
+	} catch {}
+	try {
+		window.posthog?.capture(event, enriched)
 	} catch {}
 	try {
 		const flat: Record<string, string | number | boolean | null> = {}
