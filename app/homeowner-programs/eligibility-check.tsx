@@ -5,6 +5,8 @@ import { useAction } from 'next-safe-action/hooks'
 import { useState } from 'react'
 
 import { submitProgramCheck } from '@/app/actions/programs'
+import { getAttribution } from '@/lib/attribution/client'
+import { trackConversion } from '@/lib/attribution/events'
 import { siteConfig } from '@/content/site'
 
 import {
@@ -40,6 +42,7 @@ export function EligibilityCheck() {
 			if (data?.ok) {
 				setMatches(data.matches)
 				track('programs_eligibility_submitted')
+				trackConversion('generate_lead', { form: 'programs' })
 			}
 		},
 	})
@@ -61,6 +64,7 @@ export function EligibilityCheck() {
 			projectAddress: String(formData.get('projectAddress') || ''),
 			notes: String(formData.get('notes') || ''),
 			website: String(formData.get('website') || ''),
+			attribution: getAttribution(),
 		})
 	}
 
