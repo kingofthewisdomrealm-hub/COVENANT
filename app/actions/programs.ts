@@ -8,6 +8,7 @@ import { siteConfig } from '@/content/site'
 import { COUNTY_NAMES, countyForZip } from '@/content/storm-check'
 import { attributionEmailLines, attributionSchema } from '@/lib/attribution/shared'
 import { createCrmLead } from '@/lib/crm'
+import { matchPrograms } from '@/lib/programs-match'
 import { checkRateLimit } from '@/lib/rate-limit'
 import { actionClient } from '@/lib/safe-action'
 
@@ -18,6 +19,7 @@ import {
 	type ProgramMatch,
 	type PropertyValue,
 } from '@/app/homeowner-programs/eligibility-options'
+// matchPrograms lives in lib/programs-match.ts (shared with the assistant).
 
 /**
  * The /homeowner-programs eligibility check — a SIBLING of submitLead,
@@ -58,81 +60,6 @@ const programsSchema = z.object({
 	website: z.string().max(0).optional(),
 	attribution: attributionSchema,
 })
-
-function matchPrograms(
-	need: NeedValue,
-	property: PropertyValue,
-	countyName: string | null
-): ProgramMatch[] {
-	if (need === 'storm-proof') {
-		if (property === 'condo-unit' || property === 'condo-association') {
-			return [
-				{
-					name: 'My Safe Florida Condo (state pilot)',
-					pays: 'State-funded inspections and grant match for condo hardening',
-					note: 'Applications run through the association — we help boards put the packet together.',
-				},
-			]
-		}
-		if (property === 'rental-commercial') {
-			return [
-				{
-					name: 'Wind-mitigation insurance credits',
-					pays: 'Premium discounts your insurer must offer for documented hardening',
-					note: 'The state grant itself targets homesteaded homes, but a wind-mitigation inspection can still cut the insurance bill on this property.',
-				},
-			]
-		}
-		return [
-			{
-				name: 'My Safe Florida Home',
-				pays: 'A free wind inspection, then up to $10,000 — $2 of state money for every $1 you spend on impact windows, doors, and roof hardening',
-				note: 'Homesteaded single-family homes. We handle the paperwork with you and build to the program spec.',
-			},
-			{
-				name: 'Wind-mitigation insurance credits',
-				pays: 'Premium discounts on top of the grant once the work is documented',
-				note: 'Same inspection, second payoff — most owners never file the form.',
-			},
-		]
-	}
-
-	if (need === 'claim') {
-		return [
-			{
-				name: 'DFS free claim mediation',
-				pays: 'A state-run mediator sits you and the insurer at one table — free to you',
-				note: 'Florida law also gives you the Homeowner Claims Bill of Rights and, in many policies, an appraisal clause. We can document the damage either way.',
-			},
-		]
-	}
-
-	if (need === 'repair-money') {
-		const countyLine = countyName
-			? `${countyName} runs a SHIP program`
-			: 'Your county likely runs a SHIP program'
-		return [
-			{
-				name: 'County SHIP repair assistance',
-				pays: `${countyLine} — state housing money for owner-occupied repairs`,
-				note: 'Income limits apply and funding opens in waves; we check the current status with you.',
-			},
-			{
-				name: 'USDA Section 504 repair loans & grants',
-				pays: 'Low-interest repair loans, and grants for qualifying owners 62+, in eligible areas',
-				note: 'Rural-designated addresses only — much of the Treasure Coast outside city cores qualifies.',
-			},
-		]
-	}
-
-	return [
-		{
-			name: 'Property-tax relief',
-			pays: 'Homestead exemption, portability, and refunds for storm-damaged property',
-			note: 'Filed with your county property appraiser — we point you at the right forms for your situation.',
-		},
-	]
-}
 
 export const submitProgramCheck = actionClient
 	.schema(programsSchema)

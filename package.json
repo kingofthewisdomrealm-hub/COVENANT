@@ -10,6 +10,7 @@
     "dns:verify": "bash scripts/verify-dns.sh"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.127.0",
     "@calcom/embed-react": "^1.5.3",
     "@supabase/supabase-js": "^2.111.0",
     "@vercel/analytics": "^2.0.1",
@@ -18,12 +19,14 @@
     "react": "^18",
     "react-dom": "^18",
     "resend": "^6.18.0",
+    "three": "^0.186.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/node": "^20.19.43",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/three": "^0.186.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.35",
     "postcss": "^8",
