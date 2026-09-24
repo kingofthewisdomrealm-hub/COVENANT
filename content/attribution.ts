@@ -239,6 +239,7 @@ export const reservedTopLevelPaths = new Set([
 	'about',
 	'attribution',
 	'api',
+	'careers',
 	'community',
 	'contact',
 	'design-your-project',
