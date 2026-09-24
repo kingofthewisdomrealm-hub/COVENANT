@@ -67,6 +67,12 @@ const routes: {
 		priority: 0.7,
 	},
 	{
+		path: '/careers',
+		lastModified: '2026-09-23',
+		changeFrequency: 'monthly',
+		priority: 0.5,
+	},
+	{
 		path: '/play',
 		lastModified: '2026-08-21',
 		changeFrequency: 'monthly',
