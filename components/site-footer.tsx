@@ -62,6 +62,14 @@ export function SiteFooter() {
 								</Link>
 							</li>
 						))}
+						<li>
+							<Link
+								href="/careers"
+								className="font-sans text-sm text-white/80 transition hover:text-sand"
+							>
+								Careers
+							</Link>
+						</li>
 						{/* Investors lives here rather than in the main nav — see content/site.ts */}
 						<li>
 							<Link
