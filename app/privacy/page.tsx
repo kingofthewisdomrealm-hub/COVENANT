@@ -33,6 +33,13 @@ export default function PrivacyPage() {
 						and any notes you add.
 					</p>
 					<p className="body-copy">
+						When you apply through our careers page, we collect your name, phone
+						number, email address, city and state, anything you choose to tell us,
+						and the resume you upload. Applications and resumes are stored privately,
+						are seen only by the Covenant Builders team, and are used only to
+						consider you for work with us.
+					</p>
+					<p className="body-copy">
 						When you browse this site, we record which pages you view and which
 						buttons you tap (for example the phone number), how you arrived (a
 						search engine, a social post, a flyer code, or a referral link), the
