@@ -1,0 +1,53 @@
+{
+  "slug": "indian-river-county-septic-to-sewer-2030-deadline",
+  "title": "On septic in Indian River County? What the July 1, 2030 deadline means for your home",
+  "seoTitle": "Indian River County Septic Deadline 2030, Explained",
+  "description": "A 2023 Florida law gives Indian River Lagoon-area septic owners until July 1, 2030 to connect to sewer or upgrade. Who it covers, costs, and $15,000 in aid.",
+  "dek": "Most septic systems in the Indian River Lagoon area must connect to sewer or be upgraded to a nitrogen-reducing system by July 1, 2030. Here is what that costs and what help exists.",
+  "category": "Permits & rules",
+  "publishedAt": "2026-10-08",
+  "places": ["Indian River County", "Vero Beach", "Sebastian"],
+  "keywords": ["septic to sewer Indian River County", "July 1 2030 septic deadline", "HB 1379 septic", "enhanced nutrient reducing septic", "Indian River Lagoon septic law", "sewer connection cost Vero Beach"],
+  "body": [
+    { "type": "p", "text": "If your house is on a septic tank anywhere near the Indian River Lagoon, a state deadline is now four years away. In 2023 the Florida Legislature passed House Bill 1379, which created the Indian River Lagoon Protection Program. Under it, by July 1, 2030, any home or business with an existing septic system in the program area must connect to central sewer if it is available, or upgrade to a system that removes at least 65% of the nitrogen." },
+    { "type": "p", "text": "Indian River County is now contacting owners. The county says about 28,000 properties with septic systems sit inside the lagoon protection area. Fewer than 1,000 of them are in places where public sewer exists or is planned, according to county utilities director Sean Lieske. The county is mailing letters, followed by a second letter and an automated phone call, to roughly 463 properties that are close to an existing sewer line right now." },
+    { "type": "h2", "text": "Your two options" },
+    { "type": "ul", "items": [
+      "Connect to sewer, if it is available at your property. The county builds the main line and runs a lateral to your property line. You pay for the pipe from your house to that lateral.",
+      "Upgrade to an enhanced nutrient-reducing (ENR) septic system, if sewer is not available. These systems must remove at least 65% of the nitrogen. Since January 1, 2024, every new septic system in the lagoon protection area has had to be this type."
+    ] },
+    { "type": "h2", "text": "What it costs" },
+    { "type": "p", "text": "These are the ranges county staff gave residents at public workshops in September. Your number depends on your lot, the distance to the line, and whether your connection can run downhill." },
+    { "type": "ul", "items": [
+      "Connecting to a gravity sewer main: $5,000 to $8,000 for the owner.",
+      "Connecting with a lift or grinder pump, when gravity will not work: $11,000 to more than $20,000.",
+      "Retrofitting an existing septic system to ENR: $15,000 to $25,000.",
+      "ENR maintenance and inspections: $1,200 to $2,000 a year.",
+      "Closing out the old tank: a separate cost, with an abandonment permit and inspection from the Florida Department of Health."
+    ] },
+    { "type": "callout", "title": "Help is coming, but not open yet", "text": "The county's Sewer Connection Assistance Program will offer up to $15,000 per eligible property, funded by the Florida Department of Environmental Protection and administered through the Economic Opportunities Council. As of this writing the program is in procurement and the application portal has not opened. The county has also applied for about $50 million more in state grants." },
+    { "type": "h2", "text": "City of Vero Beach water customers: a second bill item" },
+    { "type": "p", "text": "Separately from the state law, the City of Vero Beach is adding a Wastewater Readiness-to-Serve Charge for homes that get city water, use septic, and have sewer available nearby. It starts at $40.85 a month and rises to $54.24 by October 2029, with 75 days' notice before it begins. For those homes, connecting sooner may stop paying for a sewer line you are not using." },
+    { "type": "h2", "text": "What to do this month" },
+    { "type": "ol", "items": [
+      "Look up your address. The county's program site, ircs2sprogram.com, has a search tool that shows whether sewer may be available at your property.",
+      "Open every letter from the county utilities department. The first notice is how the clock starts for many owners.",
+      "Get more than one price. The county's utilities director urges owners to hire a licensed and bonded plumber, especially for gravity connections where the slope of the pipe matters.",
+      "Do not wait for 2029. County staff warned that the longer owners wait, the higher the costs will climb with inflation and demand for plumbers."
+    ] },
+    { "type": "p", "text": "Questions go to the county's program team at projectinfo@IRCS2SProgram.com or 772-770-5300." }
+  ],
+  "faq": [
+    { "q": "Do I have to get rid of my septic tank by 2030?", "a": "If your property is in the Indian River Lagoon protection area, by July 1, 2030 you must either connect to central sewer where it is available or upgrade to a septic system that removes at least 65% of nitrogen." },
+    { "q": "How much does it cost to connect to sewer in Indian River County?", "a": "County staff estimate $5,000 to $8,000 for a gravity connection and $11,000 to more than $20,000 when a lift or grinder pump is needed, plus the cost of closing out the old tank." },
+    { "q": "Is there financial help for septic-to-sewer connections?", "a": "The county's Sewer Connection Assistance Program plans to offer up to $15,000 per eligible property. It was still in procurement, with applications not yet open, as of October 2026." },
+    { "q": "How do I know if sewer is available at my house?", "a": "Use the address search on ircs2sprogram.com, or contact the county program team at 772-770-5300." }
+  ],
+  "sources": [
+    { "label": "Florida DEP — Enhanced nutrient reducing septic systems and HB 1379", "url": "https://floridadep.gov/water/onsite-sewage/content/permitting-enhanced-nutrient-reducing-onsite-sewage-treatment-and" },
+    { "label": "Vero News — Septic-to-sewer workshops hope to clear up confusion", "url": "https://veronews.com/2026/09/03/septic-to-sewer-workshops-hope-to-clear-up-confusion/" },
+    { "label": "WQCS — Indian River County starts outreach on septic-to-sewer connections", "url": "https://www.wqcs.org/wqcs-news/2026-10-02/indian-river-county-starts-outreach-on-septic-to-sewer-connections" },
+    { "label": "Indian River County Septic-to-Sewer Program", "url": "https://www.ircs2sprogram.com/projects/countywide" },
+    { "label": "WPTV — Vero Beach utility rate increases", "url": "https://www.wptv.com/news/local-news/our-community/vero-beach/indian-river-county/vero-beach-utility-bills-to-rise-nearly-47-over-four-years-as-city-approves-major-rate-increases" }
+  ]
+}

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 
 import { communityCities } from '@/content/community'
+import { getPublishedPorchArticles } from '@/lib/porch-articles'
 import { services, siteConfig } from '@/content/site'
 
 /**
@@ -47,12 +48,6 @@ const routes: {
 		lastModified: '2026-08-21',
 		changeFrequency: 'monthly',
 		priority: 0.8,
-	},
-	{
-		path: '/porch',
-		lastModified: '2026-10-08',
-		changeFrequency: 'monthly',
-		priority: 0.6,
 	},
 	{
 		path: '/portfolio',
@@ -117,11 +112,30 @@ const communityRoutes: typeof routes = communityCities.map((city) => ({
 	priority: 0.6,
 }))
 
+/**
+ * /porch/[slug] — The Vero Porch daily articles, plus the archive. Dates come
+ * from each article file, so a new article updates the sitemap by itself.
+ */
+function porchRoutes(): typeof routes {
+	const articles = getPublishedPorchArticles()
+	const newest = articles[0]?.publishedAt ?? '2026-10-08'
+	return [
+		{ path: '/porch', lastModified: newest, changeFrequency: 'daily', priority: 0.7 },
+		{ path: '/porch/archive', lastModified: newest, changeFrequency: 'daily', priority: 0.5 },
+		...articles.map((a) => ({
+			path: `/porch/${a.slug}`,
+			lastModified: a.updatedAt ?? a.publishedAt,
+			changeFrequency: 'monthly' as const,
+			priority: 0.6,
+		})),
+	]
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
 	const base = process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url
 
 	// Investors page exists but is noindex; deliberately omitted.
-	return [...routes, ...serviceDetailRoutes, ...communityRoutes].map((route) => ({
+	return [...routes, ...serviceDetailRoutes, ...communityRoutes, ...porchRoutes()].map((route) => ({
 		url: `${base}${route.path}`,
 		lastModified: new Date(`${route.lastModified}T12:00:00Z`),
 		changeFrequency: route.changeFrequency,

@@ -1,0 +1,47 @@
+{
+  "slug": "vero-beach-water-sewer-rate-increase-2026",
+  "title": "Vero Beach water and sewer rates went up October 1. Here is what your bill looks like through 2029.",
+  "seoTitle": "Vero Beach Water & Sewer Rate Increase 2026–2029",
+  "description": "Vero Beach raised water and sewer rates on Oct. 1, 2026. A typical bill climbs from $83.54 to $122.45 a month by 2029. What changed, why, and what to do.",
+  "dek": "A typical city water-and-sewer bill rises about $39 a month by 2029 to pay for a $217 million utility program built around a new sewer treatment plant.",
+  "category": "Bills & utilities",
+  "publishedAt": "2026-10-08",
+  "places": ["Vero Beach", "Indian River County"],
+  "keywords": ["Vero Beach water rates", "Vero Beach sewer rates", "Vero Beach utility bill increase", "water reclamation facility", "readiness-to-serve charge", "Indian River County utilities"],
+  "body": [
+    { "type": "p", "text": "If your water bill comes from the City of Vero Beach, it changed on October 1. The Vero Beach City Council and the city's Utility Commission both unanimously approved a four-year schedule of water and sewer rate increases. The first step took effect October 1, 2026, and another increase arrives every October through 2029." },
+    { "type": "callout", "title": "The number to know", "text": "For a home using 4,000 gallons a month, the combined water and sewer bill goes from $83.54 to $122.45 a month by 2029. That is about $39 more a month, a 46.7% increase over four years." },
+    { "type": "h2", "text": "How much each part of the bill goes up" },
+    { "type": "p", "text": "The increases are not the same for water and sewer. Sewer, which the city calls wastewater, rises the fastest because that is where most of the construction money is going." },
+    { "type": "ul", "items": [
+      "Water: up 10% this year, 7.5% next October, then 5% in each of the following two years.",
+      "Wastewater (sewer): up 15% this year and 15% again next October, then 10% and finally 5%.",
+      "Reclaimed water (used for irrigation in some neighborhoods): up 25% this year and 25% next year, then 5% a year."
+    ] },
+    { "type": "p", "text": "After the first increases, the typical Vero Beach bill reaches about $107.30 a month. For comparison, the same usage costs $95.76 with Fort Pierce Utilities Authority and $67.70 with Indian River County's sewer service, according to figures presented to the city." },
+    { "type": "h2", "text": "Why the city raised rates" },
+    { "type": "p", "text": "The money pays for a $217 million capital improvement program through 2030. The centerpiece is a new Water Reclamation Facility, the plant that treats the city's sewage, which is under construction. The city plans to borrow $125 million in revenue bonds in February 2027 and has lined up $42.3 million in grants." },
+    { "type": "p", "text": "The bond amount is $45 million more than a 2022 rate study expected, because construction costs climbed. The city's yearly operating costs are also rising, from about $25.6 million in fiscal year 2026 to more than $32 million by 2030." },
+    { "type": "h2", "text": "Still on septic? There is a new monthly charge" },
+    { "type": "p", "text": "Homes that get city water, still use a septic tank, and have a public sewer line nearby will be billed a new Wastewater Readiness-to-Serve Charge. It starts at $40.85 a month and rises to $54.24 a month by October 2029. The city must give property owners 75 days' notice before the charge begins." },
+    { "type": "p", "text": "That charge is separate from a 2023 state law that requires most septic systems in the Indian River Lagoon area to connect to sewer or be upgraded by July 1, 2030. If you are on septic, read our explainer on that deadline before you decide anything." },
+    { "type": "h2", "text": "What you can do now" },
+    { "type": "ol", "items": [
+      "Check who sends your water bill. Not every home with a Vero Beach address is a City of Vero Beach utility customer; some are served by Indian River County.",
+      "Look at your gallons, not just the dollars. Your bill shows monthly usage. If you use well over 4,000 gallons, your increase will be bigger than the typical example.",
+      "Find the leaks you are paying for. A running toilet or a dripping outdoor spigot can waste a surprising amount of water. Watch your meter for an hour with every tap off; if it moves, something is leaking.",
+      "If you irrigate with reclaimed water, check your sprinkler schedule. That rate rises the fastest of the three."
+    ] }
+  ],
+  "faq": [
+    { "q": "When did the new Vero Beach water and sewer rates start?", "a": "October 1, 2026. The rates then adjust again each October 1 through 2029." },
+    { "q": "How much will my Vero Beach utility bill go up?", "a": "For a home using 4,000 gallons a month, the combined water and sewer bill rises from $83.54 to $122.45 a month by 2029, about $39 more a month. Homes that use more water will see a larger increase." },
+    { "q": "Why did Vero Beach raise utility rates?", "a": "To pay for a $217 million capital improvement program through 2030, centered on a new Water Reclamation Facility, plus rising operating costs." },
+    { "q": "What is the Wastewater Readiness-to-Serve Charge?", "a": "A new monthly charge for properties that receive city water, use a septic tank, and have public sewer available nearby. It starts at $40.85 a month and rises to $54.24 by October 2029, with 75 days' notice before it begins." }
+  ],
+  "sources": [
+    { "label": "WPTV — Vero Beach utility bills to rise nearly 47% over four years", "url": "https://www.wptv.com/news/local-news/our-community/vero-beach/indian-river-county/vero-beach-utility-bills-to-rise-nearly-47-over-four-years-as-city-approves-major-rate-increases" },
+    { "label": "WQCS — Vero Beach water rates set to increase over four years", "url": "https://www.wqcs.org/wqcs-news/2026-08-27/vero-beach-water-rates-set-to-increase-over-four-years" },
+    { "label": "Vero News — Vero city council OKs steep hike in utility rates", "url": "https://veronews.com/2026/09/08/vero-city-council-oks-steep-hike-in-utility-rates/" }
+  ]
+}

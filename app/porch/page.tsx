@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 
 import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
-import { ContactForm } from '@/components/contact-form'
+import Link from 'next/link'
+
+import { PorchReportCardBox } from '@/components/porch-report-card-box'
 import {
 	PORCH_NAME,
 	PORCH_SPONSOR,
@@ -10,11 +12,12 @@ import {
 	type PorchStory,
 } from '@/content/porch'
 import { siteConfig } from '@/content/site'
+import { formatPorchDate, getPublishedPorchArticles } from '@/lib/porch-articles'
 
 export const metadata: Metadata = {
 	title: `${PORCH_NAME} — ${issue.monthLabel}`,
 	description: `${PORCH_TAGLINE}. Why your water and sewer bill went up, the septic deadline, Amendment 3 forums, parking fines, storm-season checks and what is on around town.`,
-	alternates: { canonical: '/porch' },
+	alternates: { canonical: '/porch', types: { 'application/rss+xml': '/porch/feed.xml' } },
 	openGraph: {
 		title: `${PORCH_NAME} — ${issue.monthLabel}`,
 		description: PORCH_TAGLINE,
@@ -111,41 +114,10 @@ export default function PorchPage() {
 					</div>
 
 					{/* The one Covenant box */}
-					<section
-						id="report-card"
-						aria-labelledby="report-card-title"
-						className="mt-16 scroll-mt-28 bg-navy px-6 py-10 text-white sm:px-10"
-					>
-						<div className="grid gap-10 md:grid-cols-[1fr_1.2fr]">
-							<div>
-								<p className="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-sand">
-									From our sponsor
-								</p>
-								<h2 id="report-card-title" className="mt-3 font-display text-3xl sm:text-4xl">
-									Get your free Roof Report Card
-								</h2>
-								<p className="mt-4 font-sans text-base leading-relaxed text-white/80">
-									We walk your roof line, attic and edges and grade what we can see from A to F, with
-									photos and plain words. You get the card by text. Nothing to buy, and nothing comes
-									attached to it.
-								</p>
-								<p className="mt-4 font-sans text-sm text-white/70">
-									Rather talk? Call or text{' '}
-									<a className="text-sand underline" href={siteConfig.phones.sr.href}>
-										{siteConfig.phones.sr.display}
-									</a>
-									.
-								</p>
-								<p className="mt-6 font-sans text-xs leading-relaxed text-white/60">
-									A Report Card is a visual walk-through, not a 4-point, wind mitigation or roof
-									certification form, and not an engineering inspection.
-								</p>
-							</div>
-							<div className="text-ink">
-								<ContactForm />
-							</div>
-						</div>
-					</section>
+					<PorchReportCardBox className="mt-16" />
+
+					{/* Latest articles */}
+					<LatestArticles />
 
 					{/* Send us your news */}
 					<section className="mt-12 border border-navy/15 p-6 text-center">
@@ -219,4 +191,35 @@ function formatDate(iso: string) {
 		day: 'numeric',
 		year: 'numeric',
 	})
+}
+
+function LatestArticles() {
+	const latest = getPublishedPorchArticles().slice(0, 8)
+	if (!latest.length) return null
+	return (
+		<section aria-labelledby="latest-title" className="mt-14">
+			<p className="eyebrow">Every day on the Porch</p>
+			<h2 id="latest-title" className="mt-2 font-display text-3xl text-navy">
+				Latest articles
+			</h2>
+			<ul className="mt-5 divide-y divide-navy/10 border-y border-navy/10">
+				{latest.map((a) => (
+					<li key={a.slug} className="py-4">
+						<Link href={`/porch/${a.slug}`} className="group block">
+							<p className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-sand-dark">
+								{a.category} · {formatPorchDate(a.publishedAt)}
+							</p>
+							<p className="mt-1 font-display text-xl text-navy group-hover:underline">{a.title}</p>
+							<p className="mt-1 font-sans text-sm text-stone-muted">{a.dek}</p>
+						</Link>
+					</li>
+				))}
+			</ul>
+			<p className="mt-4">
+				<Link href="/porch/archive" className="link-underline">
+					All articles
+				</Link>
+			</p>
+		</section>
+	)
 }
