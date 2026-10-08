@@ -13,7 +13,7 @@ import { siteConfig } from '@/content/site'
 
 export const metadata: Metadata = {
 	title: `${PORCH_NAME} — ${issue.monthLabel}`,
-	description: `${PORCH_TAGLINE}. Storm-season checks, why we are called Vero, and what is on around town this ${issue.monthLabel.split(' ')[0]}.`,
+	description: `${PORCH_TAGLINE}. Why your water and sewer bill went up, the septic deadline, Amendment 3 forums, parking fines, storm-season checks and what is on around town.`,
 	alternates: { canonical: '/porch' },
 	openGraph: {
 		title: `${PORCH_NAME} — ${issue.monthLabel}`,
@@ -57,6 +57,30 @@ export default function PorchPage() {
 
 					{/* Lead story */}
 					<Story story={issue.lead} lead />
+
+					{/* News briefs */}
+					<section aria-labelledby="briefs-title" className="mt-14 border-t-4 border-double border-navy pt-8">
+						<h2 id="briefs-title" className="eyebrow">
+							Also this month
+						</h2>
+						<div className="mt-5 grid gap-8 sm:grid-cols-2">
+							{issue.briefs.map((b) => (
+								<article key={b.slug} aria-labelledby={`brief-${b.slug}`}>
+									<p className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-sand-dark">
+										{b.kicker}
+									</p>
+									<h3 id={`brief-${b.slug}`} className="mt-1 font-display text-2xl leading-snug text-navy">
+										{b.headline}
+									</h3>
+									<p className="mt-2 body-copy text-ink/85">{b.body}</p>
+								</article>
+							))}
+						</div>
+					</section>
+
+					<div className="mt-14 border-t border-navy/15 pt-12">
+						<Story story={issue.storm} />
+					</div>
 
 					<div className="mt-14 grid gap-12 border-t border-navy/15 pt-12 md:grid-cols-[1.4fr_1fr]">
 						<Story story={issue.history} />

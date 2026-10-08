@@ -14,6 +14,9 @@
  *    gift, rebate, coupon or deductible promise to the free Report Card.
  *    See the compliance block in content/storm-check.ts.
  * 4. Sponsor name + address must be printed (Indian River County §310.06).
+ * 5. Homeowner news only — bills, taxes, rules, things being built nearby.
+ *    No gossip. Ballot items are facts and meeting dates only, never a
+ *    recommendation.
  */
 
 export interface PorchStory {
@@ -31,6 +34,13 @@ export interface PorchEvent {
 	where: string
 }
 
+export interface PorchBrief {
+	slug: string
+	kicker: string
+	headline: string
+	body: string
+}
+
 export interface PorchIssue {
 	slug: string
 	volume: number
@@ -40,6 +50,9 @@ export interface PorchIssue {
 	checkedOn: string
 	price: string
 	lead: PorchStory
+	/** Short news items under the lead */
+	briefs: PorchBrief[]
+	storm: PorchStory
 	history: PorchStory
 	askTheBuilder: PorchStory
 	events: PorchEvent[]
@@ -60,6 +73,45 @@ export const porchIssues: PorchIssue[] = [
 		checkedOn: '2026-10-08',
 		price: '$1 · Free to Vero Beach residents',
 		lead: {
+			slug: 'bills-and-septic',
+			kicker: 'Your utility bill',
+			headline: 'Your water and sewer bill went up October 1. It goes up again every October through 2029.',
+			dek: 'The city is paying for a $217 million utility program built around a new sewer treatment plant. Homes still on septic face a new monthly charge and a 2030 state deadline.',
+			paragraphs: [
+				'If your water bill comes from the City of Vero Beach, this is your story. The City Council approved new water and sewer rates that took effect October 1, with another increase each October through 2029. For a home using 4,000 gallons a month, the combined water and sewer bill goes from $83.54 to $122.45 by 2029, about $39 more a month.',
+				'This year water rises 10% and wastewater 15%. Wastewater rises another 15% next October, then 10% and 5%. The money pays for a $217 million capital program through 2030, centered on a new Water Reclamation Facility. The city plans to borrow $125 million in revenue bonds in early 2027.',
+				'Still on septic? Read this part twice. Homes that get city water, use a septic tank, and have a public sewer line nearby will see a new Wastewater Readiness-to-Serve Charge, starting at $40.85 a month and rising to $54.24 by October 2029. The city has to give owners 75 days\u2019 notice before it starts.',
+				'Separately, a 2023 state law says that where sewer is available, homes on lots under 10 acres must connect by July 1, 2030, or upgrade to an enhanced septic system that removes at least 65% of the nitrogen. Indian River County is mailing letters now to about 463 properties near new lines. The county builds the main line and the lateral to your property; the homeowner pays for the pipe from the house to it.',
+				'If you get a letter, the county\u2019s utility director advises hiring a licensed and bonded plumber, especially for gravity connections where the slope of the pipe matters. Project details and the Q&A are at ircs2sprogram.com.',
+			],
+		},
+		briefs: [
+			{
+				slug: 'amendment-3',
+				kicker: 'On the ballot',
+				headline: 'Amendment 3: property tax forums Oct. 9 and Oct. 14',
+				body: 'Amendment 3 on the November 3 ballot would raise the homestead exemption for non-school property taxes to $150,000 in 2027 and $250,000 in 2028, and cut the yearly assessment cap on non-homestead property from 10% to 5%. It needs 60% to pass. The county is holding two forums on what it could mean locally: Oct. 9, 10:30 a.m.\u2013noon, Intergenerational Recreation Center; and Oct. 14, 6\u20137:30 p.m., County Fairgrounds. Registration is on the county website.',
+			},
+			{
+				slug: 'parking',
+				kicker: 'Heads up',
+				headline: 'Parking tickets doubled on October 1',
+				body: 'Overtime parking and parking over a line went from $20 to $40. Fire lanes, hydrants and most other violations went from $30 to $60. Handicapped-space fines stay at $200. Enforcement covers beachside, downtown and the airport area.',
+			},
+			{
+				slug: 'hospital',
+				kicker: 'Proposed',
+				headline: 'A third hospital near SR 60 and 66th Avenue?',
+				body: 'County commissioners heard an early pitch for a 260,000-square-foot, five-story hospital west of town, in an area now limited to three stories. No application has been filed and no vote was taken. If one is filed, it faces at least seven public hearings.',
+			},
+			{
+				slug: 'three-corners',
+				kicker: 'Still talking',
+				headline: 'Three Corners deal gets more time',
+				body: 'The city has extended talks again with the developer of the roughly $250 million Three Corners project on the old Big Blue power plant site. The two sides are still negotiating the ground lease. No construction date yet.',
+			},
+		],
+		storm: {
 			slug: 'six-weeks-left',
 			kicker: 'Storm season',
 			headline: 'Six weeks left in hurricane season. Here are five checks for this month.',
@@ -129,6 +181,14 @@ export const porchIssues: PorchIssue[] = [
 			{ label: 'Visit Indian River County — Fall Events 2026', url: 'https://visitindianrivercounty.com/blog/fall-events-in-indian-river-county-2026/' },
 			{ label: 'Renny Realty — Vero Beach Fall Events 2026', url: 'https://rennyrealty.com/blog/vero-beachs-fall-doesnt-start-all-at-once-heres-the-order-it-comes-back' },
 			{ label: 'NOAA National Hurricane Center', url: 'https://www.nhc.noaa.gov/' },
+			{ label: 'WPTV — Vero Beach utility bills to rise over four years', url: 'https://www.wptv.com/news/local-news/our-community/vero-beach/indian-river-county/vero-beach-utility-bills-to-rise-nearly-47-over-four-years-as-city-approves-major-rate-increases' },
+			{ label: 'WQCS — Indian River County starts outreach on septic-to-sewer connections', url: 'https://www.wqcs.org/wqcs-news/2026-10-02/indian-river-county-starts-outreach-on-septic-to-sewer-connections' },
+			{ label: 'Indian River County septic-to-sewer program', url: 'https://www.ircs2sprogram.com/projects/countywide' },
+			{ label: 'WQCS — County forums on Amendment 3', url: 'https://www.wqcs.org/wqcs-news/2026-09-26/indian-river-county-to-hold-forums-on-amendment-3-and-local-impacts' },
+			{ label: 'City of Port St. Lucie — Amendment 3: What Florida Voters Should Know', url: 'https://www.cityofpsl.com/Government/Your-City-Government/Departments/City-Manager/Amendment-3-What-Florida-Voters-Should-Know' },
+			{ label: 'WQCS — Vero Beach parking fines increase Oct. 1', url: 'https://www.wqcs.org/wqcs-news/2026-10-01/vero-beach-to-increase-parking-fines-beginning-oct-1' },
+			{ label: 'WQCS — County revisits proposed third hospital', url: 'https://www.wqcs.org/wqcs-news/2026-10-07/indian-river-county-revisits-proposed-third-hospital-and-height-exemption' },
+			{ label: 'Vero News — Three Corners developers get third extension', url: 'https://veronews.com/2026/09/20/three-corners-developers-get-third-extension/' },
 		],
 	},
 ]
