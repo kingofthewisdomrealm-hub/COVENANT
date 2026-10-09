@@ -433,3 +433,13 @@ export function estimate(input: EstimateInput): EstimateResult {
 }
 
 const minimumApplies = (tiers: TierResult[]) => tiers.some((t) => t.minimumApplied)
+
+/**
+ * Draft prices show ONLY in preview builds: Vercel preview deployments, or any
+ * build with ESTIMATOR_PREVIEW_PRICES=1. Production (the real site) never shows
+ * a draft price, whatever the flag says.
+ */
+export function showDraftPrices() {
+	if (process.env.VERCEL_ENV === 'production') return false
+	return process.env.VERCEL_ENV === 'preview' || process.env.ESTIMATOR_PREVIEW_PRICES === '1'
+}

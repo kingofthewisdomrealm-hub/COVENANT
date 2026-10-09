@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server'
 import { z } from 'zod'
 
-import { estimate } from '@/lib/estimator/engine'
+import { estimate, showDraftPrices } from '@/lib/estimator/engine'
 import { clientIp } from '@/lib/estimator/photos'
 import { checkRateLimit } from '@/lib/rate-limit'
 
@@ -29,6 +29,6 @@ export async function POST(req: NextRequest) {
 	if (!checkRateLimit({ key: `est-price:${clientIp(req.headers)}`, limit: 30, windowMs: 60_000 }).allowed) {
 		return NextResponse.json({ ok: false, error: 'Too many requests.' }, { status: 429 })
 	}
-	const result = estimate({ ...parsed.data, previewPrices: process.env.ESTIMATOR_PREVIEW_PRICES === '1' })
+	const result = estimate({ ...parsed.data, previewPrices: showDraftPrices() })
 	return NextResponse.json({ ok: true, result })
 }

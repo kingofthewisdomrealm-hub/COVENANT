@@ -7,7 +7,7 @@ import { contactMethods, intents, PRELIMINARY_NOTICE, ROOFING_SUB_NOTICE, STORM_
 import { siteConfig } from '@/content/site'
 import { attributionEmailLines, attributionSchema } from '@/lib/attribution/shared'
 import { createCrmLead } from '@/lib/crm'
-import { estimate } from '@/lib/estimator/engine'
+import { estimate, showDraftPrices } from '@/lib/estimator/engine'
 import { answerLines, estimateLines, findingsLines, scopeLabel } from '@/lib/estimator/format'
 import { checkPhotos, clientIp, photoInputSchema } from '@/lib/estimator/photos'
 import { cleanFindings } from '@/lib/estimator/vision'
@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
 		zip: d.zip,
 		answers: d.answers,
 		aiConfidence: d.aiConfidence,
-		previewPrices: process.env.ESTIMATOR_PREVIEW_PRICES === '1',
+		previewPrices: showDraftPrices(),
 	})
 	let findings = null
 	try {
