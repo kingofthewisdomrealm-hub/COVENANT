@@ -10,7 +10,7 @@ import { navLinks, siteConfig } from '@/content/site'
 export function SiteHeader() {
 	const pathname = usePathname()
 	const [isOpen, setIsOpen] = useState(false)
-	const isLightPage = pathname === '/privacy' || pathname === '/porch' || pathname.startsWith('/porch/') || pathname === '/sebastian-porch' || pathname.startsWith('/sebastian-porch/')
+	const isLightPage = pathname === '/privacy' || pathname === '/estimate' || pathname === '/porch' || pathname.startsWith('/porch/') || pathname === '/sebastian-porch' || pathname.startsWith('/sebastian-porch/')
 
 	const handleToggle = () => setIsOpen((current) => !current)
 	const handleClose = () => setIsOpen(false)
