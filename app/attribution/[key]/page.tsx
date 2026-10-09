@@ -17,6 +17,7 @@ import { notFound } from 'next/navigation'
 import { createClient } from '@supabase/supabase-js'
 
 import { channels, reps, type ChannelId } from '@/content/attribution'
+import { getAllPorchArticles } from '@/lib/porch-articles'
 
 export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
@@ -82,6 +83,39 @@ const money = (n: number) =>
 const pct = (a: number, b: number) => (b > 0 ? `${Math.round((a / b) * 100)}%` : '—')
 const n = (v: number | string | null | undefined) => Number(v ?? 0) || 0
 
+type PorchReport = {
+	totals: {
+		views: number
+		visitors: number
+		qr_scans: number
+		leads_on_porch: number
+		readers_who_became_leads: number
+		phone_taps: number
+	}
+	by_page: { page: string; views: number; visitors: number }[]
+	by_channel: { channel: string; views: number; visitors: number }[]
+	by_campaign: { campaign: string; views: number; visitors: number }[]
+	by_city: { city: string; region: string | null; views: number; visitors: number }[]
+	daily: { day: string; views: number; visitors: number }[]
+}
+
+/** The Vero Porch section. Its own call so a missing function never breaks the main report. */
+async function loadPorch(secret: string, days: number): Promise<PorchReport | { error: string }> {
+	const url = process.env.SUPABASE_URL
+	const key = process.env.SUPABASE_PUBLISHABLE_KEY
+	if (!url || !key) return { error: 'The CRM connection is not configured on this site.' }
+	const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } })
+	const { data, error } = await supabase.rpc('porch_report', { p_secret: secret, p_days: days })
+	if (error) {
+		return {
+			error: /porch_report|does not exist|Could not find/i.test(error.message)
+				? 'Porch tracking is collecting, but the report needs its one-time setup: run docs/sql/porch_report.sql in the CRM (Lovable → Cloud → SQL editor).'
+				: error.message,
+		}
+	}
+	return data as PorchReport
+}
+
 async function loadReport(secret: string, days: number): Promise<Report | { error: string }> {
 	const url = process.env.SUPABASE_URL
 	const key = process.env.SUPABASE_PUBLISHABLE_KEY
@@ -111,7 +145,7 @@ export default async function AttributionPage({
 	if (!secret || secret.length < 12 || params.key !== secret) notFound()
 
 	const range = RANGES.find((r) => r.key === searchParams.range) ?? RANGES[1]
-	const report = await loadReport(secret, range.days)
+	const [report, porch] = await Promise.all([loadReport(secret, range.days), loadPorch(secret, range.days)])
 
 	if ('error' in report) {
 		return (
@@ -260,6 +294,9 @@ export default async function AttributionPage({
 						</div>
 					) : null}
 				</section>
+
+				{/* The Vero Porch */}
+				<PorchSection porch={porch} />
 
 				{/* Reps / campaigns / referrals */}
 				{report.by_rep.length > 0 ? (
@@ -452,5 +489,60 @@ function Table({ title, head, rows }: { title: string; head: string[]; rows: str
 				</tbody>
 			</table>
 		</div>
+	)
+}
+
+function PorchSection({ porch }: { porch: PorchReport | { error: string } }) {
+	const titles = new Map(getAllPorchArticles().map((a) => [`/porch/${a.slug}`, a.title]))
+	titles.set('/porch', 'Front page (this month\'s issue)')
+	titles.set('/porch/archive', 'All articles')
+	return (
+		<section>
+			<p className="eyebrow">The neighborhood paper</p>
+			<h2 className="mt-2 font-display text-3xl text-navy">The Vero Porch</h2>
+			{'error' in porch ? (
+				<p className="mt-4 border border-amber-200 bg-amber-50 p-4 font-sans text-sm text-amber-900">{porch.error}</p>
+			) : (
+				<>
+					<dl className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+						<Stat label="Page views" value={String(n(porch.totals.views))} />
+						<Stat label="Readers" value={String(n(porch.totals.visitors))} sub="different people" />
+						<Stat label="Paper QR scans" value={String(n(porch.totals.qr_scans))} sub="from the printed page" />
+						<Stat label="Forms sent on the Porch" value={String(n(porch.totals.leads_on_porch))} />
+						<Stat
+							label="Readers who became leads"
+							value={String(n(porch.totals.readers_who_became_leads))}
+							sub="read the Porch, sent a form anywhere later"
+						/>
+						<Stat label="Phone / text taps" value={String(n(porch.totals.phone_taps))} sub="on Porch pages" />
+					</dl>
+					{n(porch.totals.views) === 0 ? (
+						<p className="mt-3 body-copy">No Porch visits in this window yet. Each new article and each QR scan will show up here.</p>
+					) : null}
+					<div className="mt-8 grid gap-6 lg:grid-cols-2">
+						<Table
+							title="Articles people read"
+							head={['Article', 'Views', 'Readers']}
+							rows={porch.by_page.map((r) => [titles.get(r.page) ?? r.page, String(r.views), String(r.visitors)])}
+						/>
+						<Table
+							title="Where Porch readers come from"
+							head={['Source', 'Views', 'Readers']}
+							rows={porch.by_channel.map((r) => [chLabel(r.channel), String(r.views), String(r.visitors)])}
+						/>
+						<Table
+							title="Campaigns (QR codes, posts)"
+							head={['Campaign', 'Views', 'Readers']}
+							rows={porch.by_campaign.map((r) => [r.campaign, String(r.views), String(r.visitors)])}
+						/>
+						<Table
+							title="Where readers are"
+							head={['City', 'State', 'Views']}
+							rows={porch.by_city.map((r) => [r.city, r.region ?? '—', String(r.views)])}
+						/>
+					</div>
+				</>
+			)}
+		</section>
 	)
 }
