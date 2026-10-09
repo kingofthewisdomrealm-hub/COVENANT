@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 
 import { communityCities } from '@/content/community'
 import { getPublishedPorchArticles } from '@/lib/porch-articles'
+import { ALL_PORCH_EDITIONS } from '@/lib/porch-editions'
 import { services, siteConfig } from '@/content/site'
 
 /**
@@ -113,17 +114,22 @@ const communityRoutes: typeof routes = communityCities.map((city) => ({
 }))
 
 /**
- * /porch/[slug] — The Vero Porch daily articles, plus the archive. Dates come
- * from each article file, so a new article updates the sitemap by itself.
+ * Every Porch paper (/porch = Vero, /sebastian-porch = Sebastian): front page,
+ * archive and each daily article. Dates come from each article file (or the
+ * issue's checkedOn date), so a new article updates the sitemap by itself.
  */
 function porchRoutes(): typeof routes {
-	const articles = getPublishedPorchArticles()
-	const newest = articles[0]?.publishedAt ?? '2026-10-08'
+	return ALL_PORCH_EDITIONS.flatMap((ed) => porchEditionRoutes(ed.key, ed.basePath, ed.issue.checkedOn))
+}
+
+function porchEditionRoutes(key: Parameters<typeof getPublishedPorchArticles>[0], base: string, issueDate: string): typeof routes {
+	const articles = getPublishedPorchArticles(key)
+	const newest = [articles[0]?.publishedAt, issueDate].filter(Boolean).sort().pop() as string
 	return [
-		{ path: '/porch', lastModified: newest, changeFrequency: 'daily', priority: 0.7 },
-		{ path: '/porch/archive', lastModified: newest, changeFrequency: 'daily', priority: 0.5 },
+		{ path: base, lastModified: newest, changeFrequency: 'daily', priority: 0.7 },
+		{ path: `${base}/archive`, lastModified: newest, changeFrequency: 'daily', priority: 0.5 },
 		...articles.map((a) => ({
-			path: `/porch/${a.slug}`,
+			path: `${base}/${a.slug}`,
 			lastModified: a.updatedAt ?? a.publishedAt,
 			changeFrequency: 'monthly' as const,
 			priority: 0.6,

@@ -2,13 +2,22 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 /**
- * The Vero Porch — daily articles.
+ * The Porch papers — daily articles, one folder per edition.
  *
- * One JSON file per article in content/porch-articles/, named
- * `YYYY-MM-DD--<slug>.json`. Read at build time; every article is a static
- * page at /porch/<slug>. Rules for writing one are in
- * content/porch-articles/README.md — run `npm run porch:check` before pushing.
+ * The Vero Porch:      content/porch-articles/            → /porch/<slug>
+ * The Sebastian Porch: content/sebastian-porch-articles/  → /sebastian-porch/<slug>
+ *
+ * One JSON file per article, named `YYYY-MM-DD--<slug>.json`. Read at build
+ * time; every article is a static page. Rules for writing one are in each
+ * folder's README.md — run `npm run porch:check` before pushing.
  */
+
+export type PorchEditionKey = 'vero' | 'sebastian'
+
+const EDITION_DIRS: Record<PorchEditionKey, string> = {
+	vero: 'porch-articles',
+	sebastian: 'sebastian-porch-articles',
+}
 
 export const PORCH_CATEGORIES = [
 	'Bills & utilities',
@@ -19,6 +28,7 @@ export const PORCH_CATEGORIES = [
 	'Condos & HOAs',
 	'Around town',
 	'Vero history',
+	'Sebastian history',
 ] as const
 export type PorchCategory = (typeof PORCH_CATEGORIES)[number]
 
@@ -51,13 +61,14 @@ export interface PorchArticle {
 	sources: { label: string; url: string }[]
 }
 
-const DIR = path.join(process.cwd(), 'content', 'porch-articles')
 const FILE_RE = /^(\d{4}-\d{2}-\d{2})--([a-z0-9-]+)\.json$/
 
-let cache: PorchArticle[] | null = null
+const cache: Partial<Record<PorchEditionKey, PorchArticle[]>> = {}
 
-export function getAllPorchArticles(): PorchArticle[] {
-	if (cache) return cache
+export function getAllPorchArticles(edition: PorchEditionKey = 'vero'): PorchArticle[] {
+	const cached = cache[edition]
+	if (cached) return cached
+	const DIR = path.join(process.cwd(), 'content', EDITION_DIRS[edition])
 	const files = fs.existsSync(DIR) ? fs.readdirSync(DIR).filter((f) => FILE_RE.test(f)) : []
 	const articles = files.map((f) => {
 		const raw = JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8')) as PorchArticle
@@ -67,22 +78,26 @@ export function getAllPorchArticles(): PorchArticle[] {
 	articles.sort((a, b) =>
 		a.publishedAt === b.publishedAt ? b.slug.localeCompare(a.slug) : b.publishedAt.localeCompare(a.publishedAt),
 	)
-	cache = articles
+	cache[edition] = articles
 	return articles
 }
 
 /** Articles whose publish date has arrived (America/New_York). Future-dated files stay hidden. */
-export function getPublishedPorchArticles(now = new Date()): PorchArticle[] {
+export function getPublishedPorchArticles(edition: PorchEditionKey = 'vero', now = new Date()): PorchArticle[] {
 	const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(now)
-	return getAllPorchArticles().filter((a) => a.publishedAt <= today)
+	return getAllPorchArticles(edition).filter((a) => a.publishedAt <= today)
 }
 
-export function getPorchArticle(slug: string): PorchArticle | undefined {
-	return getPublishedPorchArticles().find((a) => a.slug === slug)
+export function getPorchArticle(slug: string, edition: PorchEditionKey = 'vero'): PorchArticle | undefined {
+	return getPublishedPorchArticles(edition).find((a) => a.slug === slug)
 }
 
-export function getRelatedPorchArticles(article: PorchArticle, count = 3): PorchArticle[] {
-	const others = getPublishedPorchArticles().filter((a) => a.slug !== article.slug)
+export function getRelatedPorchArticles(
+	article: PorchArticle,
+	count = 3,
+	edition: PorchEditionKey = 'vero',
+): PorchArticle[] {
+	const others = getPublishedPorchArticles(edition).filter((a) => a.slug !== article.slug)
 	const same = others.filter((a) => a.category === article.category)
 	const rest = others.filter((a) => a.category !== article.category)
 	return [...same, ...rest].slice(0, count)

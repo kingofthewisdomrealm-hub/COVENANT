@@ -1,34 +1,35 @@
 #!/usr/bin/env node
 /**
- * Validates every file in content/porch-articles/. Run: npm run porch:check
+ * Validates every Porch article folder. Run: npm run porch:check
+ *   content/porch-articles/            The Vero Porch
+ *   content/sebastian-porch-articles/  The Sebastian Porch
  * Exits non-zero on any problem so a bad article never ships.
  */
 import fs from 'node:fs'
 import path from 'node:path'
 
-const DIR = path.join(process.cwd(), 'content', 'porch-articles')
 const FILE_RE = /^(\d{4}-\d{2}-\d{2})--([a-z0-9-]+)\.json$/
-const CATEGORIES = [
-	'Bills & utilities',
-	'Taxes & money',
-	'Storms & safety',
-	'Permits & rules',
-	'Home care',
-	'Condos & HOAs',
-	'Around town',
-	'Vero history',
+const SHARED = ['Bills & utilities', 'Taxes & money', 'Storms & safety', 'Permits & rules', 'Home care', 'Condos & HOAs', 'Around town']
+const EDITIONS = [
+	{ name: 'Vero Porch', dir: 'porch-articles', categories: [...SHARED, 'Vero history'] },
+	{ name: 'Sebastian Porch', dir: 'sebastian-porch-articles', categories: [...SHARED, 'Sebastian history'] },
 ]
 const BLOCK_TYPES = ['p', 'h2', 'ul', 'ol', 'callout']
 // F.S. 489.147 — never encourage contacting us about an insurance claim.
 const BANNED = [/file (a|your) claim/i, /insurance claim/i, /deductible/i, /free roof/i, /we work with (all )?insurance/i, /gift card/i, /rebate/i]
 
 const errors = []
+const counts = []
+for (const ed of EDITIONS) {
+const DIR = path.join(process.cwd(), 'content', ed.dir)
+const CATEGORIES = ed.categories
 const slugs = new Map()
 const titles = new Map()
-const files = fs.readdirSync(DIR).filter((f) => f.endsWith('.json'))
+const files = fs.existsSync(DIR) ? fs.readdirSync(DIR).filter((f) => f.endsWith('.json')) : []
+counts.push(`${files.length} ${ed.name}`)
 
 for (const f of files) {
-	const where = `content/porch-articles/${f}`
+	const where = `content/${ed.dir}/${f}`
 	const m = FILE_RE.exec(f)
 	if (!m) {
 		errors.push(`${where}: file name must be YYYY-MM-DD--slug.json`)
@@ -74,9 +75,10 @@ for (const f of files) {
 	if (titles.has(t)) errors.push(`${where}: duplicate title, also in ${titles.get(t)}`)
 	titles.set(t, f)
 }
+}
 
 if (errors.length) {
 	console.error(`✖ ${errors.length} problem(s):\n- ` + errors.join('\n- '))
 	process.exit(1)
 }
-console.log(`✔ ${files.length} Vero Porch article(s) OK`)
+console.log(`✔ articles OK: ${counts.join(', ')}`)
