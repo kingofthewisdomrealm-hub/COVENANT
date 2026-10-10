@@ -18,6 +18,7 @@ import { createClient } from '@supabase/supabase-js'
 
 import { channels, reps, type ChannelId } from '@/content/attribution'
 import { getAllPorchArticles } from '@/lib/porch-articles'
+import { ALL_PORCH_EDITIONS, PORCH_EDITIONS } from '@/lib/porch-editions'
 
 export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
@@ -92,6 +93,7 @@ type PorchReport = {
 		readers_who_became_leads: number
 		phone_taps: number
 	}
+	by_edition?: { edition: string; views: number; visitors: number; qr_scans: number }[]
 	by_page: { page: string; views: number; visitors: number }[]
 	by_channel: { channel: string; views: number; visitors: number }[]
 	by_campaign: { campaign: string; views: number; visitors: number }[]
@@ -493,13 +495,18 @@ function Table({ title, head, rows }: { title: string; head: string[]; rows: str
 }
 
 function PorchSection({ porch }: { porch: PorchReport | { error: string } }) {
-	const titles = new Map(getAllPorchArticles().map((a) => [`/porch/${a.slug}`, a.title]))
-	titles.set('/porch', 'Front page (this month\'s issue)')
-	titles.set('/porch/archive', 'All articles')
+	const titles = new Map<string, string>()
+	for (const ed of ALL_PORCH_EDITIONS) {
+		const town = ed.key === 'vero' ? 'Vero' : 'Sebastian'
+		for (const a of getAllPorchArticles(ed.key)) titles.set(`${ed.basePath}/${a.slug}`, `${town}: ${a.title}`)
+		titles.set(ed.basePath, `${town}: front page (this month's issue)`)
+		titles.set(`${ed.basePath}/archive`, `${town}: all articles`)
+	}
+	const editionName = (k: string) => PORCH_EDITIONS[k as keyof typeof PORCH_EDITIONS]?.name ?? k
 	return (
 		<section>
 			<p className="eyebrow">The neighborhood paper</p>
-			<h2 className="mt-2 font-display text-3xl text-navy">The Vero Porch</h2>
+			<h2 className="mt-2 font-display text-3xl text-navy">The Vero Porch &amp; The Sebastian Porch</h2>
 			{'error' in porch ? (
 				<p className="mt-4 border border-amber-200 bg-amber-50 p-4 font-sans text-sm text-amber-900">{porch.error}</p>
 			) : (
@@ -520,6 +527,11 @@ function PorchSection({ porch }: { porch: PorchReport | { error: string } }) {
 						<p className="mt-3 body-copy">No Porch visits in this window yet. Each new article and each QR scan will show up here.</p>
 					) : null}
 					<div className="mt-8 grid gap-6 lg:grid-cols-2">
+						<Table
+							title="Each paper"
+							head={['Paper', 'Views', 'Readers', 'QR scans']}
+							rows={(porch.by_edition ?? []).map((r) => [editionName(r.edition), String(r.views), String(r.visitors), String(r.qr_scans)])}
+						/>
 						<Table
 							title="Articles people read"
 							head={['Article', 'Views', 'Readers']}
