@@ -114,7 +114,7 @@ const communityRoutes: typeof routes = communityCities.map((city) => ({
 }))
 
 /**
- * Every Porch paper (/porch = Vero, /sebastian-porch = Sebastian): front page,
+ * Every Porch paper (/porch = Vero, /sebastian-porch = Sebastian, /psl-porch = PSL & Fort Pierce): front page,
  * archive and each daily article. Dates come from each article file (or the
  * issue's checkedOn date), so a new article updates the sitemap by itself.
  */

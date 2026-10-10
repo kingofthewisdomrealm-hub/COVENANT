@@ -11,6 +11,12 @@ import {
 	SEBASTIAN_PORCH_TAGLINE,
 	currentSebastianPorchIssue,
 } from '@/content/sebastian-porch'
+import {
+	PSL_PORCH_NAME,
+	PSL_PORCH_SPONSOR,
+	PSL_PORCH_TAGLINE,
+	currentPslPorchIssue,
+} from '@/content/psl-porch'
 import type { PorchEditionKey } from '@/lib/porch-articles'
 
 /**
@@ -32,6 +38,8 @@ export interface PorchEdition {
 	frontDescription: string
 	archiveTitle: string
 	archiveDescription: string
+	/** Optional drawn logo above the masthead name. 'porch' = the front-porch drawing. */
+	logo?: 'porch'
 }
 
 export const PORCH_EDITIONS: Record<PorchEditionKey, PorchEdition> = {
@@ -60,6 +68,20 @@ export const PORCH_EDITIONS: Record<PorchEditionKey, PorchEdition> = {
 		archiveTitle: `All articles | ${SEBASTIAN_PORCH_NAME} — Sebastian homeowner news`,
 		archiveDescription:
 			'Every Sebastian Porch article: City of Sebastian news for homeowners — septic and sewer, property taxes, stormwater, permits, storms and local history.',
+	},
+	psl: {
+		key: 'psl',
+		name: PSL_PORCH_NAME,
+		tagline: PSL_PORCH_TAGLINE,
+		sponsor: PSL_PORCH_SPONSOR,
+		basePath: '/psl-porch',
+		town: 'Port St. Lucie & Fort Pierce',
+		issue: currentPslPorchIssue,
+		frontDescription: `${PSL_PORCH_TAGLINE}. Port St. Lucie's new tax rate, the trash fee and Waste Pro credit, early voting, the half-cent sales tax, storm-season checks and what is on around town.`,
+		archiveTitle: `All articles | ${PSL_PORCH_NAME} — Port St. Lucie & Fort Pierce homeowner news`,
+		archiveDescription:
+			'Every PSL Porch article: Port St. Lucie, Fort Pierce and St. Lucie County news for homeowners — tax bills, utilities, trash, permits, storms and local history.',
+		logo: 'porch',
 	},
 }
 

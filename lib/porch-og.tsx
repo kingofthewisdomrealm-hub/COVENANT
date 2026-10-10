@@ -2,6 +2,7 @@ import { ImageResponse } from 'next/og'
 
 import { formatPorchDate, getPorchArticle } from '@/lib/porch-articles'
 import type { PorchEdition } from '@/lib/porch-editions'
+import { PorchLogoSvg } from '@/components/porch/porch-logo'
 
 export const porchOgSize = { width: 1200, height: 630 }
 
@@ -40,7 +41,10 @@ export function porchOgImage(ed: PorchEdition, slug: string) {
 							paddingBottom: 14,
 						}}
 					>
-						<span>{PORCH_NAME}</span>
+						<span style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+							{ed.logo === 'porch' ? <PorchLogoSvg width={54} /> : null}
+							{PORCH_NAME}
+						</span>
 						<span>{a ? `${a.category} · ${formatPorchDate(a.publishedAt)}` : ed.town}</span>
 					</div>
 					<div style={{ fontSize: title.length > 80 ? 54 : 64, lineHeight: 1.08, fontWeight: 700, marginTop: 30 }}>

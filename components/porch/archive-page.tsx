@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
+import { PorchLogoSvg } from '@/components/porch/porch-logo'
 import { siteConfig } from '@/content/site'
 import { PORCH_CATEGORIES, formatPorchDate, getPublishedPorchArticles } from '@/lib/porch-articles'
 import type { PorchEdition } from '@/lib/porch-editions'
@@ -51,6 +52,13 @@ export function PorchArchiveView({ edition: ed }: { edition: PorchEdition }) {
 			<section className="bg-[#FBFAF6] pb-20 pt-10 sm:pt-14">
 				<div className="section-shell max-w-4xl">
 					<header className="border-y-4 border-double border-navy py-5 text-center">
+						{ed.logo === 'porch' ? (
+							<div className="mb-2 flex justify-center">
+								<Link href={base} aria-label={PORCH_NAME}>
+									<PorchLogoSvg width={84} title={PORCH_NAME} />
+								</Link>
+							</div>
+						) : null}
 						<p className="font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-muted">
 							<Link href={base} className="hover:text-navy">
 								{PORCH_NAME}

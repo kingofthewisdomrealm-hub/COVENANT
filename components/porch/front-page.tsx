@@ -4,6 +4,7 @@ import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
 import Link from 'next/link'
 
 import { PorchReportCardBox } from '@/components/porch-report-card-box'
+import { PorchLogoSvg } from '@/components/porch/porch-logo'
 import type { PorchStory } from '@/content/porch'
 import { siteConfig } from '@/content/site'
 import { formatPorchDate, getPublishedPorchArticles } from '@/lib/porch-articles'
@@ -27,7 +28,7 @@ export function porchFrontMetadata(ed: PorchEdition): Metadata {
 /**
  * The full online edition of a Porch paper. The printed front page's QR code
  * lands here. Content lives in content/porch.ts (Vero) and
- * content/sebastian-porch.ts — read the rules at the top before editing copy.
+ * content/sebastian-porch.ts and content/psl-porch.ts — read the rules at the top before editing copy.
  */
 export function PorchFrontPage({ edition: ed }: { edition: PorchEdition }) {
 	const { issue } = ed
@@ -48,6 +49,11 @@ export function PorchFrontPage({ edition: ed }: { edition: PorchEdition }) {
 							<span>{issue.monthLabel}</span>
 							<span>{issue.price}</span>
 						</div>
+						{ed.logo === 'porch' ? (
+							<div className="mt-4 flex justify-center">
+								<PorchLogoSvg width={132} title={PORCH_NAME} />
+							</div>
+						) : null}
 						<h1 className="mt-3 font-display text-5xl font-semibold tracking-tight text-navy sm:text-7xl">
 							{PORCH_NAME}
 						</h1>

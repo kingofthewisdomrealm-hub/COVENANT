@@ -3,6 +3,7 @@
  * Validates every Porch article folder. Run: npm run porch:check
  *   content/porch-articles/            The Vero Porch
  *   content/sebastian-porch-articles/  The Sebastian Porch
+ *   content/psl-porch-articles/        The PSL Porch
  * Exits non-zero on any problem so a bad article never ships.
  */
 import fs from 'node:fs'
@@ -13,6 +14,7 @@ const SHARED = ['Bills & utilities', 'Taxes & money', 'Storms & safety', 'Permit
 const EDITIONS = [
 	{ name: 'Vero Porch', dir: 'porch-articles', categories: [...SHARED, 'Vero history'] },
 	{ name: 'Sebastian Porch', dir: 'sebastian-porch-articles', categories: [...SHARED, 'Sebastian history'] },
+	{ name: 'PSL Porch', dir: 'psl-porch-articles', categories: [...SHARED, 'PSL history'] },
 ]
 const BLOCK_TYPES = ['p', 'h2', 'ul', 'ol', 'callout']
 // F.S. 489.147 — never encourage contacting us about an insurance claim.

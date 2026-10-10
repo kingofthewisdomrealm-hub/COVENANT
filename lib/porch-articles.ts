@@ -6,17 +6,19 @@ import path from 'node:path'
  *
  * The Vero Porch:      content/porch-articles/            → /porch/<slug>
  * The Sebastian Porch: content/sebastian-porch-articles/  → /sebastian-porch/<slug>
+ * The PSL Porch:       content/psl-porch-articles/        → /psl-porch/<slug>
  *
  * One JSON file per article, named `YYYY-MM-DD--<slug>.json`. Read at build
  * time; every article is a static page. Rules for writing one are in each
  * folder's README.md — run `npm run porch:check` before pushing.
  */
 
-export type PorchEditionKey = 'vero' | 'sebastian'
+export type PorchEditionKey = 'vero' | 'sebastian' | 'psl'
 
 const EDITION_DIRS: Record<PorchEditionKey, string> = {
 	vero: 'porch-articles',
 	sebastian: 'sebastian-porch-articles',
+	psl: 'psl-porch-articles',
 }
 
 export const PORCH_CATEGORIES = [
@@ -29,6 +31,7 @@ export const PORCH_CATEGORIES = [
 	'Around town',
 	'Vero history',
 	'Sebastian history',
+	'PSL history',
 ] as const
 export type PorchCategory = (typeof PORCH_CATEGORIES)[number]
 
