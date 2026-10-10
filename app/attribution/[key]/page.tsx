@@ -497,7 +497,7 @@ function Table({ title, head, rows }: { title: string; head: string[]; rows: str
 function PorchSection({ porch }: { porch: PorchReport | { error: string } }) {
 	const titles = new Map<string, string>()
 	for (const ed of ALL_PORCH_EDITIONS) {
-		const town = ed.key === 'vero' ? 'Vero' : ed.key === 'sebastian' ? 'Sebastian' : 'PSL'
+		const town = ed.reportLabel
 		for (const a of getAllPorchArticles(ed.key)) titles.set(`${ed.basePath}/${a.slug}`, `${town}: ${a.title}`)
 		titles.set(ed.basePath, `${town}: front page (this month's issue)`)
 		titles.set(`${ed.basePath}/archive`, `${town}: all articles`)
@@ -506,7 +506,7 @@ function PorchSection({ porch }: { porch: PorchReport | { error: string } }) {
 	return (
 		<section>
 			<p className="eyebrow">The neighborhood paper</p>
-			<h2 className="mt-2 font-display text-3xl text-navy">The Porch papers: Vero, Sebastian &amp; PSL</h2>
+			<h2 className="mt-2 font-display text-3xl text-navy">The neighborhood papers: Vero, Sebastian, PSL &amp; Orlando</h2>
 			{'error' in porch ? (
 				<p className="mt-4 border border-amber-200 bg-amber-50 p-4 font-sans text-sm text-amber-900">{porch.error}</p>
 			) : (

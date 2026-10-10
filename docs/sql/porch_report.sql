@@ -1,4 +1,4 @@
--- The Porch papers (Vero /porch + Sebastian /sebastian-porch + PSL /psl-porch) — traffic report
+-- The Porch papers (Vero /porch + Sebastian /sebastian-porch + PSL /psl-porch + Orlando Balcony /orlando-balcony) — traffic report
 -- for the private attribution page.
 -- Run once in Lovable Cloud → SQL editor. Safe to re-run. Reads web_events
 -- only (the table the website's /api/track collector already fills).
@@ -22,7 +22,7 @@ begin
   with porch as (
     select *, coalesce(visitor_id, ip_hash, session_id) as who
     from web_events
-    where at >= since and (page = '/porch' or page like '/porch/%' or page = '/sebastian-porch' or page like '/sebastian-porch/%' or page = '/psl-porch' or page like '/psl-porch/%')
+    where at >= since and (page = '/porch' or page like '/porch/%' or page = '/sebastian-porch' or page like '/sebastian-porch/%' or page = '/psl-porch' or page like '/psl-porch/%' or page = '/orlando-balcony' or page like '/orlando-balcony/%')
   ),
   views as (select * from porch where event = 'page_view'),
   first_seen as (select who, min(at) as first_at from views where who is not null group by who),
@@ -38,15 +38,15 @@ begin
     'totals', jsonb_build_object(
       'views', (select count(*) from views),
       'visitors', (select count(distinct who) from views),
-      'qr_scans', (select count(*) from views where campaign ilike '%porch%' or channel = 'flyer_qr'),
+      'qr_scans', (select count(*) from views where campaign ilike '%porch%' or campaign ilike '%balcony%' or channel = 'flyer_qr'),
       'leads_on_porch', (select count(*) from porch where event = 'generate_lead'),
       'readers_who_became_leads', (select count(*) from reader_leads),
       'phone_taps', (select count(*) from porch where event in ('phone_click', 'sms_click'))
     ),
     'by_edition', coalesce((select jsonb_agg(x order by x.views desc) from (
-        select case when page like '/sebastian-porch%' then 'sebastian' when page like '/psl-porch%' then 'psl' else 'vero' end as edition,
+        select case when page like '/sebastian-porch%' then 'sebastian' when page like '/psl-porch%' then 'psl' when page like '/orlando-balcony%' then 'orlando' else 'vero' end as edition,
                count(*) as views, count(distinct who) as visitors,
-               count(*) filter (where campaign ilike '%porch%' or channel = 'flyer_qr') as qr_scans
+               count(*) filter (where campaign ilike '%porch%' or campaign ilike '%balcony%' or channel = 'flyer_qr') as qr_scans
         from views group by 1) x), '[]'::jsonb),
     'by_page', coalesce((select jsonb_agg(x order by x.views desc) from (
         select page, count(*) as views, count(distinct who) as visitors

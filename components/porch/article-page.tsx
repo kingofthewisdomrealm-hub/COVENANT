@@ -149,7 +149,7 @@ export function PorchArticleView({ edition: ed, slug }: { edition: PorchEdition;
 					{related.length ? (
 						<section aria-labelledby="related-title" className="mt-14">
 							<h2 id="related-title" className="eyebrow">
-								More from the Porch
+								More from {ed.nickname ?? 'the Porch'}
 							</h2>
 							<ul className="mt-4 divide-y divide-navy/10 border-y border-navy/10">
 								{related.map((r) => (

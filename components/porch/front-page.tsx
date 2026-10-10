@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 import { PorchReportCardBox } from '@/components/porch-report-card-box'
 import { PorchLogoSvg } from '@/components/porch/porch-logo'
+import { BalconyLogoSvg } from '@/components/porch/balcony-logo'
 import type { PorchStory } from '@/content/porch'
 import { siteConfig } from '@/content/site'
 import { formatPorchDate, getPublishedPorchArticles } from '@/lib/porch-articles'
@@ -28,7 +29,7 @@ export function porchFrontMetadata(ed: PorchEdition): Metadata {
 /**
  * The full online edition of a Porch paper. The printed front page's QR code
  * lands here. Content lives in content/porch.ts (Vero) and
- * content/sebastian-porch.ts and content/psl-porch.ts — read the rules at the top before editing copy.
+ * content/sebastian-porch.ts, content/psl-porch.ts and content/orlando-balcony.ts — read the rules at the top before editing copy.
  */
 export function PorchFrontPage({ edition: ed }: { edition: PorchEdition }) {
 	const { issue } = ed
@@ -52,6 +53,10 @@ export function PorchFrontPage({ edition: ed }: { edition: PorchEdition }) {
 						{ed.logo === 'porch' ? (
 							<div className="mt-4 flex justify-center">
 								<PorchLogoSvg width={132} title={PORCH_NAME} />
+							</div>
+						) : ed.logo === 'balcony' ? (
+							<div className="mt-4 flex justify-center">
+								<BalconyLogoSvg width={132} title={PORCH_NAME} />
 							</div>
 						) : null}
 						<h1 className="mt-3 font-display text-5xl font-semibold tracking-tight text-navy sm:text-7xl">
@@ -206,7 +211,7 @@ function LatestArticles({ edition: ed }: { edition: PorchEdition }) {
 	if (!latest.length) return null
 	return (
 		<section aria-labelledby="latest-title" className="mt-14">
-			<p className="eyebrow">Every day on the Porch</p>
+			<p className="eyebrow">Every day on {ed.nickname ?? 'the Porch'}</p>
 			<h2 id="latest-title" className="mt-2 font-display text-3xl text-navy">
 				Latest articles
 			</h2>
