@@ -6,7 +6,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 
 - [x] 2026-10-08 Vero Beach water & sewer rate increase 2026–2029 — vero-beach-water-sewer-rate-increase-2026
 - [x] 2026-10-08 Septic-to-sewer: the July 1, 2030 deadline — indian-river-county-septic-to-sewer-2030-deadline
-- [ ] ⏰ before Nov 3 — Amendment 3 explained for Indian River County homeowners (facts only; county forum dates)
+- [x] 2026-10-11 ⏰ before Nov 3 — Amendment 3 explained for Indian River County homeowners (facts only; county forum dates) — indian-river-county-amendment-3-homeowners-guide
 - [ ] ⏰ before Nov 1 — Your Indian River County property tax bill: when it arrives and the early-payment discounts
 - [ ] How to find out how old your roof is (permit records in Vero Beach vs. Indian River County)
 - [ ] How to check a Florida contractor's license before you hire (myfloridalicense.com)
