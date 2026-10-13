@@ -8,7 +8,7 @@ the day you write it; tick it off (`[x]` + date + slug) when published.
 - [x] 2026-10-10 Sebastian City Council election: the two seats, the five candidates, how and where to vote — sebastian-city-council-election-2026
 - [x] 2026-10-12 Sebastian septic-to-sewer: who provides sewer (the county), the 2030 deadline, the CRA waterfront extension — sebastian-septic-sewer-hookup-grant-north-sebastian
 - [x] 2026-10-11 Sebastian stormwater fee: what it is, what it pays for, and the drainage ditch behind your house — sebastian-stormwater-fee-swales-culverts
-- [ ] Who to call in Sebastian: city vs. county for permits, code, roads, water, sewer, trash
+- [x] 2026-10-13 Who to call in Sebastian: city vs. county for permits, code, roads, water, sewer, trash — who-to-call-sebastian-city-vs-county
 - [ ] Do I need a permit? Common home projects inside Sebastian city limits (City of Sebastian Building Department)
 - [ ] How to find out how old your roof is in Sebastian (permit records)
 - [ ] Sebastian hurricane evacuation zones and shelters
