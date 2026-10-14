@@ -9,7 +9,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-11 ⏰ before Nov 3 — Amendment 3 explained for Indian River County homeowners (facts only; county forum dates) — indian-river-county-amendment-3-homeowners-guide
 - [x] 2026-10-12 ⏰ before Nov 1 — Your Indian River County property tax bill: when it arrives and the early-payment discounts — indian-river-county-property-tax-bill-november-discount
 - [x] 2026-10-13 How to find out how old your roof is (permit records in Vero Beach vs. Indian River County) — how-old-is-my-roof-vero-beach-permit-records
-- [ ] How to check a Florida contractor's license before you hire (myfloridalicense.com)
+- [x] 2026-10-14 How to check a Florida contractor's license before you hire (myfloridalicense.com) — check-florida-contractor-license-vero-beach
 - [ ] Do I need a permit? Common home projects in Vero Beach and Indian River County
 - [ ] Know your hurricane evacuation zone in Indian River County
 - [ ] What is a wind mitigation inspection and what does it look at (informational only)
