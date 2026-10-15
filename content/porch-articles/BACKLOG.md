@@ -11,7 +11,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-13 How to find out how old your roof is (permit records in Vero Beach vs. Indian River County) — how-old-is-my-roof-vero-beach-permit-records
 - [x] 2026-10-14 How to check a Florida contractor's license before you hire (myfloridalicense.com) — check-florida-contractor-license-vero-beach
 - [ ] Do I need a permit? Common home projects in Vero Beach and Indian River County
-- [ ] Know your hurricane evacuation zone in Indian River County
+- [x] 2026-10-15 Know your hurricane evacuation zone in Indian River County — vero-beach-hurricane-evacuation-zone-lookup
 - [ ] What is a wind mitigation inspection and what does it look at (informational only)
 - [ ] My Safe Florida Home: current status and how the program works (verify status that day)
 - [ ] How to look up your FEMA flood zone in Vero Beach
