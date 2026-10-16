@@ -59,6 +59,15 @@ for (const f of files) {
 	need(Array.isArray(a.keywords) && a.keywords.length >= 3, 'keywords: at least 3')
 	need(Array.isArray(a.sources) && a.sources.length >= 2, 'sources: at least 2')
 	for (const s of a.sources ?? []) need(/^https:\/\//.test(s.url) && s.label, `source needs https url + label: ${JSON.stringify(s)}`)
+	if (a.facebook !== undefined) {
+		need(typeof a.facebook === 'string' && a.facebook.length >= 40 && a.facebook.length <= 400, 'facebook: post text, 40–400 characters')
+		need(!/https?:\/\//.test(a.facebook ?? ''), 'facebook: leave the link out — it is added automatically with tracking')
+		for (const re of BANNED) need(!re.test(a.facebook ?? ''), `facebook: banned phrase (F.S. 489.147 / promo): ${re}`)
+	}
+	if (a.facebookAt !== undefined) {
+		need(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(a.facebookAt), 'facebookAt: "YYYY-MM-DDTHH:MM" (America/New_York)')
+		need(String(a.facebookAt).slice(0, 10) >= a.publishedAt, 'facebookAt: cannot be before publishedAt')
+	}
 	need(Array.isArray(a.body) && a.body.length >= 5, 'body: at least 5 blocks')
 	let words = 0
 	let h2 = 0

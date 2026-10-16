@@ -50,3 +50,17 @@ No gossip, crime, celebrity, or opinion pieces.
 If the same county story runs in both papers, the Sebastian article must be
 written for Sebastian (Sebastian numbers, Sebastian offices, Sebastian streets),
 with its own title and slug. Never copy a Vero article.
+
+## Facebook post (automatic)
+Every article also carries its Facebook post:
+- `"facebook"`: 1–2 friendly sentences (40–400 characters) that make a
+  homeowner want to click. **No link** — the tracked link is added for you.
+  Same rules as the article: no selling, no insurance-claim talk, no
+  how-to-vote.
+- `"facebookAt"`: when it goes out, America/New_York, `"YYYY-MM-DDTHH:MM"`.
+  Default for a new article: its publish day at 17:30.
+
+`.github/workflows/porch-facebook.yml` posts it to the Covenant Builders
+Facebook Page once the article is live (or schedules it on Facebook if the
+time is later), using `scripts/post-porch-facebook.mjs`. It never posts the
+same article twice.
