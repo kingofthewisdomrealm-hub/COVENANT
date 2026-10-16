@@ -10,7 +10,7 @@ the day you write it; tick it off (`[x]` + date + slug) when published.
 - [x] 2026-10-11 Sebastian stormwater fee: what it is, what it pays for, and the drainage ditch behind your house — sebastian-stormwater-fee-swales-culverts
 - [x] 2026-10-13 Who to call in Sebastian: city vs. county for permits, code, roads, water, sewer, trash — who-to-call-sebastian-city-vs-county
 - [x] 2026-10-15 Do I need a permit? Common home projects inside Sebastian city limits (City of Sebastian Building Department) — sebastian-building-permit-common-home-projects
-- [ ] How to find out how old your roof is in Sebastian (permit records)
+- [x] 2026-10-16 How to find out how old your roof is in Sebastian (permit records) — how-old-is-my-roof-sebastian-permit-records
 - [ ] Sebastian hurricane evacuation zones and shelters
 - [ ] Sebastian flood zones: how to look up yours on the FEMA map
 - [x] 2026-10-11 Sebastian swale and culvert rules: who maintains the ditch in front of your house (covered in the stormwater fee article) — sebastian-stormwater-fee-swales-culverts
