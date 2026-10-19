@@ -1,0 +1,105 @@
+{
+  "slug": "florida-condo-budget-2027-115-percent-rule",
+  "title": "Your condo’s 2027 budget: the 14-day notice, the 115% rule and what owners can still vote on",
+  "seoTitle": "Florida Condo Budget Rules 2027: Notice & 115% Rule",
+  "description": "Florida condo boards adopt 2027 budgets this fall. The 14-day notice, the 115% substitute-budget rule, and what owners can and can’t vote on, in plain words.",
+  "dek": "Budget season is here. Florida law sets how much notice owners get, what happens when fees jump more than 15%, and which reserves can’t be voted away.",
+  "category": "Board rules",
+  "publishedAt": "2026-10-19",
+  "places": [
+    "Florida"
+  ],
+  "keywords": [
+    "Florida condo budget notice 14 days",
+    "condo budget 115 percent rule Florida",
+    "substitute budget condo Florida",
+    "Florida condo HOA fee increase 2027",
+    "718.112 budget meeting"
+  ],
+  "facebook": "Condo budget season in Florida: you should get the proposed 2027 budget at least 14 days before the vote. If fees would rise more than 15%, the board has to offer a second, bare-bones budget too. Here’s how it works.",
+  "facebookAt": "2026-10-20T14:30",
+  "body": [
+    {
+      "type": "p",
+      "text": "Most Florida condo associations run on a calendar year, so fall is when boards adopt the next year’s budget. For many owners, the 2027 budget will be the second one built fully under the post-Surfside reserve rules. Knowing the rules helps you read the notice, ask the right questions and know what is actually up for a vote. The rules below are in section 718.112(2)(e) of the Florida Statutes."
+    },
+    {
+      "type": "h2",
+      "text": "You get the budget at least 14 days before the meeting"
+    },
+    {
+      "type": "p",
+      "text": "The board must send the proposed annual budget and the notice of the meeting where it will be adopted at least 14 days before that meeting. It can be hand delivered, mailed, or sent electronically to owners who have agreed to receive notices that way. The association keeps a signed affidavit in its records showing the notice went out. Budget meetings are open to owners."
+    },
+    {
+      "type": "h2",
+      "text": "The 115% rule"
+    },
+    {
+      "type": "p",
+      "text": "If the proposed budget would raise assessments to more than 115% of the previous year’s, the board must also offer owners a substitute budget that leaves out discretionary spending. Notice of that substitute budget must be mailed or hand delivered to each owner — email alone is not enough. Owners adopt the substitute budget only if a majority of all voting interests vote for it. If they don’t, the board’s budget can be adopted."
+    },
+    {
+      "type": "callout",
+      "title": "What doesn’t count toward the 115%",
+      "text": "Required reserves, non-recurring expenses for SIRS items, and insurance premiums are left out when the board measures the 115%. That means a big jump driven by reserves or insurance may not trigger the substitute budget at all."
+    },
+    {
+      "type": "h2",
+      "text": "What owners can no longer vote away"
+    },
+    {
+      "type": "p",
+      "text": "For budgets adopted on or after December 31, 2024, owners cannot vote to waive or reduce the reserves required by the building’s structural integrity reserve study (SIRS). Before Surfside, waiving reserves was common. Today the narrow exceptions are a two-year pause after a milestone inspection (it needs a majority of all voting interests and the money must go to the repairs the inspection found), a pause when the building is declared uninhabitable after a natural emergency, and termination of the condominium."
+    },
+    {
+      "type": "h2",
+      "text": "What “a majority of all voting interests” means"
+    },
+    {
+      "type": "p",
+      "text": "This phrase trips up a lot of buildings. It does not mean a majority of the owners who show up. It means a majority of every vote in the association. In a 200-unit building with one vote per unit, that is 101 yes votes, no matter how many people attend."
+    },
+    {
+      "type": "h2",
+      "text": "What to do before your budget meeting"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Find the reserve line in the proposed budget and compare it to the yearly amount in your SIRS. Ask the board if they don’t match.",
+        "Ask whether insurance premiums went up and by how much — it is often the biggest change.",
+        "If you plan to sell or refinance, ask whether reserves will meet Fannie Mae’s 15% level starting January 4, 2027.",
+        "Put questions in writing before the meeting so the board can answer with numbers."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "q": "How much notice does a Florida condo board have to give for a budget meeting?",
+      "a": "At least 14 days, with the proposed budget, delivered by hand, mail, or electronically to owners who agreed to electronic notice."
+    },
+    {
+      "q": "What is the 115% rule for Florida condo budgets?",
+      "a": "If assessments would rise above 115% of the prior year, the board must also offer a substitute budget without discretionary spending, mailed or hand delivered. Owners adopt it by a majority of all voting interests."
+    },
+    {
+      "q": "Can condo owners vote to waive reserves in Florida?",
+      "a": "Not the reserves required by the SIRS, for budgets adopted on or after December 31, 2024, except in a few narrow cases set by law."
+    },
+    {
+      "q": "Do insurance increases count toward the 115% limit?",
+      "a": "No. Insurance premiums, required reserves and non-recurring SIRS expenses are excluded."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Florida Statutes §718.112 (2026) — budget meeting and reserves",
+      "url": "https://www.flsenate.gov/Laws/Statutes/2026/0718.112"
+    },
+    {
+      "label": "Florida Condo & HOA Law Blog — Condominium budgeting has changed (Sept. 26, 2025)",
+      "url": "https://www.floridacondohoalawblog.com/2025/09/26/condominium-budgeting-has-changed/"
+    }
+  ]
+}
