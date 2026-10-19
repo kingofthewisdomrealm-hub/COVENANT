@@ -4,6 +4,7 @@ import { formatPorchDate, getPorchArticle } from '@/lib/porch-articles'
 import type { PorchEdition } from '@/lib/porch-editions'
 import { PorchLogoSvg } from '@/components/porch/porch-logo'
 import { BalconyLogoSvg } from '@/components/porch/balcony-logo'
+import { BeachBalconyLogoSvg } from '@/components/porch/beach-balcony-logo'
 
 export const porchOgSize = { width: 1200, height: 630 }
 
@@ -43,7 +44,7 @@ export function porchOgImage(ed: PorchEdition, slug: string) {
 						}}
 					>
 						<span style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-							{ed.logo === 'porch' ? <PorchLogoSvg width={54} /> : ed.logo === 'balcony' ? <BalconyLogoSvg width={54} /> : null}
+							{ed.logo === 'porch' ? <PorchLogoSvg width={54} /> : ed.logo === 'balcony' ? <BalconyLogoSvg width={54} /> : ed.logo === 'beach-balcony' ? <BeachBalconyLogoSvg width={50} /> : null}
 							{PORCH_NAME}
 						</span>
 						<span>{a ? `${a.category} · ${formatPorchDate(a.publishedAt)}` : ed.town}</span>

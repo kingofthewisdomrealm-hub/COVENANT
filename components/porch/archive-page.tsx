@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
 import { PorchLogoSvg } from '@/components/porch/porch-logo'
 import { BalconyLogoSvg } from '@/components/porch/balcony-logo'
+import { BeachBalconyLogoSvg } from '@/components/porch/beach-balcony-logo'
 import { siteConfig } from '@/content/site'
 import { PORCH_CATEGORIES, formatPorchDate, getPublishedPorchArticles } from '@/lib/porch-articles'
 import type { PorchEdition } from '@/lib/porch-editions'
@@ -63,6 +64,12 @@ export function PorchArchiveView({ edition: ed }: { edition: PorchEdition }) {
 							<div className="mb-2 flex justify-center">
 								<Link href={base} aria-label={PORCH_NAME}>
 									<BalconyLogoSvg width={84} title={PORCH_NAME} />
+								</Link>
+							</div>
+						) : ed.logo === 'beach-balcony' ? (
+							<div className="mb-2 flex justify-center">
+								<Link href={base} aria-label={PORCH_NAME}>
+									<BeachBalconyLogoSvg width={76} title={PORCH_NAME} />
 								</Link>
 							</div>
 						) : null}

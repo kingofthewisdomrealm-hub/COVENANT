@@ -23,6 +23,12 @@ import {
 	ORLANDO_BALCONY_TAGLINE,
 	currentOrlandoBalconyIssue,
 } from '@/content/orlando-balcony'
+import {
+	MIAMI_BALCONY_NAME,
+	MIAMI_BALCONY_SPONSOR,
+	MIAMI_BALCONY_TAGLINE,
+	currentMiamiBalconyIssue,
+} from '@/content/miami-balcony'
 import type { PorchEditionKey } from '@/lib/porch-articles'
 
 /**
@@ -44,8 +50,8 @@ export interface PorchEdition {
 	frontDescription: string
 	archiveTitle: string
 	archiveDescription: string
-	/** Optional drawn logo above the masthead name. 'porch' = the front-porch drawing, 'balcony' = the balcony drawing. */
-	logo?: 'porch' | 'balcony'
+	/** Optional drawn logo above the masthead name. 'porch' = the front-porch drawing, 'balcony' = the Orlando balcony drawing, 'beach-balcony' = the Miami Beach balcony drawing. */
+	logo?: 'porch' | 'balcony' | 'beach-balcony'
 	/** What the paper calls itself in running copy ("More from the ___"). Defaults to "the Porch". */
 	nickname?: string
 	/** Short town label for the private traffic report. */
@@ -110,6 +116,22 @@ export const PORCH_EDITIONS: Record<PorchEditionKey, PorchEdition> = {
 		archiveDescription:
 			'Every Orlando Balcony article: City of Orlando and Orange County news for homeowners — tax bills, OUC and city utility fees, trash, permits, storms and local history.',
 		logo: 'balcony',
+		nickname: 'the Balcony',
+	},
+	miami: {
+		key: 'miami',
+		name: MIAMI_BALCONY_NAME,
+		tagline: MIAMI_BALCONY_TAGLINE,
+		sponsor: MIAMI_BALCONY_SPONSOR,
+		basePath: '/balcony',
+		town: 'Miami Beach',
+		reportLabel: 'Miami Beach',
+		issue: currentMiamiBalconyIssue,
+		frontDescription: `${MIAMI_BALCONY_TAGLINE}. King tide flooding and free garage parking, Amendment 3, the Michigan Avenue lease vote, early voting, condo milestone inspections and storm-season balcony checks.`,
+		archiveTitle: `All articles | ${MIAMI_BALCONY_NAME} — Miami Beach homeowner news`,
+		archiveDescription:
+			'Every Miami Balcony article: City of Miami Beach news for homeowners and condo owners — king tides and flooding, property taxes, condo inspections, permits, storms and local history.',
+		logo: 'beach-balcony',
 		nickname: 'the Balcony',
 	},
 }

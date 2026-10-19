@@ -506,7 +506,7 @@ function PorchSection({ porch }: { porch: PorchReport | { error: string } }) {
 	return (
 		<section>
 			<p className="eyebrow">The neighborhood paper</p>
-			<h2 className="mt-2 font-display text-3xl text-navy">The neighborhood papers: Vero, Sebastian, PSL &amp; Orlando</h2>
+			<h2 className="mt-2 font-display text-3xl text-navy">The neighborhood papers: Vero, Sebastian, PSL, Orlando &amp; Miami Beach</h2>
 			{'error' in porch ? (
 				<p className="mt-4 border border-amber-200 bg-amber-50 p-4 font-sans text-sm text-amber-900">{porch.error}</p>
 			) : (

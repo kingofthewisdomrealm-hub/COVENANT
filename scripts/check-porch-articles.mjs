@@ -5,6 +5,7 @@
  *   content/sebastian-porch-articles/  The Sebastian Porch
  *   content/psl-porch-articles/        The PSL Porch
  *   content/orlando-balcony-articles/  The Orlando Balcony
+ *   content/miami-balcony-articles/    The Miami Balcony
  * Exits non-zero on any problem so a bad article never ships.
  */
 import fs from 'node:fs'
@@ -17,6 +18,7 @@ const EDITIONS = [
 	{ name: 'Sebastian Porch', dir: 'sebastian-porch-articles', categories: [...SHARED, 'Sebastian history'] },
 	{ name: 'PSL Porch', dir: 'psl-porch-articles', categories: [...SHARED, 'PSL history'] },
 	{ name: 'Orlando Balcony', dir: 'orlando-balcony-articles', categories: [...SHARED, 'Orlando history'] },
+	{ name: 'Miami Balcony', dir: 'miami-balcony-articles', categories: [...SHARED, 'Miami Beach history'] },
 ]
 const BLOCK_TYPES = ['p', 'h2', 'ul', 'ol', 'callout']
 // F.S. 489.147 — never encourage contacting us about an insurance claim.
