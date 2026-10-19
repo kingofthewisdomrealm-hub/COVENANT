@@ -29,6 +29,7 @@ import {
 	MIAMI_BALCONY_TAGLINE,
 	currentMiamiBalconyIssue,
 } from '@/content/miami-balcony'
+import {
 	BREEZEWAY_NAME,
 	BREEZEWAY_SPONSOR,
 	BREEZEWAY_TAGLINE,
