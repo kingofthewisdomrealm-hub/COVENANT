@@ -29,6 +29,11 @@ import {
 	MIAMI_BALCONY_TAGLINE,
 	currentMiamiBalconyIssue,
 } from '@/content/miami-balcony'
+	BREEZEWAY_NAME,
+	BREEZEWAY_SPONSOR,
+	BREEZEWAY_TAGLINE,
+	currentBreezewayIssue,
+} from '@/content/breezeway'
 import type { PorchEditionKey } from '@/lib/porch-articles'
 
 /**
@@ -50,12 +55,20 @@ export interface PorchEdition {
 	frontDescription: string
 	archiveTitle: string
 	archiveDescription: string
-	/** Optional drawn logo above the masthead name. 'porch' = the front-porch drawing, 'balcony' = the Orlando balcony drawing, 'beach-balcony' = the Miami Beach balcony drawing. */
-	logo?: 'porch' | 'balcony' | 'beach-balcony'
+	/** Optional drawn logo above the masthead name. 'porch' = the front-porch drawing, 'balcony' = the Orlando balcony drawing, 'beach-balcony' = the Miami Beach balcony drawing, 'breezeway' = the condo-building drawing. */
+	logo?: 'porch' | 'balcony' | 'beach-balcony' | 'breezeway'
 	/** What the paper calls itself in running copy ("More from the ___"). Defaults to "the Porch". */
 	nickname?: string
 	/** Short town label for the private traffic report. */
 	reportLabel: string
+	/** Which single sponsor box the paper carries. Default: the Roof Report Card. */
+	sponsorBox?: 'report-card' | 'board-guide'
+	/** The calendar sidebar. Defaults: "Around town" / "What's on". */
+	eventsKicker?: string
+	eventsTitle?: string
+	eventsNote?: string
+	/** The reader-tips box at the bottom of the front page. */
+	newsBox?: { title: string; body: string }
 }
 
 export const PORCH_EDITIONS: Record<PorchEditionKey, PorchEdition> = {
@@ -133,6 +146,30 @@ export const PORCH_EDITIONS: Record<PorchEditionKey, PorchEdition> = {
 			'Every Miami Balcony article: City of Miami Beach news for homeowners and condo owners — king tides and flooding, property taxes, condo inspections, permits, storms and local history.',
 		logo: 'beach-balcony',
 		nickname: 'the Balcony',
+	},
+	breezeway: {
+		key: 'breezeway',
+		name: BREEZEWAY_NAME,
+		tagline: BREEZEWAY_TAGLINE,
+		sponsor: BREEZEWAY_SPONSOR,
+		basePath: '/breezeway',
+		town: 'Florida condo owners & boards',
+		reportLabel: 'Condos (FL)',
+		issue: currentBreezewayIssue,
+		frontDescription: `${BREEZEWAY_TAGLINE}. SIRS and reserves, milestone inspections, special assessments, condo loans, insurance, board rules and the deadlines your association cannot miss.`,
+		archiveTitle: `All articles | ${BREEZEWAY_NAME} — Florida condo association news`,
+		archiveDescription:
+			'Every Breezeway article: Florida condo association news for owners and board members — SIRS, reserves, milestone inspections, assessments, loans, insurance and board rules.',
+		logo: 'breezeway',
+		nickname: 'the Breezeway',
+		sponsorBox: 'board-guide',
+		eventsKicker: 'Board calendar',
+		eventsTitle: 'Dates that matter',
+		eventsNote: 'Dates come from Florida law and the agencies that set them. Your association’s documents can add earlier deadlines.',
+		newsBox: {
+			title: 'Got a question for the board page?',
+			body: 'A notice you don’t understand, a vote coming up, a rule you want explained. Text it to (772) 473-7115. We never print your name or your building without asking.',
+		},
 	},
 }
 

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 
 import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
 import { PorchReportCardBox } from '@/components/porch-report-card-box'
+import { BoardGuideBox } from '@/components/porch/board-guide-box'
 import { siteConfig } from '@/content/site'
 import type { PorchEdition } from '@/lib/porch-editions'
 import {
@@ -144,7 +145,7 @@ export function PorchArticleView({ edition: ed, slug }: { edition: PorchEdition;
 						</footer>
 					</article>
 
-					<PorchReportCardBox className="mt-14" />
+					{ed.sponsorBox === 'board-guide' ? <BoardGuideBox className="mt-14" /> : <PorchReportCardBox className="mt-14" />}
 
 					{related.length ? (
 						<section aria-labelledby="related-title" className="mt-14">

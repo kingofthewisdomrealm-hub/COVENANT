@@ -6,6 +6,7 @@
  *   content/psl-porch-articles/        The PSL Porch
  *   content/orlando-balcony-articles/  The Orlando Balcony
  *   content/miami-balcony-articles/    The Miami Balcony
+ *   content/breezeway-articles/        The Breezeway (Florida condos, statewide)
  * Exits non-zero on any problem so a bad article never ships.
  */
 import fs from 'node:fs'
@@ -19,6 +20,7 @@ const EDITIONS = [
 	{ name: 'PSL Porch', dir: 'psl-porch-articles', categories: [...SHARED, 'PSL history'] },
 	{ name: 'Orlando Balcony', dir: 'orlando-balcony-articles', categories: [...SHARED, 'Orlando history'] },
 	{ name: 'Miami Balcony', dir: 'miami-balcony-articles', categories: [...SHARED, 'Miami Beach history'] },
+	{ name: 'Breezeway', dir: 'breezeway-articles', categories: ['Reserves & SIRS', 'Inspections & repairs', 'Assessments & loans', 'Condo insurance', 'Board rules', 'Taxes & money', 'Storms & safety', 'Condo history'] },
 ]
 const BLOCK_TYPES = ['p', 'h2', 'ul', 'ol', 'callout']
 // F.S. 489.147 — never encourage contacting us about an insurance claim.

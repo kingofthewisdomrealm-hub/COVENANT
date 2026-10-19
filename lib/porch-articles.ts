@@ -9,13 +9,14 @@ import path from 'node:path'
  * The PSL Porch:       content/psl-porch-articles/        → /psl-porch/<slug>
  * The Orlando Balcony: content/orlando-balcony-articles/  → /orlando-balcony/<slug>
  * The Miami Balcony:   content/miami-balcony-articles/    → /balcony/<slug>
+ * The Breezeway:       content/breezeway-articles/        → /breezeway/<slug>  (statewide, Florida condo owners & boards)
  *
  * One JSON file per article, named `YYYY-MM-DD--<slug>.json`. Read at build
  * time; every article is a static page. Rules for writing one are in each
  * folder's README.md — run `npm run porch:check` before pushing.
  */
 
-export type PorchEditionKey = 'vero' | 'sebastian' | 'psl' | 'orlando' | 'miami'
+export type PorchEditionKey = 'vero' | 'sebastian' | 'psl' | 'orlando' | 'miami' | 'breezeway'
 
 const EDITION_DIRS: Record<PorchEditionKey, string> = {
 	vero: 'porch-articles',
@@ -23,6 +24,7 @@ const EDITION_DIRS: Record<PorchEditionKey, string> = {
 	psl: 'psl-porch-articles',
 	orlando: 'orlando-balcony-articles',
 	miami: 'miami-balcony-articles',
+	breezeway: 'breezeway-articles',
 }
 
 export const PORCH_CATEGORIES = [
@@ -38,6 +40,13 @@ export const PORCH_CATEGORIES = [
 	'PSL history',
 	'Orlando history',
 	'Miami Beach history',
+	// The Breezeway (condo paper) only
+	'Reserves & SIRS',
+	'Inspections & repairs',
+	'Assessments & loans',
+	'Condo insurance',
+	'Board rules',
+	'Condo history',
 ] as const
 export type PorchCategory = (typeof PORCH_CATEGORIES)[number]
 

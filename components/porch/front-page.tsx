@@ -4,9 +4,8 @@ import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
 import Link from 'next/link'
 
 import { PorchReportCardBox } from '@/components/porch-report-card-box'
-import { PorchLogoSvg } from '@/components/porch/porch-logo'
-import { BalconyLogoSvg } from '@/components/porch/balcony-logo'
-import { BeachBalconyLogoSvg } from '@/components/porch/beach-balcony-logo'
+import { BoardGuideBox } from '@/components/porch/board-guide-box'
+import { EditionLogo } from '@/components/porch/edition-logo'
 import type { PorchStory } from '@/content/porch'
 import { siteConfig } from '@/content/site'
 import { formatPorchDate, getPublishedPorchArticles } from '@/lib/porch-articles'
@@ -30,7 +29,7 @@ export function porchFrontMetadata(ed: PorchEdition): Metadata {
 /**
  * The full online edition of a Porch paper. The printed front page's QR code
  * lands here. Content lives in content/porch.ts (Vero) and
- * content/sebastian-porch.ts, content/psl-porch.ts, content/orlando-balcony.ts and content/miami-balcony.ts — read the rules at the top before editing copy.
+ * content/sebastian-porch.ts, content/psl-porch.ts, content/orlando-balcony.ts, content/miami-balcony.ts and content/breezeway.ts — read the rules at the top before editing copy.
  */
 export function PorchFrontPage({ edition: ed }: { edition: PorchEdition }) {
 	const { issue } = ed
@@ -51,17 +50,9 @@ export function PorchFrontPage({ edition: ed }: { edition: PorchEdition }) {
 							<span>{issue.monthLabel}</span>
 							<span>{issue.price}</span>
 						</div>
-						{ed.logo === 'porch' ? (
+						{ed.logo ? (
 							<div className="mt-4 flex justify-center">
-								<PorchLogoSvg width={132} title={PORCH_NAME} />
-							</div>
-						) : ed.logo === 'balcony' ? (
-							<div className="mt-4 flex justify-center">
-								<BalconyLogoSvg width={132} title={PORCH_NAME} />
-							</div>
-						) : ed.logo === 'beach-balcony' ? (
-							<div className="mt-4 flex justify-center">
-								<BeachBalconyLogoSvg width={120} title={PORCH_NAME} />
+								<EditionLogo ed={ed} width={132} />
 							</div>
 						) : null}
 						<h1 className="mt-3 font-display text-5xl font-semibold tracking-tight text-navy sm:text-7xl">
@@ -106,9 +97,9 @@ export function PorchFrontPage({ edition: ed }: { edition: PorchEdition }) {
 					<div className="mt-14 grid gap-12 border-t border-navy/15 pt-12 md:grid-cols-[1.4fr_1fr]">
 						<Story story={issue.history} />
 						<aside aria-labelledby="around-town">
-							<p className="eyebrow">Around town</p>
+							<p className="eyebrow">{ed.eventsKicker ?? 'Around town'}</p>
 							<h2 id="around-town" className="mt-2 font-display text-3xl text-navy">
-								What&rsquo;s on
+								{ed.eventsTitle ?? 'What’s on'}
 							</h2>
 							<ul className="mt-5 divide-y divide-navy/10 border-y border-navy/10">
 								{issue.events.map((e) => (
@@ -122,7 +113,7 @@ export function PorchFrontPage({ edition: ed }: { edition: PorchEdition }) {
 								))}
 							</ul>
 							<p className="mt-3 font-sans text-xs text-stone-muted">
-								Dates come from the organizers&rsquo; published calendars. Check before you go.
+								{ed.eventsNote ?? 'Dates come from the organizers’ published calendars. Check before you go.'}
 							</p>
 						</aside>
 					</div>
@@ -132,17 +123,17 @@ export function PorchFrontPage({ edition: ed }: { edition: PorchEdition }) {
 					</div>
 
 					{/* The one Covenant box */}
-					<PorchReportCardBox className="mt-16" />
+					{ed.sponsorBox === 'board-guide' ? <BoardGuideBox className="mt-16" /> : <PorchReportCardBox className="mt-16" />}
 
 					{/* Latest articles */}
 					<LatestArticles edition={ed} />
 
 					{/* Send us your news */}
 					<section className="mt-12 border border-navy/15 p-6 text-center">
-						<h2 className="font-display text-2xl text-navy">Got neighborhood news?</h2>
+						<h2 className="font-display text-2xl text-navy">{ed.newsBox?.title ?? 'Got neighborhood news?'}</h2>
 						<p className="mx-auto mt-2 max-w-xl body-copy">
-							A new neighbor, a street cleanup, a birthday on the block, a question about your house.
-							Text it to {siteConfig.phones.sr.display} and it may make the next issue.
+							{ed.newsBox?.body ??
+								`A new neighbor, a street cleanup, a birthday on the block, a question about your house. Text it to ${siteConfig.phones.sr.display} and it may make the next issue.`}
 						</p>
 					</section>
 

@@ -32,6 +32,7 @@ const GRAPH = 'https://graph.facebook.com/v21.0'
 const EDITIONS = [
 	{ key: 'vero', dir: 'porch-articles', base: '/porch', campaign: 'porch', defaultTime: '11:30' },
 	{ key: 'sebastian', dir: 'sebastian-porch-articles', base: '/sebastian-porch', campaign: 'sebastian-porch', defaultTime: '17:30' },
+	{ key: 'breezeway', dir: 'breezeway-articles', base: '/breezeway', campaign: 'breezeway', defaultTime: '14:30' },
 ]
 const FILE_RE = /^(\d{4}-\d{2}-\d{2})--([a-z0-9-]+)\.json$/
 const MIN_AHEAD = 10 * 60 * 1000

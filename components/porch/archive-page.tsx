@@ -2,9 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
-import { PorchLogoSvg } from '@/components/porch/porch-logo'
-import { BalconyLogoSvg } from '@/components/porch/balcony-logo'
-import { BeachBalconyLogoSvg } from '@/components/porch/beach-balcony-logo'
+import { EditionLogo } from '@/components/porch/edition-logo'
 import { siteConfig } from '@/content/site'
 import { PORCH_CATEGORIES, formatPorchDate, getPublishedPorchArticles } from '@/lib/porch-articles'
 import type { PorchEdition } from '@/lib/porch-editions'
@@ -54,22 +52,10 @@ export function PorchArchiveView({ edition: ed }: { edition: PorchEdition }) {
 			<section className="bg-[#FBFAF6] pb-20 pt-10 sm:pt-14">
 				<div className="section-shell max-w-4xl">
 					<header className="border-y-4 border-double border-navy py-5 text-center">
-						{ed.logo === 'porch' ? (
+						{ed.logo ? (
 							<div className="mb-2 flex justify-center">
 								<Link href={base} aria-label={PORCH_NAME}>
-									<PorchLogoSvg width={84} title={PORCH_NAME} />
-								</Link>
-							</div>
-						) : ed.logo === 'balcony' ? (
-							<div className="mb-2 flex justify-center">
-								<Link href={base} aria-label={PORCH_NAME}>
-									<BalconyLogoSvg width={84} title={PORCH_NAME} />
-								</Link>
-							</div>
-						) : ed.logo === 'beach-balcony' ? (
-							<div className="mb-2 flex justify-center">
-								<Link href={base} aria-label={PORCH_NAME}>
-									<BeachBalconyLogoSvg width={76} title={PORCH_NAME} />
+									<EditionLogo ed={ed} width={84} />
 								</Link>
 							</div>
 						) : null}
