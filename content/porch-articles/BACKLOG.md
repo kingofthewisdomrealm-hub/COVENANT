@@ -16,7 +16,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [ ] My Safe Florida Home: current status and how the program works (verify status that day)
 - [ ] How to look up your FEMA flood zone in Vero Beach
 - [ ] King tides on the Treasure Coast: what they mean for low-lying streets and seawalls
-- [ ] ⏰ before Nov 30 — Hurricane season ends Nov 30: the end-of-season house check
+- [x] 2026-10-19 ⏰ before Nov 30 — Hurricane season ends Nov 30: the end-of-season house check — vero-beach-hurricane-season-ends-nov-30-house-check
 - [ ] Homestead exemption in Indian River County: who qualifies and the March 1 deadline
 - [ ] Condo milestone inspections (F.S. 553.899): what Vero condo owners need to know
 - [ ] Condo reserve studies (SIRS) and special assessments: plain-English guide
