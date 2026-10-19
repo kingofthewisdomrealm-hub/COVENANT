@@ -42,6 +42,20 @@ No gossip, no lawsuits about named people, no real-estate listings.
    Condo insurance · Board rules · Taxes & money · Storms & safety · Condo history.
 10. `places`: "Florida" plus any county/city the story is about.
 
+## Facebook post (automatic)
+Every article also carries its Facebook post:
+- `"facebook"`: 1–2 friendly sentences (40–400 characters) that make a condo
+  owner or board member want to click. **No link** — the tracked link is added
+  for you. Same rules as the article: no selling, no insurance-claim talk, no
+  how-to-vote.
+- `"facebookAt"`: when it goes out, America/New_York, `"YYYY-MM-DDTHH:MM"`.
+  Default for a new Breezeway article: its publish day at 14:30.
+
+`.github/workflows/porch-facebook.yml` posts it to the Covenant Builders
+Facebook Page once the article is live (or schedules it on Facebook if the
+time is later), using `scripts/post-porch-facebook.mjs`. It never posts the
+same article twice.
+
 ## Never mix with the Porches
 The Porches and Balconies are town papers for homeowners. The Breezeway is the
 statewide condo paper. A condo story can run in a town paper too, but each is
