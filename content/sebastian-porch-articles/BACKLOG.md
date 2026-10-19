@@ -21,7 +21,7 @@ the day you write it; tick it off (`[x]` + date + slug) when published.
 - [ ] Sebastian well water: testing and the county's water lines
 - [ ] Living near the airport: Sebastian Municipal Airport basics for neighbors
 - [x] 2026-10-14 Sebastian history: Pelican Island and Paul Kroegel — sebastian-history-paul-kroegel-pelican-island
-- [ ] Sebastian history: the 1715 Spanish treasure fleet off Sebastian
+- [x] 2026-10-19 Sebastian history: the 1715 Spanish treasure fleet off Sebastian — sebastian-history-1715-treasure-fleet-mclarty-museum
 - [ ] Sebastian history: the McLarty Treasure Museum and Sebastian Inlet
 - [ ] Sebastian Inlet District: what it does and the line on your tax bill
 - [ ] Homestead exemption for Sebastian homeowners: the March 1 deadline
