@@ -38,6 +38,6 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [ ] A board's emergency powers after a declared emergency (§718.1265)
 - [ ] Condo terminations and buyouts after big repair bills: how they work
 - [ ] Recalling a board member: the rules
-- [ ] Florida condo market: the latest monthly numbers (Florida Realtors)
+- [x] 2026-10-20 Florida condo market: the latest monthly numbers (Florida Realtors) — florida-condo-market-september-2026
 - [ ] Condo history: Florida's first condominium law
 - [ ] Condo history: the Surfside timeline and the laws that followed
