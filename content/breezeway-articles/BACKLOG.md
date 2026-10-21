@@ -8,7 +8,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-19 ⏰ before Dec 31 — The last SIRS deadline, Dec. 31, 2026 — florida-sirs-deadline-december-31-2026
 - [x] 2026-10-19 Condo budget season: 14-day notice and the 115% rule — florida-condo-budget-2027-115-percent-rule
 - [x] 2026-10-19 ⏰ before Jan 4 — Fannie Mae 15% reserves — fannie-mae-condo-reserves-15-percent-january-2027
-- [ ] ⏰ before Nov 3 — Amendment 3 and condo units: homestead vs. second homes and rentals (facts only)
+- [x] 2026-10-21 ⏰ before Nov 3 — Amendment 3 and condo units: homestead vs. second homes and rentals (facts only) — florida-amendment-3-condo-owners-2026
 - [ ] ⏰ before Nov 30 — Hurricane season's last weeks: what a condo board should have on file
 - [ ] ⏰ before Jan 1 — The Citizens condo clearinghouse: what changes for association policies
 - [ ] Milestone inspection vs. SIRS: two different questions
