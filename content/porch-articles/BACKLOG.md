@@ -12,7 +12,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-14 How to check a Florida contractor's license before you hire (myfloridalicense.com) — check-florida-contractor-license-vero-beach
 - [x] 2026-10-16 Do I need a permit? Common home projects in Vero Beach and Indian River County (written around the new HB 803 under-$7,500 exemption) — vero-beach-permit-exemption-under-7500-hb-803
 - [x] 2026-10-15 Know your hurricane evacuation zone in Indian River County — vero-beach-hurricane-evacuation-zone-lookup
-- [ ] What is a wind mitigation inspection and what does it look at (informational only)
+- [x] 2026-10-21 What is a wind mitigation inspection and what does it look at (informational only) — vero-beach-wind-mitigation-inspection-explained
 - [ ] My Safe Florida Home: current status and how the program works (verify status that day)
 - [ ] How to look up your FEMA flood zone in Vero Beach
 - [x] 2026-10-20 King tides on the Treasure Coast: what they mean for low-lying streets and seawalls — vero-beach-king-tides-october-november-2026
