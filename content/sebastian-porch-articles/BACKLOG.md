@@ -19,7 +19,7 @@ the day you write it; tick it off (`[x]` + date + slug) when published.
 - [ ] Sebastian code enforcement: the most common violations and how to avoid them
 - [ ] Sebastian fences and sheds: setbacks and permits
 - [x] 2026-10-21 Sebastian well water: testing and the county's water lines — sebastian-well-water-testing-private-wells
-- [ ] Living near the airport: Sebastian Municipal Airport basics for neighbors
+- [x] 2026-10-22 Living near the airport: Sebastian Municipal Airport basics for neighbors — sebastian-airport-neighbors-noise-who-to-call
 - [x] 2026-10-14 Sebastian history: Pelican Island and Paul Kroegel — sebastian-history-paul-kroegel-pelican-island
 - [x] 2026-10-19 Sebastian history: the 1715 Spanish treasure fleet off Sebastian — sebastian-history-1715-treasure-fleet-mclarty-museum
 - [ ] Sebastian history: the McLarty Treasure Museum and Sebastian Inlet
