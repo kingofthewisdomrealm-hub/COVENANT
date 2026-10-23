@@ -10,7 +10,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-19 ⏰ before Jan 4 — Fannie Mae 15% reserves — fannie-mae-condo-reserves-15-percent-january-2027
 - [x] 2026-10-21 ⏰ before Nov 3 — Amendment 3 and condo units: homestead vs. second homes and rentals (facts only) — florida-amendment-3-condo-owners-2026
 - [x] 2026-10-22 ⏰ before Nov 30 — Hurricane season's last weeks: what a condo board should have on file — florida-condo-board-hurricane-season-records-checklist
-- [ ] ⏰ before Jan 1 — The Citizens condo clearinghouse: what changes for association policies
+- [x] 2026-10-23 ⏰ before Jan 1 — The Citizens condo clearinghouse: what changes for association policies — florida-citizens-condo-association-clearinghouse-2027
 - [ ] Milestone inspection vs. SIRS: two different questions
 - [ ] Phase 1 vs. Phase 2 milestone inspections, in plain words
 - [ ] The repair clock after a Phase 2 report (verify §553.899 wording that day)
