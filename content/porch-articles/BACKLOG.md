@@ -17,7 +17,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [ ] How to look up your FEMA flood zone in Vero Beach
 - [x] 2026-10-20 King tides on the Treasure Coast: what they mean for low-lying streets and seawalls — vero-beach-king-tides-october-november-2026
 - [x] 2026-10-19 ⏰ before Nov 30 — Hurricane season ends Nov 30: the end-of-season house check — vero-beach-hurricane-season-ends-nov-30-house-check
-- [ ] Homestead exemption in Indian River County: who qualifies and the March 1 deadline
+- [x] 2026-10-23 Homestead exemption in Indian River County: who qualifies and the March 1 deadline — vero-beach-homestead-exemption-how-to-file
 - [ ] Condo milestone inspections (F.S. 553.899): what Vero condo owners need to know
 - [ ] Condo reserve studies (SIRS) and special assessments: plain-English guide
 - [x] 2026-10-22 Irrigation watering days and rules in Indian River County (written for Vero Beach; the Nov. 1 switch to one day a week) — vero-beach-watering-days-change-november-1
