@@ -3,6 +3,7 @@ import type { MetadataRoute } from 'next'
 import { communityCities } from '@/content/community'
 import { getPublishedPorchArticles } from '@/lib/porch-articles'
 import { ALL_PORCH_EDITIONS } from '@/lib/porch-editions'
+import { getLiveElectionEdition } from '@/content/election-2026'
 import { services, siteConfig } from '@/content/site'
 
 /**
@@ -129,6 +130,7 @@ function porchEditionRoutes(key: Parameters<typeof getPublishedPorchArticles>[0]
 		{ path: base, lastModified: newest, changeFrequency: 'daily', priority: 0.7 },
 		{ path: `${base}/archive`, lastModified: newest, changeFrequency: 'daily', priority: 0.5 },
 		{ path: `${base}/about`, lastModified: '2026-10-23', changeFrequency: 'yearly', priority: 0.3 },
+		...(key && getLiveElectionEdition(key) ? [{ path: `${base}/election-2026`, lastModified: getLiveElectionEdition(key)!.checkedOn, changeFrequency: 'daily' as const, priority: 0.7 }] : []),
 		...articles.map((a) => ({
 			path: `${base}/${a.slug}`,
 			lastModified: a.updatedAt ?? a.publishedAt,

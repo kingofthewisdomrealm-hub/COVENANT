@@ -217,7 +217,7 @@ export function PorchArticleView({ edition: ed, slug }: { edition: PorchEdition;
 	)
 }
 
-function Block({ block }: { block: PorchBlock }) {
+export function Block({ block }: { block: PorchBlock }) {
 	switch (block.type) {
 		case 'h2':
 			return <h2 className="pt-4 font-display text-3xl tracking-tight text-navy">{block.text}</h2>

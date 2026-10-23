@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { PorchReportCardBox } from '@/components/porch-report-card-box'
 import { BoardGuideBox } from '@/components/porch/board-guide-box'
 import { EditionLogo } from '@/components/porch/edition-logo'
+import { ElectionBanner } from '@/components/porch/election-page'
 import type { PorchStory } from '@/content/porch'
 import { siteConfig } from '@/content/site'
 import { formatPorchDate, getPublishedPorchArticles } from '@/lib/porch-articles'
@@ -62,6 +63,7 @@ export function PorchFrontPage({ edition: ed }: { edition: PorchEdition }) {
 							{PORCH_TAGLINE}
 						</p>
 					</header>
+					<ElectionBanner edition={ed} />
 
 					<p className="mt-4 text-center font-sans text-xs text-stone-muted">
 						Full edition · Facts checked {formatDate(issue.checkedOn)}
