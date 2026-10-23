@@ -169,7 +169,7 @@ export const PORCH_EDITIONS: Record<PorchEditionKey, PorchEdition> = {
 		eventsNote: 'Dates come from Florida law and the agencies that set them. Your association’s documents can add earlier deadlines.',
 		newsBox: {
 			title: 'Got a question for the board page?',
-			body: 'A notice you don’t understand, a vote coming up, a rule you want explained. Text it to (772) 473-7115. We never print your name or your building without asking.',
+			body: 'A notice you don’t understand, a vote coming up, a rule you want explained. Text it to (772) 766-1917. We never print your name or your building without asking.',
 		},
 	},
 }

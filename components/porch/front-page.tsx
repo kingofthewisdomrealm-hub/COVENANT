@@ -133,7 +133,7 @@ export function PorchFrontPage({ edition: ed }: { edition: PorchEdition }) {
 						<h2 className="font-display text-2xl text-navy">{ed.newsBox?.title ?? 'Got neighborhood news?'}</h2>
 						<p className="mx-auto mt-2 max-w-xl body-copy">
 							{ed.newsBox?.body ??
-								`A new neighbor, a street cleanup, a birthday on the block, a question about your house. Text it to ${siteConfig.phones.sr.display} and it may make the next issue.`}
+								`A new neighbor, a street cleanup, a birthday on the block, a question about your house. Text it to ${siteConfig.phones.porch.display} and it may make the next issue.`}
 						</p>
 					</section>
 

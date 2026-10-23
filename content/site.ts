@@ -48,6 +48,12 @@ export const siteConfig = {
 			display: '(772) 473-7115',
 			href: 'tel:+17724737115',
 		},
+		/** The Porch papers' newsroom line: tips, corrections, reader questions. Not for estimates. */
+		porch: {
+			name: 'The Porch newsroom',
+			display: '(772) 766-1917',
+			href: 'tel:+17727661917',
+		},
 		// Josias Jr's line — (772) 473-7914 — is intentionally not published for now.
 		// Restore here and in app/contact/page.tsx if it becomes a public contact again.
 	},

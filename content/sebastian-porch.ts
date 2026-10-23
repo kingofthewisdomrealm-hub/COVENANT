@@ -87,7 +87,7 @@ export const sebastianPorchIssues: PorchIssue[] = [
 			paragraphs: [
 				'If you do not know your roof’s age, you are not alone. Many homes have changed hands since the last reroof, and the paperwork went with the previous owner.',
 				'The building permit record usually has the answer, because a reroof needs a permit. Inside city limits, that record is with the City of Sebastian Building Department. Outside city limits, it is with Indian River County.',
-				'Have a question about your house? Text it to (772) 473-7115 and we may answer it in a future issue.',
+				'Have a question about your house? Text it to (772) 766-1917 and we may answer it in a future issue.',
 			],
 		},
 		events: [

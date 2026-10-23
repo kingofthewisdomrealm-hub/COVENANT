@@ -160,8 +160,8 @@ export function PorchArticleView({ edition: ed, slug }: { edition: PorchEdition;
 							<p className="mt-4 text-xs leading-relaxed">
 								{PORCH_NAME} is owned, published and paid for by {siteConfig.name}, {siteConfig.address.full}.
 								Facts are checked against the sources above on the date shown. Spot a mistake or have a tip? Text{' '}
-								<a className="underline hover:text-navy" href={siteConfig.phones.sr.href}>
-									{siteConfig.phones.sr.display}
+								<a className="underline hover:text-navy" href={siteConfig.phones.porch.href}>
+									{siteConfig.phones.porch.display}
 								</a>{' '}
 								or email{' '}
 								<a className="underline hover:text-navy" href={`mailto:${siteConfig.emails.info}?subject=${encodeURIComponent(`${PORCH_NAME}: ${a.title}`)}`}>

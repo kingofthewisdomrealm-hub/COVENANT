@@ -32,7 +32,7 @@ export function porchAboutMetadata(ed: PorchEdition): Metadata {
 export function PorchAboutView({ edition: ed }: { edition: PorchEdition }) {
 	const paper = ed.name
 	const nick = ed.nickname ?? 'the Porch'
-	const phone = siteConfig.phones.sr
+	const phone = siteConfig.phones.porch
 	const email = siteConfig.emails.info
 	const path = porchAboutPath(ed)
 
@@ -195,7 +195,7 @@ function AboutJsonLd({ edition: ed }: { edition: PorchEdition }) {
 		masthead: `${about}#who-writes-it`,
 		actionableFeedbackPolicy: `${about}#contact`,
 		email: siteConfig.emails.info,
-		telephone: siteConfig.phones.sr.display,
+		telephone: siteConfig.phones.porch.display,
 	}
 	return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
 }

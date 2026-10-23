@@ -116,7 +116,7 @@ export const pslPorchIssues: PorchIssue[] = [
 				'Port St. Lucie: the city Building Department has an online “Search Permits on a Property” tool on its page at cityofpsl.com. Questions: (772) 871-5132.',
 				'Fort Pierce: permits applied for since July 15, 2024 are in the city’s online Citizen Self Service system at cityoffortpierce.com/epl. For older permits, call the Building Department at (772) 467-3718.',
 				'Outside city limits: St. Lucie County’s Building & Code Regulation Division keeps those records. Call (772) 462-1553 or visit 2300 Virginia Ave. in Fort Pierce.',
-				'Have a question about your house? Text it to (772) 473-7115 and we may answer it in a future issue.',
+				'Have a question about your house? Text it to (772) 766-1917 and we may answer it in a future issue.',
 			],
 		},
 		events: [

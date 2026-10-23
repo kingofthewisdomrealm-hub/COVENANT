@@ -118,7 +118,7 @@ export const orlandoBalconyIssues: PorchIssue[] = [
 				'Inside the City of Orlando: use “Check Permit Status” on orlando.gov to search the city’s online permit records. Questions go to Permitting Services at (407) 246-2271 or digitalpermits@orlando.gov, or visit the first floor of City Hall, 400 S. Orange Ave.',
 				'Unincorporated Orange County (an Orlando mailing address but outside city limits): search Orange County’s Fast Track system by address at fasttrack.ocfl.net. Permits from before June 4, 2012 are in its Historical Permit Search. Questions: (407) 836-5550, or the first floor of 201 S. Rosalind Ave.',
 				'Not sure which side of the line you are on? Your property record at ocpafl.org shows your city.',
-				'Have a question about your house? Text it to (772) 473-7115 and we may answer it in a future issue.',
+				'Have a question about your house? Text it to (772) 766-1917 and we may answer it in a future issue.',
 			],
 		},
 		events: [

@@ -121,7 +121,7 @@ export const breezewayIssues: PorchIssue[] = [
 				'A milestone inspection is about safety right now. A licensed engineer or architect inspects the building when it turns 30 years old (25 where the local building official requires it), then every 10 years. Phase 1 is a visual inspection. If it finds substantial structural deterioration, Phase 2 follows with closer testing and a list of repairs. The report goes to your local building department.',
 				'A SIRS is about money. It looks at the building’s big components, estimates how long each one will last and what it will cost to replace, and sets how much the association must save each year. It goes to the state.',
 				'The two often happen together, and the law lets them. But they answer different questions: "Is the building safe?" and "Can we afford to keep it that way?"',
-				'Have a question about your building? Text it to (772) 473-7115 and we may answer it in a future issue.',
+				'Have a question about your building? Text it to (772) 766-1917 and we may answer it in a future issue.',
 			],
 		},
 		events: [

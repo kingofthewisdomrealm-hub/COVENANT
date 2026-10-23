@@ -116,7 +116,7 @@ export const miamiBalconyIssues: PorchIssue[] = [
 				'Miami Beach keeps current permits in its Citizen Self Service portal (energovcss.miamibeachfl.gov). Older permits are in the city’s Archival Permit Search, linked from the Building Department’s online permitting page at miamibeachfl.gov.',
 				'If you cannot find what you need, the City Clerk takes public records requests online.',
 				'Condo owners: your association should have the building’s permit and inspection records. Ask the board or the manager.',
-				'Have a question about your home? Text it to (772) 473-7115 and we may answer it in a future issue.',
+				'Have a question about your home? Text it to (772) 766-1917 and we may answer it in a future issue.',
 			],
 		},
 		events: [
