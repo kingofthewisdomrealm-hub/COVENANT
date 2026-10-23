@@ -128,6 +128,7 @@ function porchEditionRoutes(key: Parameters<typeof getPublishedPorchArticles>[0]
 	return [
 		{ path: base, lastModified: newest, changeFrequency: 'daily', priority: 0.7 },
 		{ path: `${base}/archive`, lastModified: newest, changeFrequency: 'daily', priority: 0.5 },
+		{ path: `${base}/about`, lastModified: '2026-10-23', changeFrequency: 'yearly', priority: 0.3 },
 		...articles.map((a) => ({
 			path: `${base}/${a.slug}`,
 			lastModified: a.updatedAt ?? a.publishedAt,

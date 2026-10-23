@@ -38,6 +38,10 @@ No gossip, no lawsuits about named people, no real-estate listings.
 7. **Politics:** facts and dates only. Never tell readers how to vote.
 8. **Dates:** `publishedAt` = go-live day (America/New_York), must match the
    file name. Corrections add `updatedAt`.
+   If a **fact** was wrong, also add a dated note so readers see what changed
+   (corrections policy on /breezeway/about):
+   `"corrections": [{ "date": "YYYY-MM-DD", "text": "An earlier version said X. It is Y." }]`.
+   Spelling or formatting fixes need no note. Never quietly delete an error.
 9. Categories: Reserves & SIRS · Inspections & repairs · Assessments & loans ·
    Condo insurance · Board rules · Taxes & money · Storms & safety · Condo history.
 10. `places`: "Florida" plus any county/city the story is about.

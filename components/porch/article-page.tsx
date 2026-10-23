@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 
 import { BreadcrumbJsonLd } from '@/components/breadcrumb-json-ld'
 import { PorchReportCardBox } from '@/components/porch-report-card-box'
+import { porchAboutPath } from '@/components/porch/about-page'
 import { BoardGuideBox } from '@/components/porch/board-guide-box'
 import { siteConfig } from '@/content/site'
 import type { PorchEdition } from '@/lib/porch-editions'
@@ -93,6 +94,11 @@ export function PorchArticleView({ edition: ed, slug }: { edition: PorchEdition;
 							</h1>
 							<p className="mt-4 font-display text-xl italic leading-snug text-stone-muted">{a.dek}</p>
 							<p className="mt-4 font-sans text-sm text-stone-muted">
+								By{' '}
+								<Link href={porchAboutPath(ed)} className="font-semibold text-navy hover:underline">
+									{PORCH_NAME} staff
+								</Link>
+								{' '}·{' '}
 								<time dateTime={a.publishedAt}>{formatPorchDate(a.publishedAt)}</time>
 								{a.updatedAt && a.updatedAt !== a.publishedAt ? (
 									<>
@@ -137,10 +143,44 @@ export function PorchArticleView({ edition: ed, slug }: { edition: PorchEdition;
 									</li>
 								))}
 							</ul>
+							{a.corrections?.length ? (
+								<div className="mt-6 border-l-4 border-sand bg-white p-4 text-ink/85">
+									<p className="font-semibold uppercase tracking-[0.14em] text-xs text-navy">
+										{a.corrections.length > 1 ? 'Corrections' : 'Correction'}
+									</p>
+									<ul className="mt-2 space-y-1">
+										{a.corrections.map((c) => (
+											<li key={c.date + c.text}>
+												<time dateTime={c.date}>{formatPorchDate(c.date)}</time>: {c.text}
+											</li>
+										))}
+									</ul>
+								</div>
+							) : null}
 							<p className="mt-4 text-xs leading-relaxed">
-								{PORCH_NAME} is published by {siteConfig.name}, {siteConfig.address.full}. Facts are
-								checked against the sources above on the date shown. Spot something out of date? Text{' '}
-								{siteConfig.phones.sr.display}.
+								{PORCH_NAME} is owned, published and paid for by {siteConfig.name}, {siteConfig.address.full}.
+								Facts are checked against the sources above on the date shown. Spot a mistake or have a tip? Text{' '}
+								<a className="underline hover:text-navy" href={siteConfig.phones.sr.href}>
+									{siteConfig.phones.sr.display}
+								</a>{' '}
+								or email{' '}
+								<a className="underline hover:text-navy" href={`mailto:${siteConfig.emails.info}?subject=${encodeURIComponent(`${PORCH_NAME}: ${a.title}`)}`}>
+									{siteConfig.emails.info}
+								</a>
+								.
+							</p>
+							<p className="mt-2 text-xs">
+								<Link href={porchAboutPath(ed)} className="underline hover:text-navy">
+									About &amp; standards
+								</Link>
+								<span className="mx-2">·</span>
+								<Link href={`${porchAboutPath(ed)}#corrections`} className="underline hover:text-navy">
+									Corrections policy
+								</Link>
+								<span className="mx-2">·</span>
+								<Link href={`${porchAboutPath(ed)}#ownership`} className="underline hover:text-navy">
+									Who pays for {ed.nickname ?? 'the Porch'}
+								</Link>
 							</p>
 						</footer>
 					</article>
@@ -233,6 +273,8 @@ function ArticleJsonLd({ article: a, edition: ed }: { article: PorchArticle; edi
 			url: `${siteConfig.url}${ed.basePath}`,
 		},
 		publisher: { '@id': `${siteConfig.url}/#organization` },
+		publishingPrinciples: `${siteConfig.url}${porchAboutPath(ed)}#standards`,
+		correction: a.corrections?.map((c) => ({ '@type': 'CorrectionComment', text: c.text, datePublished: c.date })),
 		isPartOf: {
 			'@type': 'Periodical',
 			name: PORCH_NAME,

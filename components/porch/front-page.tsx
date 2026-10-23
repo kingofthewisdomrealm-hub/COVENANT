@@ -139,6 +139,19 @@ export function PorchFrontPage({ edition: ed }: { edition: PorchEdition }) {
 
 					<footer className="mt-12 border-t border-navy/15 pt-6 font-sans text-xs leading-relaxed text-stone-muted">
 						<p>{PORCH_SPONSOR}.</p>
+						<p className="mt-2">
+							<Link href={`${ed.basePath}/about`} className="underline hover:text-navy">
+								About &amp; standards
+							</Link>
+							<span className="mx-2">·</span>
+							<Link href={`${ed.basePath}/about#corrections`} className="underline hover:text-navy">
+								Corrections policy
+							</Link>
+							<span className="mx-2">·</span>
+							<Link href={`${ed.basePath}/about#contact`} className="underline hover:text-navy">
+								Send a correction or tip
+							</Link>
+						</p>
 						<p className="mt-3 font-semibold uppercase tracking-[0.14em]">Sources</p>
 						<ul className="mt-1 space-y-1">
 							{issue.sources.map((s) => (

@@ -36,6 +36,10 @@ No gossip, crime, celebrity, or opinion pieces.
    services inside the article text at all.
 7. **Dates:** `publishedAt` = the day it goes live (America/New_York) and must
    match the file name. When you correct an old article, add `updatedAt`.
+   If a **fact** was wrong, also add a dated note so readers see what changed
+   (corrections policy on the paper's /about page):
+   `"corrections": [{ "date": "YYYY-MM-DD", "text": "An earlier version said X. It is Y." }]`.
+   Spelling or formatting fixes need no note. Never quietly delete an error.
 8. Categories: Bills & utilities · Taxes & money · Storms & safety ·
    Permits & rules · Home care · Condos & HOAs · Around town · Sebastian history.
 

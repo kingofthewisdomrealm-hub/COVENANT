@@ -77,6 +77,8 @@ export interface PorchArticle {
 	body: PorchBlock[]
 	faq?: { q: string; a: string }[]
 	sources: { label: string; url: string }[]
+	/** Dated notes for corrected facts (see the corrections policy on each paper's About page). Set updatedAt too. */
+	corrections?: { date: string; text: string }[]
 }
 
 const FILE_RE = /^(\d{4}-\d{2}-\d{2})--([a-z0-9-]+)\.json$/

@@ -72,6 +72,15 @@ for (const f of files) {
 		need(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(a.facebookAt), 'facebookAt: "YYYY-MM-DDTHH:MM" (America/New_York)')
 		need(String(a.facebookAt).slice(0, 10) >= a.publishedAt, 'facebookAt: cannot be before publishedAt')
 	}
+	need(!['about', 'archive', 'feed.xml'].includes(a.slug), `slug "${a.slug}" is reserved for a page`)
+	if (a.corrections !== undefined) {
+		need(Array.isArray(a.corrections) && a.corrections.length > 0, 'corrections: a list of { date, text }')
+		for (const c of a.corrections ?? []) {
+			need(/^\d{4}-\d{2}-\d{2}$/.test(c.date ?? '') && c.date >= a.publishedAt, `corrections: date must be YYYY-MM-DD, on or after publishedAt: ${JSON.stringify(c)}`)
+			need(typeof c.text === 'string' && c.text.length >= 20, `corrections: say what was wrong and what is right: ${JSON.stringify(c)}`)
+		}
+		need(a.updatedAt && a.updatedAt >= (a.corrections ?? []).map((c) => c.date).sort().pop(), 'corrections: set updatedAt to the latest correction date')
+	}
 	need(Array.isArray(a.body) && a.body.length >= 5, 'body: at least 5 blocks')
 	let words = 0
 	let h2 = 0
