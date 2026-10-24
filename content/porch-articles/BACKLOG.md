@@ -14,7 +14,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-15 Know your hurricane evacuation zone in Indian River County — vero-beach-hurricane-evacuation-zone-lookup
 - [x] 2026-10-21 What is a wind mitigation inspection and what does it look at (informational only) — vero-beach-wind-mitigation-inspection-explained
 - [ ] My Safe Florida Home: current status and how the program works (verify status that day)
-- [ ] How to look up your FEMA flood zone in Vero Beach
+- [x] 2026-10-24 How to look up your FEMA flood zone in Vero Beach (city vs. county) — vero-beach-flood-zone-lookup-city-or-county
 - [x] 2026-10-20 King tides on the Treasure Coast: what they mean for low-lying streets and seawalls — vero-beach-king-tides-october-november-2026
 - [x] 2026-10-19 ⏰ before Nov 30 — Hurricane season ends Nov 30: the end-of-season house check — vero-beach-hurricane-season-ends-nov-30-house-check
 - [x] 2026-10-23 Homestead exemption in Indian River County: who qualifies and the March 1 deadline — vero-beach-homestead-exemption-how-to-file
