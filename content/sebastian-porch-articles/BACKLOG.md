@@ -25,4 +25,4 @@ the day you write it; tick it off (`[x]` + date + slug) when published.
 - [ ] Sebastian history: the McLarty Treasure Museum and Sebastian Inlet
 - [x] 2026-10-20 Sebastian Inlet District: what it does and the line on your tax bill — sebastian-inlet-district-tax-bill-line
 - [ ] Homestead exemption for Sebastian homeowners: the March 1 deadline
-- [ ] ⏰ before Nov 30 — End-of-hurricane-season house check for Sebastian
+- [x] 2026-10-24 ⏰ before Nov 30 — End-of-hurricane-season house check for Sebastian (hooked to the Oct. 24–26 windy weekend) — sebastian-windy-weekend-end-of-hurricane-season-house-check
