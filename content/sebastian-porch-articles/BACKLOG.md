@@ -11,7 +11,7 @@ the day you write it; tick it off (`[x]` + date + slug) when published.
 - [x] 2026-10-13 Who to call in Sebastian: city vs. county for permits, code, roads, water, sewer, trash — who-to-call-sebastian-city-vs-county
 - [x] 2026-10-15 Do I need a permit? Common home projects inside Sebastian city limits (City of Sebastian Building Department) — sebastian-building-permit-common-home-projects
 - [x] 2026-10-16 How to find out how old your roof is in Sebastian (permit records) — how-old-is-my-roof-sebastian-permit-records
-- [ ] Sebastian hurricane evacuation zones and shelters
+- [x] 2026-10-25 Sebastian hurricane evacuation zones and shelters — sebastian-hurricane-evacuation-zone-shelters
 - [x] 2026-10-18 Sebastian flood zones: how to look up yours on the FEMA map — sebastian-flood-zone-lookup-fema-map
 - [x] 2026-10-11 Sebastian swale and culvert rules: who maintains the ditch in front of your house (covered in the stormwater fee article) — sebastian-stormwater-fee-swales-culverts
 - [x] 2026-10-17 Sebastian tree removal permits — sebastian-tree-removal-permit-rules
