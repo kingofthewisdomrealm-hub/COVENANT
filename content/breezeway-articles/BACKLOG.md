@@ -14,7 +14,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-24 Milestone inspection vs. SIRS: two different questions — florida-condo-milestone-inspection-vs-sirs
 - [ ] Phase 1 vs. Phase 2 milestone inspections, in plain words
 - [ ] The repair clock after a Phase 2 report (verify §553.899 wording that day)
-- [ ] "A majority of the total voting interests": how condo votes are really counted
+- [x] 2026-10-25 "A majority of the total voting interests": how condo votes are really counted — florida-condo-majority-total-voting-interests-explained
 - [ ] Condo reserve loans and lines of credit (HB 913): how they work and the owner vote
 - [ ] The two-year reserve pause after a milestone inspection
 - [ ] Special assessment notices: what the notice must say and when it must arrive
