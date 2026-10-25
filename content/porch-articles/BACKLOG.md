@@ -21,7 +21,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [ ] Condo milestone inspections (F.S. 553.899): what Vero condo owners need to know
 - [ ] Condo reserve studies (SIRS) and special assessments: plain-English guide
 - [x] 2026-10-22 Irrigation watering days and rules in Indian River County (written for Vero Beach; the Nov. 1 switch to one day a week) — vero-beach-watering-days-change-november-1
-- [ ] Indian River County fertilizer rules and the summer ban (what applies year-round)
+- [x] 2026-10-25 Indian River County fertilizer rules and the summer ban (what applies year-round; written for Vero Beach as the fall last call) — vero-beach-fertilizer-rules-fall-lawn
 - [ ] Impact windows vs. shutters: what Florida code requires and how they differ
 - [ ] Septic system care: how often to pump and the signs of trouble
 - [ ] Hiring for storm cleanup: tree removal rules and avoiding unlicensed crews
