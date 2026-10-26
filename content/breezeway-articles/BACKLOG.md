@@ -12,7 +12,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-22 ⏰ before Nov 30 — Hurricane season's last weeks: what a condo board should have on file — florida-condo-board-hurricane-season-records-checklist
 - [x] 2026-10-23 ⏰ before Jan 1 — The Citizens condo clearinghouse: what changes for association policies — florida-citizens-condo-association-clearinghouse-2027
 - [x] 2026-10-24 Milestone inspection vs. SIRS: two different questions — florida-condo-milestone-inspection-vs-sirs
-- [ ] Phase 1 vs. Phase 2 milestone inspections, in plain words
+- [x] 2026-10-26 Phase 1 vs. Phase 2 milestone inspections, in plain words — florida-condo-milestone-inspection-phase-1-vs-phase-2
 - [ ] The repair clock after a Phase 2 report (verify §553.899 wording that day)
 - [x] 2026-10-25 "A majority of the total voting interests": how condo votes are really counted — florida-condo-majority-total-voting-interests-explained
 - [ ] Condo reserve loans and lines of credit (HB 913): how they work and the owner vote
