@@ -73,92 +73,175 @@ export default function PgaVillageLobbyPage() {
 	)
 	const phone = siteConfig.phones.porch
 	const base = ed.basePath
+	const [lead, ...rest] = stories
+
+	const Eyebrow = ({ children }: { children: React.ReactNode }) => (
+		<p className="font-sans text-[11px] font-semibold uppercase tracking-[0.22em] text-sand-dark">{children}</p>
+	)
+	const Picture = ({ img, alt, caption, ratio }: { img: string; alt: string; caption?: string; ratio: string }) => (
+		<figure>
+			{/* eslint-disable-next-line @next/next/no-img-element */}
+			<img
+				src={img}
+				alt={alt}
+				className={`${ratio} w-full bg-[#efe7d6] ${img.endsWith('.svg') ? 'object-contain' : 'object-cover'}`}
+			/>
+			{caption ? <figcaption className="mt-2 font-display text-sm italic text-stone-muted">{caption}</figcaption> : null}
+		</figure>
+	)
 
 	return (
-		<section className="bg-[#FBFAF6] pb-20 pt-10 sm:pt-14">
-			<div className="section-shell max-w-4xl">
-				<header className="border-y-4 border-double border-navy py-5 text-center">
-					{ed.logo ? (
-						<div className="mb-2 flex justify-center">
-							<Link href={base} aria-label={ed.name}>
-								<EditionLogo ed={ed} width={84} />
+		<section className="bg-[#FBFAF6] pb-24 pt-12 sm:pt-16">
+			<div className="mx-auto w-full max-w-[1520px] px-5 sm:px-10 lg:px-16">
+				{/* Masthead */}
+				<header className="text-center">
+					<div className="flex items-center justify-between font-sans text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-muted">
+						<span>November 2026</span>
+						<span className="hidden sm:inline">Lobby Edition</span>
+						<span>Free</span>
+					</div>
+					<div className="mt-4 border-t border-navy" />
+					<div className="mt-[3px] border-t border-navy" />
+					<div className="py-8 sm:py-10">
+						{ed.logo ? (
+							<div className="mb-3 flex justify-center">
+								<Link href={base} aria-label={ed.name}>
+									<EditionLogo ed={ed} width={88} />
+								</Link>
+							</div>
+						) : null}
+						<p className="font-sans text-[11px] font-semibold uppercase tracking-[0.28em] text-stone-muted">
+							<Link href={base} className="hover:text-navy">
+								{ed.name}
 							</Link>
-						</div>
-					) : null}
-					<p className="font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-muted">
-						<Link href={base} className="hover:text-navy">
-							{ed.name}
-						</Link>{' '}
-						· Lobby Edition
-					</p>
-					<h1 className="mt-2 font-display text-4xl font-semibold tracking-tight text-navy sm:text-5xl">PGA Village</h1>
-					<p className="mt-2 font-display text-lg italic text-sand-dark">{ed.tagline}</p>
+						</p>
+						<h1 className="mt-3 font-display text-6xl font-semibold tracking-tight text-navy sm:text-7xl lg:text-8xl">
+							PGA Village
+						</h1>
+						<p className="mt-3 font-display text-xl italic text-sand-dark">{ed.tagline}</p>
+					</div>
+					<div className="border-t border-navy" />
+					<div className="mt-[3px] border-t border-navy" />
 				</header>
 
-				<p className="mt-8 text-center font-display text-xl leading-relaxed text-navy">
-					Picked for PGA Village homeowners: the property tax breaks for seniors, widows and veterans (file by March 1), what
-					Florida’s newer HOA laws now require, Port St. Lucie’s tax rate and trash credit, and which home projects need a
-					permit.
-				</p>
-
-				<div className="mt-10 grid gap-10 sm:grid-cols-2">
-					{stories.map(({ a, img, alt, caption }, i) => (
-						<article key={a.slug} className="border-t-2 border-navy pt-4">
-							<Link href={`${base}/${a.slug}`} className="group block">
-								<figure>
-									{/* eslint-disable-next-line @next/next/no-img-element */}
-									<img src={img} alt={alt} className="aspect-[16/9] w-full bg-[#efe7d6] object-cover" />
-									{caption ? (
-										<figcaption className="mt-1 font-sans text-xs text-stone-muted">{caption}</figcaption>
-									) : null}
-								</figure>
-								<p className="mt-3 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-sand-dark">
-									{i + 1} · {a.category}
-								</p>
-								<h2 className="mt-1 font-display text-2xl leading-snug text-navy group-hover:underline">{a.title}</h2>
-								<p className="mt-2 font-sans text-base text-stone-muted">{a.dek}</p>
-								<p className="mt-2 font-sans text-sm font-semibold text-navy">Read the full story →</p>
+				{/* Lead story + right rail */}
+				<div className="mt-14 grid gap-14 lg:grid-cols-12">
+					{lead ? (
+						<article id="story-1" className="scroll-mt-28 lg:col-span-8">
+							<Link href={`${base}/${lead.a.slug}`} className="group block">
+								<Picture img={lead.img} alt={lead.alt} caption={lead.caption} ratio="aspect-[16/8]" />
+								<div className="mt-8 max-w-3xl">
+									<Eyebrow>{lead.a.category}</Eyebrow>
+									<h2 className="mt-3 font-display text-4xl leading-[1.12] tracking-tight text-navy group-hover:underline sm:text-5xl">
+										{lead.a.title}
+									</h2>
+									<p className="mt-5 font-display text-xl italic leading-relaxed text-ink/75">{lead.a.dek}</p>
+									<p className="mt-6 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-navy">Read the story →</p>
+								</div>
 							</Link>
 						</article>
-					))}
+					) : null}
+
+					<aside className="lg:col-span-4 lg:border-l lg:border-navy/15 lg:pl-12">
+						<Eyebrow>In this edition</Eyebrow>
+						<p className="mt-4 font-display text-lg leading-relaxed text-navy">
+							Four stories picked for PGA Village homeowners, from the tax breaks that must be filed by March 1 to the
+							projects that need a city permit.
+						</p>
+						<ol className="mt-8 divide-y divide-navy/10 border-y border-navy/10">
+							{stories.map(({ a }, i) => (
+								<li key={a.slug}>
+									<a href={`#story-${i + 1}`} className="group flex gap-5 py-5">
+										<span className="font-display text-4xl leading-none text-sand-dark">{i + 1}</span>
+										<span>
+											<span className="block font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-muted">
+												{a.category}
+											</span>
+											<span className="mt-1 block font-display text-lg leading-snug text-navy group-hover:underline">
+												{a.title}
+											</span>
+										</span>
+									</a>
+								</li>
+							))}
+						</ol>
+						<div className="mt-10">
+							<Eyebrow>The Porch newsroom</Eyebrow>
+							<p className="mt-3 font-sans text-sm leading-relaxed text-stone-muted">
+								Questions, tips or corrections? Call or text{' '}
+								<a href={phone.href} className="font-semibold text-navy underline underline-offset-4">
+									{phone.display}
+								</a>
+								.
+							</p>
+							<p className="mt-4 flex gap-6 font-sans text-xs font-semibold uppercase tracking-[0.16em] text-navy">
+								<a href="/porch/pga-village/psl-porch-pga-village-lobby-edition.pdf" className="hover:underline">
+									Print edition
+								</a>
+								<Link href={`${base}/archive`} className="hover:underline">
+									Every story
+								</Link>
+							</p>
+						</div>
+					</aside>
 				</div>
 
-				<aside aria-label="Advertisement" className="mt-14 border border-navy/40 bg-white p-5">
-					<p className="text-center font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-muted">
+				{/* The other three stories, broadsheet columns */}
+				<div className="mt-20 border-t border-navy pt-12">
+					<div className="grid gap-14 md:-mx-10 md:grid-cols-3 md:gap-0 md:divide-x md:divide-navy/15">
+						{rest.map(({ a, img, alt, caption }, i) => (
+							<article
+								key={a.slug}
+								id={`story-${i + 2}`}
+								className="scroll-mt-28 md:px-10"
+							>
+								<Link href={`${base}/${a.slug}`} className="group block">
+									<Picture img={img} alt={alt} caption={caption} ratio="aspect-[4/3]" />
+									<div className="mt-6">
+										<Eyebrow>{a.category}</Eyebrow>
+										<h2 className="mt-3 font-display text-2xl leading-snug text-navy group-hover:underline lg:text-3xl">
+											{a.title}
+										</h2>
+										<p className="mt-4 font-sans text-base leading-relaxed text-stone-muted">{a.dek}</p>
+										<p className="mt-5 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-navy">
+											Read the story →
+										</p>
+									</div>
+								</Link>
+							</article>
+						))}
+					</div>
+				</div>
+
+				{/* Sponsors */}
+				<aside aria-label="Advertisement" className="mt-24 bg-[#F3EEE3] px-6 py-12 sm:px-12">
+					<p className="text-center font-sans text-[10px] font-semibold uppercase tracking-[0.3em] text-stone-muted">
 						Advertisement · Our sponsors
 					</p>
-					<div className="mt-4 grid gap-6 sm:grid-cols-3">
+					<div className="mx-auto mt-10 grid max-w-6xl gap-10 md:grid-cols-3 md:gap-0 md:divide-x md:divide-navy/15">
 						{SPONSORS.map((s) => (
 							<a
 								key={s.name}
 								href={s.href}
 								target="_blank"
 								rel="sponsored noopener"
-								className="group block"
+								className="group block text-center md:px-10"
 							>
-								<p className="font-display text-lg text-navy group-hover:underline">{s.name}</p>
-								<p className="mt-1 font-sans text-sm text-stone-muted">{s.text}</p>
-								<p className="mt-1 font-sans text-xs font-semibold text-navy">{s.label}</p>
+								<p className="font-display text-2xl text-navy group-hover:underline">{s.name}</p>
+								<p className="mx-auto mt-3 max-w-xs font-display text-base italic leading-relaxed text-ink/70">{s.text}</p>
+								<p className="mt-4 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-navy">{s.label}</p>
 							</a>
 						))}
 					</div>
 				</aside>
 
-				<p className="mt-10 text-center font-sans text-sm text-stone-muted">
-					Questions or tips: The Porch newsroom,{' '}
-					<a href={phone.href} className="font-semibold text-navy underline">
-						{phone.display}
-					</a>
-					.{' '}
-					<Link href={`${base}/archive`} className="font-semibold text-navy underline">
-						Every story in {ed.name} →
-					</Link>
-				</p>
-				<p className="mt-6 text-center font-sans text-xs text-stone-muted">
-					Photos: Lake Tradition at twilight by Serge Yatunin, CC BY-SA 4.0; Port St. Lucie City Hall by Birbie28, CC BY-SA
-					4.0; both via Wikimedia Commons. Illustrations: {ed.name}.
-				</p>
-				<p className="mt-2 text-center font-sans text-xs text-stone-muted">{ed.sponsor}</p>
+				<footer className="mt-14 text-center font-sans text-xs leading-relaxed text-stone-muted">
+					<p>
+						Photos: Lake Tradition at twilight by Serge Yatunin, CC BY-SA 4.0; Port St. Lucie City Hall by Birbie28, CC BY-SA 4.0;
+						both via Wikimedia Commons. Illustrations: {ed.name}.
+					</p>
+					<p className="mt-2">{ed.sponsor}</p>
+				</footer>
 			</div>
 		</section>
 	)
