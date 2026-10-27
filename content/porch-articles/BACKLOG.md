@@ -26,7 +26,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [ ] Septic system care: how often to pump and the signs of trouble
 - [ ] Hiring for storm cleanup: tree removal rules and avoiding unlicensed crews
 - [ ] Generator safety: placement, carbon monoxide and permits for standby units
-- [ ] Indian River County yard waste and bulk pickup rules
+- [x] 2026-10-27 Indian River County yard waste and bulk pickup rules (written for Vero Beach city limits, with the holiday no-pickup days) — vero-beach-trash-yard-waste-bulk-pickup-holiday-schedule
 - [ ] Pool barrier and fencing rules in Florida
 - [ ] Vero history: Dodgertown and the Brooklyn Dodgers' spring home
 - [ ] Vero history: McKee Botanical Garden and the old Jungle Gardens
