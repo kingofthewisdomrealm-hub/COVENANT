@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 175">
+  <rect width="480" height="175" fill="#efe7d6"/>
+  <line x1="0" y1="158" x2="480" y2="158" stroke="#1f3a5f" stroke-width="3"/>
+  <g fill="none" stroke="#1f3a5f" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <!-- calendar -->
+    <rect x="70" y="30" width="120" height="120" rx="6" fill="#fbf8f1"/>
+    <rect x="70" y="30" width="120" height="34" rx="6" fill="#1f3a5f"/>
+    <line x1="96" y1="20" x2="96" y2="40"/><line x1="164" y1="20" x2="164" y2="40"/>
+    <!-- house -->
+    <polygon points="250,158 250,92 320,50 390,92 390,158" fill="#fbf8f1"/>
+    <polyline points="236,100 320,42 404,100"/>
+    <rect x="306" y="116" width="28" height="42" fill="#fbf8f1"/>
+    <rect x="266" y="106" width="26" height="22"/><rect x="348" y="106" width="26" height="22"/>
+    <!-- check mark -->
+    <circle cx="420" cy="58" r="22" fill="#fbf8f1"/>
+    <polyline points="409,58 417,67 432,49"/>
+  </g>
+  <text x="130" y="53" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="700" fill="#fbf8f1" letter-spacing="2">MARCH</text>
+  <text x="130" y="128" text-anchor="middle" font-family="Georgia, serif" font-size="58" font-weight="700" fill="#1f3a5f">1</text>
+</svg>
