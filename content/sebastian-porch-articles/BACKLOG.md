@@ -17,7 +17,7 @@ the day you write it; tick it off (`[x]` + date + slug) when published.
 - [x] 2026-10-17 Sebastian tree removal permits — sebastian-tree-removal-permit-rules
 - [ ] Sebastian garbage, recycling and yard waste pickup (Indian River County franchise)
 - [x] 2026-10-26 Sebastian code enforcement: the most common violations and how to avoid them — sebastian-code-enforcement-common-violations
-- [ ] Sebastian fences and sheds: setbacks and permits
+- [x] 2026-10-28 Sebastian fences and sheds: setbacks and permits — sebastian-fence-shed-permit-rules
 - [x] 2026-10-21 Sebastian well water: testing and the county's water lines — sebastian-well-water-testing-private-wells
 - [x] 2026-10-22 Living near the airport: Sebastian Municipal Airport basics for neighbors — sebastian-airport-neighbors-noise-who-to-call
 - [x] 2026-10-14 Sebastian history: Pelican Island and Paul Kroegel — sebastian-history-paul-kroegel-pelican-island
