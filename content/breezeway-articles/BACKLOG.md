@@ -15,7 +15,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-26 Phase 1 vs. Phase 2 milestone inspections, in plain words — florida-condo-milestone-inspection-phase-1-vs-phase-2
 - [x] 2026-10-27 The repair clock after a Phase 2 report (verify §553.899 wording that day) — florida-condo-phase-2-repair-clock-365-days
 - [x] 2026-10-25 "A majority of the total voting interests": how condo votes are really counted — florida-condo-majority-total-voting-interests-explained
-- [ ] Condo reserve loans and lines of credit (HB 913): how they work and the owner vote
+- [x] 2026-10-28 Condo reserve loans and lines of credit (HB 913): how they work and the owner vote — florida-condo-reserve-loans-lines-of-credit-owner-vote
 - [ ] The two-year reserve pause after a milestone inspection
 - [ ] Special assessment notices: what the notice must say and when it must arrive
 - [ ] Special assessment vs. loan vs. line of credit: what each costs an owner per month (math example)
