@@ -19,7 +19,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-19 ⏰ before Nov 30 — Hurricane season ends Nov 30: the end-of-season house check — vero-beach-hurricane-season-ends-nov-30-house-check
 - [x] 2026-10-23 Homestead exemption in Indian River County: who qualifies and the March 1 deadline — vero-beach-homestead-exemption-how-to-file
 - [x] 2026-10-26 Condo milestone inspections (F.S. 553.899): what Vero condo owners need to know — vero-beach-condo-milestone-inspection-what-owners-should-know
-- [ ] Condo reserve studies (SIRS) and special assessments: plain-English guide
+- [x] 2026-10-28 Condo reserve studies (SIRS) and special assessments: plain-English guide — vero-beach-condo-sirs-reserve-study-explained
 - [x] 2026-10-22 Irrigation watering days and rules in Indian River County (written for Vero Beach; the Nov. 1 switch to one day a week) — vero-beach-watering-days-change-november-1
 - [x] 2026-10-25 Indian River County fertilizer rules and the summer ban (what applies year-round; written for Vero Beach as the fall last call) — vero-beach-fertilizer-rules-fall-lawn
 - [ ] Impact windows vs. shutters: what Florida code requires and how they differ
