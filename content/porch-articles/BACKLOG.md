@@ -13,7 +13,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-16 Do I need a permit? Common home projects in Vero Beach and Indian River County (written around the new HB 803 under-$7,500 exemption) — vero-beach-permit-exemption-under-7500-hb-803
 - [x] 2026-10-15 Know your hurricane evacuation zone in Indian River County — vero-beach-hurricane-evacuation-zone-lookup
 - [x] 2026-10-21 What is a wind mitigation inspection and what does it look at (informational only) — vero-beach-wind-mitigation-inspection-explained
-- [ ] My Safe Florida Home: current status and how the program works (verify status that day)
+- [ ] My Safe Florida Home: current status and how the program works (verify status that day; 2026-10-30 skipped — could not verify current status from mysafeflhome.com)
 - [x] 2026-10-24 How to look up your FEMA flood zone in Vero Beach (city vs. county) — vero-beach-flood-zone-lookup-city-or-county
 - [x] 2026-10-20 King tides on the Treasure Coast: what they mean for low-lying streets and seawalls — vero-beach-king-tides-october-november-2026
 - [x] 2026-10-19 ⏰ before Nov 30 — Hurricane season ends Nov 30: the end-of-season house check — vero-beach-hurricane-season-ends-nov-30-house-check
@@ -25,7 +25,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [ ] Impact windows vs. shutters: what Florida code requires and how they differ
 - [ ] Septic system care: how often to pump and the signs of trouble
 - [ ] Hiring for storm cleanup: tree removal rules and avoiding unlicensed crews
-- [ ] Generator safety: placement, carbon monoxide and permits for standby units
+- [x] 2026-10-30 Generator safety: placement, carbon monoxide and permits for standby units — vero-beach-generator-safety-carbon-monoxide-permit
 - [x] 2026-10-27 Indian River County yard waste and bulk pickup rules (written for Vero Beach city limits, with the holiday no-pickup days) — vero-beach-trash-yard-waste-bulk-pickup-holiday-schedule
 - [x] 2026-10-29 Pool barrier and fencing rules in Florida — vero-beach-pool-barrier-safety-law-explained
 - [ ] Vero history: Dodgertown and the Brooklyn Dodgers' spring home
