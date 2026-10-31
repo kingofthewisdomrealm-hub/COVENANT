@@ -17,7 +17,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-25 "A majority of the total voting interests": how condo votes are really counted — florida-condo-majority-total-voting-interests-explained
 - [x] 2026-10-28 Condo reserve loans and lines of credit (HB 913): how they work and the owner vote — florida-condo-reserve-loans-lines-of-credit-owner-vote
 - [x] 2026-10-29 The two-year reserve pause after a milestone inspection — florida-condo-pause-reserves-after-milestone-inspection
-- [ ] Special assessment notices: what the notice must say and when it must arrive
+- [x] 2026-10-31 Special assessment notices: what the notice must say and when it must arrive — florida-condo-special-assessment-notice-rules
 - [ ] Special assessment vs. loan vs. line of credit: what each costs an owner per month (math example)
 - [ ] Pooled vs. straight-line reserves, explained
 - [ ] How to read your building's SIRS in 15 minutes
