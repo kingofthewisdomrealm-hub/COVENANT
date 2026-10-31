@@ -27,3 +27,4 @@ the day you write it; tick it off (`[x]` + date + slug) when published.
 - [x] 2026-10-30 Homestead exemption for Sebastian homeowners: the March 1 deadline — sebastian-homestead-exemption-how-to-file
 - [x] 2026-10-24 ⏰ before Nov 30 — End-of-hurricane-season house check for Sebastian (hooked to the Oct. 24–26 windy weekend) — sebastian-windy-weekend-end-of-hurricane-season-house-check
 - [x] 2026-10-29 Sebastian window and door replacement: the city permit, product approvals and the 25% impact rule (added; garbage topic held until the city posts current rates and days) — sebastian-window-door-replacement-permit-impact-rule
+- [x] 2026-10-31 Sebastian Police House Watch: how to have volunteers check your home while you're away (added; garbage topic still held — city page shows only 2023 rates and no current days/limits; McLarty Museum topic overlaps the Oct. 19 treasure-fleet article) — sebastian-police-house-watch-while-away
