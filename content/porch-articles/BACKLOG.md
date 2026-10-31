@@ -34,6 +34,6 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-18 Three Corners: where the old Big Blue power plant project stands (news: fourth extension, Dec. 8 deadline) — vero-beach-three-corners-fourth-extension-december-deadline
 - [x] 2026-10-10 The proposed third hospital near SR 60 and 66th Avenue — proposed-third-hospital-sr-60-66th-avenue
 - [ ] Holiday lights and decorations: electrical safety for older Vero homes
-- [ ] Mold after a wet season: what to check in the attic and AC closet
+- [x] 2026-10-31 Mold after a wet season: what to check in the attic and AC closet — vero-beach-mold-check-attic-ac-closet
 - [ ] Gutters, downspouts and drainage: keeping water away from block homes
 - [ ] Aging in place: grab bars, thresholds and doorways — what helps and what it costs
