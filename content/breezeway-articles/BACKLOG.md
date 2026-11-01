@@ -26,7 +26,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [ ] Condo insurance: what the association's policy covers vs. your HO-6 (no claim talk)
 - [ ] My Safe Florida Condo: current status and how the program works (verify status that day)
 - [ ] New director education: the 4-hour course and yearly hour (§718.112(2)(d))
-- [ ] The condo website rule for 25+ units: what must be posted
+- [x] 2026-11-01 The condo website rule for 25+ units: what must be posted — florida-condo-website-rule-25-units
 - [ ] Your right to see the association's records, and how to ask
 - [ ] Board meeting notice rules: what owners are owed
 - [ ] Conflicts of interest: when the inspector also wants the repair job (§718.112(2)(g), §553.899)
