@@ -32,7 +32,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [ ] Conflicts of interest: when the inspector also wants the repair job (§718.112(2)(g), §553.899)
 - [ ] How a board checks a contractor's licence and insurance on DBPR
 - [ ] The Condominium Ombudsman: what the office can and can't do
-- [ ] How to file a complaint with DBPR's Division of Condominiums
+- [x] 2026-11-03 How to file a complaint with DBPR's Division of Condominiums — florida-condo-complaint-dbpr-how-to-file
 - [ ] Concrete spalling and rebar rust: what owners see and what it means
 - [ ] Balconies and railings: what owners should report to the board
 - [ ] A board's emergency powers after a declared emergency (§718.1265)
