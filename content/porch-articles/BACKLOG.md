@@ -35,6 +35,6 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-10 The proposed third hospital near SR 60 and 66th Avenue — proposed-third-hospital-sr-60-66th-avenue
 - [ ] Holiday lights and decorations: electrical safety for older Vero homes
 - [x] 2026-10-31 Mold after a wet season: what to check in the attic and AC closet — vero-beach-mold-check-attic-ac-closet
-- [ ] Gutters, downspouts and drainage: keeping water away from block homes
+- [x] 2026-11-05 Gutters, downspouts and drainage: keeping water away from block homes — vero-beach-gutters-downspouts-drainage-after-flood
 - [ ] Aging in place: grab bars, thresholds and doorways — what helps and what it costs
 - [x] 2026-11-01 Humiston Beach Park boardwalk rebuild: construction set to start Nov. 1, funding gap, March 2027 target (news; MSFH still skipped — no primary-source status found) — vero-beach-humiston-boardwalk-rebuild-construction-starts
