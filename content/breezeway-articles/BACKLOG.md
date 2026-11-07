@@ -19,7 +19,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-10-29 The two-year reserve pause after a milestone inspection — florida-condo-pause-reserves-after-milestone-inspection
 - [x] 2026-10-31 Special assessment notices: what the notice must say and when it must arrive — florida-condo-special-assessment-notice-rules
 - [x] 2026-11-05 Special assessment vs. loan vs. line of credit: what each costs an owner per month (math example) — florida-condo-special-assessment-vs-loan-monthly-cost
-- [ ] Pooled vs. straight-line reserves, explained
+- [x] 2026-11-07 Pooled vs. straight-line reserves, explained — florida-condo-pooled-vs-straight-line-reserves
 - [ ] How to read your building's SIRS in 15 minutes
 - [ ] Reserve study vs. SIRS: what's the difference?
 - [ ] Non-warrantable condos: what it means for selling and refinancing
