@@ -21,7 +21,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-11-05 Special assessment vs. loan vs. line of credit: what each costs an owner per month (math example) — florida-condo-special-assessment-vs-loan-monthly-cost
 - [x] 2026-11-07 Pooled vs. straight-line reserves, explained — florida-condo-pooled-vs-straight-line-reserves
 - [x] 2026-11-08 How to read your building's SIRS in 15 minutes — florida-condo-how-to-read-sirs-report
-- [ ] Reserve study vs. SIRS: what's the difference?
+- [x] 2026-11-09 Reserve study vs. SIRS: what's the difference? — florida-condo-reserve-study-vs-sirs
 - [ ] Non-warrantable condos: what it means for selling and refinancing
 - [ ] Condo insurance: what the association's policy covers vs. your HO-6 (no claim talk)
 - [ ] My Safe Florida Condo: current status and how the program works (verify status that day)
