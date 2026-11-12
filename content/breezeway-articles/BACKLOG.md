@@ -28,7 +28,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-11-02 New director education: the 4-hour course and yearly hour (§718.112(2)(d)) — florida-condo-board-member-certification-4-hour-course
 - [x] 2026-11-01 The condo website rule for 25+ units: what must be posted — florida-condo-website-rule-25-units
 - [x] 2026-11-06 Your right to see the association's records, and how to ask — florida-condo-official-records-request-owners
-- [ ] Board meeting notice rules: what owners are owed
+- [x] 2026-11-12 Board meeting notice rules: what owners are owed — florida-condo-board-meeting-notice-rules-owners
 - [ ] Conflicts of interest: when the inspector also wants the repair job (§718.112(2)(g), §553.899)
 - [ ] How a board checks a contractor's licence and insurance on DBPR
 - [ ] The Condominium Ombudsman: what the office can and can't do
