@@ -31,7 +31,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-11-12 Board meeting notice rules: what owners are owed — florida-condo-board-meeting-notice-rules-owners
 - [x] 2026-11-13 Conflicts of interest: when the inspector also wants the repair job (§718.112(2)(g), §553.899) — florida-condo-inspector-bids-repair-job-disclosure
 - [ ] How a board checks a contractor's licence and insurance on DBPR
-- [ ] The Condominium Ombudsman: what the office can and can't do
+- [x] 2026-11-14 The Condominium Ombudsman: what the office can and can't do — florida-condo-ombudsman-what-office-can-do
 - [x] 2026-11-03 How to file a complaint with DBPR's Division of Condominiums — florida-condo-complaint-dbpr-how-to-file
 - [ ] Concrete spalling and rebar rust: what owners see and what it means
 - [ ] Balconies and railings: what owners should report to the board
