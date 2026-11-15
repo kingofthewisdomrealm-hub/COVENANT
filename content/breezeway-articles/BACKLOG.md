@@ -24,7 +24,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-11-09 Reserve study vs. SIRS: what's the difference? — florida-condo-reserve-study-vs-sirs
 - [x] 2026-11-10 Non-warrantable condos: what it means for selling and refinancing — florida-condo-non-warrantable-selling-refinancing
 - [x] 2026-11-11 Condo insurance: what the association's policy covers vs. your HO-6 (no claim talk) — florida-condo-association-insurance-vs-ho6
-- [ ] My Safe Florida Condo: current status and how the program works (verify status that day)
+- [x] 2026-11-15 My Safe Florida Condo: current status and how the program works (verify status that day) — florida-my-safe-florida-condo-pilot-program
 - [x] 2026-11-02 New director education: the 4-hour course and yearly hour (§718.112(2)(d)) — florida-condo-board-member-certification-4-hour-course
 - [x] 2026-11-01 The condo website rule for 25+ units: what must be posted — florida-condo-website-rule-25-units
 - [x] 2026-11-06 Your right to see the association's records, and how to ask — florida-condo-official-records-request-owners
