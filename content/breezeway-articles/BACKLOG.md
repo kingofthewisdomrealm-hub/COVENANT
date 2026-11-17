@@ -33,7 +33,7 @@ Dated topics are marked ⏰ — publish them before their date or skip them.
 - [x] 2026-11-16 How a board checks a contractor's licence and insurance on DBPR — florida-condo-board-check-contractor-license-insurance
 - [x] 2026-11-14 The Condominium Ombudsman: what the office can and can't do — florida-condo-ombudsman-what-office-can-do
 - [x] 2026-11-03 How to file a complaint with DBPR's Division of Condominiums — florida-condo-complaint-dbpr-how-to-file
-- [ ] Concrete spalling and rebar rust: what owners see and what it means
+- [x] 2026-11-17 Concrete spalling and rebar rust: what owners see and what it means — florida-condo-concrete-spalling-rebar-rust
 - [ ] Balconies and railings: what owners should report to the board
 - [ ] A board's emergency powers after a declared emergency (§718.1265)
 - [ ] Condo terminations and buyouts after big repair bills: how they work
